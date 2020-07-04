@@ -49,6 +49,7 @@
 		B585783B24B05B7500640B01 /* FarlakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarlakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B585783F24B05B7500640B01 /* FarlakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarlakeUITests.swift; sourceTree = "<group>"; };
 		B585784124B05B7500640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B585784E24B05D4300640B01 /* Farlake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Farlake.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +100,9 @@
 		B585781C24B05B7100640B01 /* Farlake */ = {
 			isa = PBXGroup;
 			children = (
-				B585781D24B05B7100640B01 /* AppDelegate.swift */,
-				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
-				B585782124B05B7100640B01 /* ViewController.swift */,
-				B585782324B05B7100640B01 /* Main.storyboard */,
-				B585782624B05B7400640B01 /* Assets.xcassets */,
-				B585782824B05B7400640B01 /* LaunchScreen.storyboard */,
-				B585782B24B05B7400640B01 /* Info.plist */,
+				B585785124B05D5400640B01 /* iOS */,
+				B585785024B05D4F00640B01 /* macOS */,
+				B585784F24B05D4B00640B01 /* Shared */,
 			);
 			path = Farlake;
 			sourceTree = "<group>";
@@ -126,6 +123,75 @@
 				B585784124B05B7500640B01 /* Info.plist */,
 			);
 			path = FarlakeUITests;
+			sourceTree = "<group>";
+		};
+		B585784F24B05D4B00640B01 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B585785624B05E9800640B01 /* Features */,
+				B585785424B05E6200640B01 /* Resources */,
+				B585785324B05E5700640B01 /* Base */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B585785024B05D4F00640B01 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				B585785224B05E3F00640B01 /* Resources */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		B585785124B05D5400640B01 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		B585785224B05E3F00640B01 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B585784E24B05D4300640B01 /* Farlake.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B585785324B05E5700640B01 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B585781D24B05B7100640B01 /* AppDelegate.swift */,
+				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B585785424B05E6200640B01 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B585782324B05B7100640B01 /* Main.storyboard */,
+				B585782624B05B7400640B01 /* Assets.xcassets */,
+				B585782824B05B7400640B01 /* LaunchScreen.storyboard */,
+				B585782B24B05B7400640B01 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B585785624B05E9800640B01 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B585785724B05E9C00640B01 /* Main */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B585785724B05E9C00640B01 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B585782124B05B7100640B01 /* ViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,15 +500,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Farlake/macOS/Resources/Farlake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVZKP45394;
-				INFOPLIST_FILE = Farlake/Info.plist;
+				INFOPLIST_FILE = Farlake/Shared/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dangercove.Farlake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,15 +521,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Farlake/macOS/Resources/Farlake.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RVZKP45394;
-				INFOPLIST_FILE = Farlake/Info.plist;
+				INFOPLIST_FILE = Farlake/Shared/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dangercove.Farlake;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

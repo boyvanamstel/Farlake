@@ -27,6 +27,7 @@
 		B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585788024B0A2BF00640B01 /* GalleryCollectionViewCell.swift */; };
 		B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585788224B0A46500640B01 /* GalleryCollectionCellViewModel.swift */; };
 		B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585788424B0A75F00640B01 /* GalleryViewModel.swift */; };
+		B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585788C24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		B585788024B0A2BF00640B01 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B585788224B0A46500640B01 /* GalleryCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionCellViewModel.swift; sourceTree = "<group>"; };
 		B585788424B0A75F00640B01 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		B585788C24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDirectionalEdgeInsets+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B585786D24B077E600640B01 /* UIStoryboard+Helpers.swift */,
+				B585788C24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				B585785C24B0640500640B01 /* Coordinator.swift in Sources */,
 				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
+				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
 				B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */,
 				B585782224B05B7100640B01 /* MainViewController.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,

@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private var appCoordinator: Coordinator?
+    private var sceneCoordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Prevent unexpected state by crashing when the window scene is not set
@@ -34,8 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func launchApp(with window: UIWindow) {
         let navigationController = UINavigationController()
 
-        appCoordinator = AppCoordinator(navigationController: navigationController, window: window)
-        appCoordinator?.start()
+        sceneCoordinator = SceneCoordinator(navigationController: navigationController, window: window)
+        sceneCoordinator?.start()
     }
 
     #if DEBUG
@@ -46,8 +46,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Did not specify UI Test entry point")
         }
 
-        appCoordinator = TestCoordinator(window: window, entryPoint: entryPoint)
-        appCoordinator?.start()
+        sceneCoordinator = TestCoordinator(window: window, entryPoint: entryPoint)
+        sceneCoordinator?.start()
     }
     #endif
 

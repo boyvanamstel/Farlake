@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  SceneCoordinator.swift
 //  Farlake
 //
 //  Created by Boy van Amstel on 04/07/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+final class SceneCoordinator: Coordinator {
 
     private let navigationController: UINavigationController
     private let window: UIWindow
@@ -53,11 +53,11 @@ final class AppCoordinator: Coordinator {
 
 }
 
-extension AppCoordinator: MainViewControllerDelegate {
+extension SceneCoordinator: MainViewControllerDelegate {
     func didFinish() {
         showGallery()
     }
 }
 
-extension AppCoordinator: GalleryViewControllerDelegate {
+extension SceneCoordinator: GalleryViewControllerDelegate {
 }

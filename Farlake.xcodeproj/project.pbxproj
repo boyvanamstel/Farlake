@@ -16,7 +16,7 @@
 		B585783524B05B7500640B01 /* FarlakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585783424B05B7500640B01 /* FarlakeTests.swift */; };
 		B585784024B05B7500640B01 /* MainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585783F24B05B7500640B01 /* MainUITests.swift */; };
 		B585785C24B0640500640B01 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785B24B0640500640B01 /* Coordinator.swift */; };
-		B585785E24B0642200640B01 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785D24B0642200640B01 /* AppCoordinator.swift */; };
+		B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785D24B0642200640B01 /* SceneCoordinator.swift */; };
 		B585786124B06B8200640B01 /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786024B06B8200640B01 /* XCUIApplication+Helpers.swift */; };
 		B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786324B0724B00640B01 /* GalleryViewController.swift */; };
 		B585786B24B0741F00640B01 /* GalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786A24B0741F00640B01 /* GalleryUITests.swift */; };
@@ -66,7 +66,7 @@
 		B585784124B05B7500640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B585784E24B05D4300640B01 /* Farlake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Farlake.entitlements; sourceTree = "<group>"; };
 		B585785B24B0640500640B01 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		B585785D24B0642200640B01 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B585785D24B0642200640B01 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		B585786024B06B8200640B01 /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		B585786324B0724B00640B01 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		B585786A24B0741F00640B01 /* GalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryUITests.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 			children = (
 				B585781D24B05B7100640B01 /* AppDelegate.swift */,
 				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
-				B585785D24B0642200640B01 /* AppCoordinator.swift */,
+				B585785D24B0642200640B01 /* SceneCoordinator.swift */,
 				B585787B24B0971500640B01 /* TestCoordinator.swift */,
 			);
 			path = System;
@@ -217,8 +217,8 @@
 		B585785624B05E9800640B01 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B585786224B0721800640B01 /* Gallery */,
 				B585785724B05E9C00640B01 /* Main */,
+				B585786224B0721800640B01 /* Gallery */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -468,7 +468,7 @@
 				B585782224B05B7100640B01 /* MainViewController.swift in Sources */,
 				B585789524B0F1FE00640B01 /* AutoLayout+Helpers.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
-				B585785E24B0642200640B01 /* AppCoordinator.swift in Sources */,
+				B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */,
 				B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */,
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,

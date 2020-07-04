@@ -34,11 +34,20 @@ final class AppCoordinator: Coordinator {
 
     private func showMain() {
         let viewController = UIStoryboard.instantiateMainViewController(delegate: self)
+
         navigationController.setViewControllers([viewController], animated: true)
     }
 
     private func showGallery() {
         let viewController = UIStoryboard.instantiateGalleryViewController(delegate: self)
+        let viewModel = GalleryViewModel(items: [
+            Artwork(title: "Square UP", image: UIImage(systemName: "arrow.up.square")!),
+            Artwork(title: "Square RIGHT", image: UIImage(systemName: "arrow.right.square")!),
+            Artwork(title: "Square DOWN", image: UIImage(systemName: "arrow.down.square")!),
+            Artwork(title: "Square LEFT", image: UIImage(systemName: "arrow.left.square")!),
+        ])
+        viewController.viewModel = viewModel
+
         navigationController.setViewControllers([viewController], animated: true)
     }
 

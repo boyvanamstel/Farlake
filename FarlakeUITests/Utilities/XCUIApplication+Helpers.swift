@@ -11,5 +11,5 @@ import XCTest
 extension XCUIApplication {
     var isDisplayingMain: Bool { otherElements["Main Container"].exists }
 
-    var isDisplayingGallery: Bool { otherElements["Gallery Container"].exists }
+    var isDisplayingGallery: Bool { collectionViews["Gallery"].exists }
 }

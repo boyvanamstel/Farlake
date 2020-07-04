@@ -32,4 +32,7 @@ class GalleryUITests: XCTestCase {
         XCTAssertTrue(app.isDisplayingGallery)
     }
 
+    func testHasGalleryItems() {
+        XCTAssertEqual(app.collectionViews.cells.count, 4)
+    }
 }

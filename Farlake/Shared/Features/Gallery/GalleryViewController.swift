@@ -10,6 +10,7 @@ import UIKit
 
 protocol GalleryViewControllerDelegate: AnyObject {}
 
+/// Contains the gallery.
 final class GalleryViewController: UIViewController {
     weak var delegate: GalleryViewControllerDelegate?
 }

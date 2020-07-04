@@ -11,6 +11,7 @@ import UIKit
 /// Coordinates the app while running UI Tests.
 final class TestCoordinator: Coordinator {
 
+    /// Views or states to load directly.
     enum EntryPoint: String {
         case main, gallery
     }
@@ -21,12 +22,13 @@ final class TestCoordinator: Coordinator {
     /// Instantiate the test coordinator.
     /// - Parameters:
     ///   - window: The root window.
+    ///   - entryPoint: The view or state to load directly.
     init(window: UIWindow, entryPoint: EntryPoint) {
         self.window = window
         self.entryPoint = entryPoint
     }
 
-    /// Launch initial state of the app.
+    /// Launch specified entry point.
     func start() {
         window.rootViewController = UIViewController()
         window.makeKeyAndVisible()

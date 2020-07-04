@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    private var appCoordinator: AppCoordinator?
+    private var appCoordinator: Coordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Prevent unexpected state by crashing when the window scene is not set
@@ -35,23 +35,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func launchApp(with window: UIWindow) {
         let navigationController = UINavigationController()
 
-        // Create coordinator
-        self.appCoordinator = AppCoordinator(navigationController: navigationController, window: window)
-
+        appCoordinator = AppCoordinator(navigationController: navigationController, window: window)
         appCoordinator?.start()
     }
 
     #if DEBUG
     private func uiTestApp(with window: UIWindow) {
-        var viewController: UIViewController?
-
-        if CommandLine.arguments.contains("nav-main") {
-            viewController = UIStoryboard.instantiateMainViewController()
-        } else if CommandLine.arguments.contains("nav-gallery") {
-            viewController = UIStoryboard.instantiateGalleryViewController()
-        }
-
-        window.rootViewController = viewController
+        appCoordinator = TestCoordinator(window: window, arguments: CommandLine.arguments)
+        appCoordinator?.start()
     }
     #endif
 

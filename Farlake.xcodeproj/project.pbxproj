@@ -23,6 +23,7 @@
 		B585786924B073E800640B01 /* GalleryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786824B073E800640B01 /* GalleryCollectionViewController.swift */; };
 		B585786B24B0741F00640B01 /* GalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786A24B0741F00640B01 /* GalleryUITests.swift */; };
 		B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786D24B077E600640B01 /* UIStoryboard+Helpers.swift */; };
+		B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585787B24B0971500640B01 /* TestCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		B585786824B073E800640B01 /* GalleryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewController.swift; sourceTree = "<group>"; };
 		B585786A24B0741F00640B01 /* GalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryUITests.swift; sourceTree = "<group>"; };
 		B585786D24B077E600640B01 /* UIStoryboard+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Helpers.swift"; sourceTree = "<group>"; };
+		B585787B24B0971500640B01 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 				B585781D24B05B7100640B01 /* AppDelegate.swift */,
 				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
 				B585785D24B0642200640B01 /* AppCoordinator.swift */,
+				B585787B24B0971500640B01 /* TestCoordinator.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B585785C24B0640500640B01 /* Coordinator.swift in Sources */,
+				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */,
 				B585782224B05B7100640B01 /* MainViewController.swift in Sources */,

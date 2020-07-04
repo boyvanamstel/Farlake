@@ -1,5 +1,5 @@
 //
-//  FarlakeUITests.swift
+//  GalleryUITests.swift
 //  FarlakeUITests
 //
 //  Created by Boy van Amstel on 04/07/2020.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class MainUITests: XCTestCase {
+class GalleryUITests: XCTestCase {
 
     private var app: XCUIApplication!
 
@@ -20,7 +20,7 @@ class MainUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["ui-testing", "nav-main"]
+        app.launchArguments = ["ui-testing", "nav-gallery"]
 
         app.launch()
     }
@@ -28,11 +28,8 @@ class MainUITests: XCTestCase {
     // MARK: - Tests
 
     func testMainDisplayed() {
-        // Check if we're displaying the main view
-        XCTAssertTrue(app.isDisplayingMain)
-
-        // Check if the main label exists
-        XCTAssertTrue(app.staticTexts["Main"].exists)
+        // Check if we're displaying the gallery view
+        XCTAssertTrue(app.isDisplayingGallery)
     }
 
 }

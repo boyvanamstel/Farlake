@@ -18,14 +18,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Prevent unexpected state by crashing when the window scene is not set
         guard let windowScene = scene as? UIWindowScene else { fatalError("Failed to get scene") }
 
-        let navigationController = UINavigationController()
-
         let window = UIWindow(windowScene: windowScene)
         self.window = window
+
+        #if DEBUG
+        if CommandLine.arguments.contains("ui-testing") {
+            uiTestApp(with: window)
+
+            return
+        }
+        #endif
+
+        launchApp(with: window)
+    }
+
+    private func launchApp(with window: UIWindow) {
+        let navigationController = UINavigationController()
+
+        // Create coordinator
         self.appCoordinator = AppCoordinator(navigationController: navigationController, window: window)
 
         appCoordinator?.start()
     }
+
+    #if DEBUG
+    private func uiTestApp(with window: UIWindow) {
+        var viewController: UIViewController?
+
+        if CommandLine.arguments.contains("nav-main") {
+            viewController = UIStoryboard.instantiateMainViewController()
+        } else if CommandLine.arguments.contains("nav-gallery") {
+            viewController = UIStoryboard.instantiateGalleryViewController()
+        }
+
+        window.rootViewController = viewController
+    }
+    #endif
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

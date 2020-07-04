@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppCoordinator {
+final class AppCoordinator: Coordinator {
 
     private let navigationController: UINavigationController
     private let window: UIWindow
@@ -24,17 +24,31 @@ final class AppCoordinator {
 
     /// Launch initial state of the app.
     func start() {
-      window.rootViewController = navigationController
-      window.makeKeyAndVisible()
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
 
-      showMain()
+        showMain()
     }
 
     // MARK: - Views
 
     private func showMain() {
-      let mainViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
-      navigationController.setViewControllers([mainViewController], animated: true)
+        let viewController = UIStoryboard.instantiateMainViewController(delegate: self)
+        navigationController.setViewControllers([viewController], animated: true)
     }
 
+    private func showGallery() {
+        let viewController = UIStoryboard.instantiateGalleryViewController(delegate: self)
+        navigationController.setViewControllers([viewController], animated: true)
+    }
+
+}
+
+extension AppCoordinator: MainViewControllerDelegate {
+    func didFinish() {
+        showGallery()
+    }
+}
+
+extension AppCoordinator: GalleryViewControllerDelegate {
 }

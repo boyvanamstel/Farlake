@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate: AnyObject {
+    func didFinish()
+}
+
 final class MainViewController: UIViewController {
+    weak var delegate: MainViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        delegate?.didFinish()
     }
-
 }
-

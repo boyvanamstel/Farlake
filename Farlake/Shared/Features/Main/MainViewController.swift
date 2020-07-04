@@ -12,7 +12,7 @@ protocol MainViewControllerDelegate: AnyObject {
     func didFinish()
 }
 
-// Contains the intial app state.
+/// Contains the intial app state.
 final class MainViewController: UIViewController {
     weak var delegate: MainViewControllerDelegate?
 

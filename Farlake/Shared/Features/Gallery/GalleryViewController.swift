@@ -21,6 +21,8 @@ final class GalleryViewController: UICollectionViewController {
         }
     }
 
+    // MARK: - Object lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,23 +33,12 @@ final class GalleryViewController: UICollectionViewController {
 
     private func configureCollectionView() {
         collectionView.accessibilityLabel = "Gallery"
-        collectionView.collectionViewLayout = makeLayout()
-    }
 
-    private func makeLayout() -> UICollectionViewLayout {
-        // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(equal: 5.0)
+        collectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier)
 
-        // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        collectionView.dataSource = dataSource
 
-        // Section
-        let section = NSCollectionLayoutSection(group: group)
-
-        return UICollectionViewCompositionalLayout(section: section)
+        collectionView.backgroundColor = .systemBackground
     }
 
     // MARK: - Content
@@ -59,8 +50,10 @@ final class GalleryViewController: UICollectionViewController {
     // MARK: Data source
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Artwork>
+
     private lazy var dataSource = makeDataSource()
 
+    /// Setup the diffable data source.
     private func makeDataSource() -> DataSource {
         return DataSource(collectionView: collectionView) { collectionView, indexPath, artwork in
 
@@ -78,7 +71,8 @@ final class GalleryViewController: UICollectionViewController {
 
     typealias SnapShot = NSDiffableDataSourceSnapshot<Section, Artwork>
 
-    func update(items: [Artwork], withAnimation: Bool) {
+    /// Use the diffable data source to automatically insert and remove items.
+    private func update(items: [Artwork], withAnimation: Bool) {
         var snapshot = SnapShot()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)

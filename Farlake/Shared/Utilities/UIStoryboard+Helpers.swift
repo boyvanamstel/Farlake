@@ -14,8 +14,6 @@ extension UIStoryboard {
 
   private static var main: UIStoryboard { UIStoryboard(name: "Main", bundle: nil) }
 
-  private static var gallery: UIStoryboard { UIStoryboard(name: "Gallery", bundle: nil) }
-
   // MARK: - View Controllers
 
   static func instantiateMainViewController(delegate: MainViewControllerDelegate? = nil) -> MainViewController {
@@ -25,10 +23,4 @@ extension UIStoryboard {
     return viewController
   }
 
-  static func instantiateGalleryViewController(delegate: GalleryViewControllerDelegate? = nil) -> GalleryViewController {
-    let viewController = gallery.instantiateViewController(withIdentifier: "galleryViewController") as! GalleryViewController
-    viewController.delegate = delegate
-
-    return viewController
-  }
 }

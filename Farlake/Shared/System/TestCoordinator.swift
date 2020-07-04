@@ -48,7 +48,7 @@ final class TestCoordinator: Coordinator {
     }
 
     private func showGallery() {
-        let viewController = UIStoryboard.instantiateGalleryViewController(delegate: self)
+        let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
         let viewModel = GalleryViewModel(items: [
             Artwork(title: "Square UP", image: UIImage(systemName: "arrow.up.square")!),
             Artwork(title: "Square RIGHT", image: UIImage(systemName: "arrow.right.square")!),

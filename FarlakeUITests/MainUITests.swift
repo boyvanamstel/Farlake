@@ -20,7 +20,7 @@ class MainUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["ui-testing", "nav-main"]
+        app.launchArguments = ["-ui-testing", "-entry-point", "main"]
 
         app.launch()
     }

@@ -11,15 +11,19 @@ import UIKit
 /// Coordinates the app while running UI Tests.
 final class TestCoordinator: Coordinator {
 
+    enum EntryPoint: String {
+        case main, gallery
+    }
+
     private let window: UIWindow
-    private let arguments: [String]
+    private let entryPoint: EntryPoint
 
     /// Instantiate the test coordinator.
     /// - Parameters:
     ///   - window: The root window.
-    init(window: UIWindow, arguments: [String]) {
+    init(window: UIWindow, entryPoint: EntryPoint) {
         self.window = window
-        self.arguments = arguments
+        self.entryPoint = entryPoint
     }
 
     /// Launch initial state of the app.
@@ -27,10 +31,10 @@ final class TestCoordinator: Coordinator {
         window.rootViewController = UIViewController()
         window.makeKeyAndVisible()
 
-        if CommandLine.arguments.contains("nav-main") {
-            showMain()
-        } else if CommandLine.arguments.contains("nav-gallery") {
-            showGallery()
+        // Show view based on entry point
+        switch entryPoint {
+        case .main: showMain()
+        case .gallery: showGallery()
         }
     }
 

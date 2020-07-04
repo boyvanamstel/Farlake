@@ -20,14 +20,14 @@ class GalleryUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["ui-testing", "nav-gallery"]
+        app.launchArguments = ["-ui-testing", "-entry-point", "gallery"]
 
         app.launch()
     }
 
     // MARK: - Tests
 
-    func testMainDisplayed() {
+    func testGalleryDisplayed() {
         // Check if we're displaying the gallery view
         XCTAssertTrue(app.isDisplayingGallery)
     }

@@ -14,15 +14,21 @@ protocol NetworkService {
 
 extension NetworkService {
 
+
     /// Create a collection resource based on the supplied query.
-    /// - Parameter query: The keyword(s) to search for.
-    /// - Throws: Throws `ResourceError` on invalid response.
+    /// - Parameters:
+    ///   -  query: The keyword(s) to search for.
+    ///   -  page: The page index to fetch.
+    ///   -  itemsPerPage: The amount of items per page.
+    /// - Parameter    /// - Throws: Throws `ResourceError` on invalid response.
     /// - Returns: Returns the fetchable resource.
-    static func collection(query: String) throws -> Resource<Collection> {
+    static func collection(query: String, page: Int = 0, itemsPerPage: Int = 100) throws -> Resource<Collection> {
         let url = APIConstants.collectionURL
         let parameters: [String : CustomStringConvertible] = [
             "key": SecretConstants.apiKey,
-            "q": query
+            "q": query,
+            "p": page,
+            "ps": itemsPerPage
             ]
         guard let request = URLRequest(url: url, parameters: parameters) else {
             throw ResourceError.invalidRequest

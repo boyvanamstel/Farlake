@@ -19,11 +19,11 @@ class ServicesProvider {
             diskCapacity: NetworkConstants.jsonCacheCapacity.diskCapacity
         )
 
-        return Self.init(networkService: RijksMuseumNetworkService(urlCache: urlCache))
+        return Self.init(networkService: RijksmuseumNetworkService(urlCache: urlCache))
     }
 
     static var uiTesting: Self {
-        return Self.init(networkService: MockRijksMuseumNetworkService())
+        return Self.init(networkService: MockRijksmuseumNetworkService())
     }
 
     required init(networkService: NetworkService) {

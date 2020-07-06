@@ -27,7 +27,7 @@ class CollectionTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Parse collection")
 
-        let resource = try! RijksMuseumEndpoint.collection(query: "")
+        let resource = try! RijksmuseumEndpoint.collection(query: "")
         let service = MockNetworkService()
 
         _ = service.load(resource) { collection in

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RijksMuseumEndpoint {
+struct RijksmuseumEndpoint {
     /// Create a collection resource based on the supplied query.
     /// - Parameters:
     ///   -  query: The keyword(s) to search for.
@@ -32,7 +32,7 @@ struct RijksMuseumEndpoint {
     }
 }
 
-class RijksMuseumNetworkService: CachingNetworkService {
+class RijksmuseumNetworkService: CachingNetworkService {
     let cachingSession: URLSession
 
     required init(urlCache: URLCache) {
@@ -44,7 +44,7 @@ class RijksMuseumNetworkService: CachingNetworkService {
 }
 
 #if DEBUG
-class MockRijksMuseumNetworkService: NetworkService {
+class MockRijksmuseumNetworkService: NetworkService {
     func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
 
         switch resource {

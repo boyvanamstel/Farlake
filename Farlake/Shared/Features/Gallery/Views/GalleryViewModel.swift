@@ -19,7 +19,7 @@ class GalleryViewModel {
     }
 
     func viewDidLoad() {
-        let resource = try! RijksMuseumEndpoint.collection(query: "Johannes Vermeer")
+        let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
 
         _ = networkService.load(resource) { [weak self] collection in
             let artworks: [Artwork]? = collection?.items

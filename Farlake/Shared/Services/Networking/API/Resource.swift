@@ -6,7 +6,7 @@
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // Based on Tiny Networking by Objc.io
 // https://talk.objc.io/episodes/S01E133-tiny-networking-library-revisited
@@ -17,7 +17,6 @@ struct Resource<Object> {
 }
 
 extension Resource where Object: Decodable {
-
     /// Creates a new resource for `Decodable` objects that can be parsed automatically.
     /// - Parameter request: The request to load a resource from.
     init(request: URLRequest) {
@@ -27,7 +26,18 @@ extension Resource where Object: Decodable {
             try? JSONDecoder().decode(Object.self, from: data)
         }
     }
+}
 
+extension Resource where Object: UIImage {
+    /// Loads an image.
+    /// - Parameter request: The request to load a resource from.
+    init(request: URLRequest) {
+        self.request = request
+
+        self.parse = { data in
+            Object(data: data)
+        }
+    }
 }
 
 enum ResourceError: Error {

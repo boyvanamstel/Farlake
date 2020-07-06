@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 final class GalleryCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = UUID().uuidString
@@ -15,6 +16,8 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         didSet {
             titleField.text = viewModel?.title ?? ""
             imageView.image = viewModel?.image
+
+            configureBindings()
         }
     }
 
@@ -30,7 +33,32 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Bindings
+
+    private var cancelBag: [AnyCancellable] = []
+
+    private func configureBindings() {
+        cancelBag.removeAll()
+
+        viewModel?.$image
+            .receive(on: RunLoop.main)
+            .assign(to: \.image, on: imageView)
+            .store(in: &cancelBag)
+    }
+
     // MARK: - Elements
+
+    private let titleField = with(UILabel()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textAlignment = .center
+    }
+    private let imageView = with(UIImageView()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
+    }
+
+    // MARK: - Layout
 
     private func layoutElements() {
         contentView.addSubview(imageView)
@@ -47,15 +75,6 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
             equal(\.trailingAnchor),
             equal(\.bottomAnchor)
         ])
-    }
-
-    private let titleField = with(UILabel()) {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textAlignment = .center
-    }
-    private let imageView = with(UIImageView()) {
-        $0.contentMode = .scaleAspectFill
-        $0.translatesAutoresizingMaskIntoConstraints = false
     }
 
 }

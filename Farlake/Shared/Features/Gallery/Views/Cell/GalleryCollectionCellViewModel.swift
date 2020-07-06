@@ -8,13 +8,44 @@
 
 import UIKit
 
-struct GalleryCollectionViewCellViewModel {
-    let artwork: Artwork
+class GalleryCollectionViewCellViewModel {
+    private let artwork: Artwork
+    private let servicesProvider: ServicesProvider
+    private var imageFetcher: NetworkService { servicesProvider.imageFetcher }
 
-    init(artwork: Artwork) {
+    private var dataTask: URLSessionDataTask?
+
+    // MARK: - Bindings
+
+    @Published var image: UIImage?
+
+    // MARK: - Object lifecycle
+
+    init(artwork: Artwork, servicesProvider: ServicesProvider) {
         self.artwork = artwork
+        self.servicesProvider = servicesProvider
+
+        fetchImage()
     }
 
-    var image: UIImage? { artwork.image }
+    deinit {
+        dataTask?.cancel()
+    }
+
+    // MARK: - User facing Properties
+
     var title: String { artwork.title }
+
+    // MARK: - Image fetching
+
+    private func fetchImage() {
+        guard let url = artwork.imageURL else { return }
+
+        let request = URLRequest(url: url)
+        let resource = Resource<UIImage>(request: request)
+        dataTask = imageFetcher.load(resource) { [weak self] in
+            self?.image = $0
+        }
+    }
+
 }

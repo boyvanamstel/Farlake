@@ -40,4 +40,11 @@ class GalleryViewModel {
             self?.items = artworks ?? []
         }
     }
+
+    // MARK: - Artwork
+
+    func cellViewModel(for artwork: Artwork) -> GalleryCollectionViewCellViewModel {
+        return GalleryCollectionViewCellViewModel(artwork: artwork, servicesProvider: servicesProvider)
+    }
+
 }

@@ -12,6 +12,7 @@ import Foundation
 class ServicesProvider {
     let urlCache: URLCache
     let networkService: NetworkService
+    let imageFetcher: NetworkService
 
     // Returns the default services provider, with a reasonable cache.
     static var `default`: Self {
@@ -22,19 +23,22 @@ class ServicesProvider {
 
         return Self.init(
             urlCache: urlCache,
-            networkService: RijksmuseumNetworkService(urlCache: urlCache)
+            networkService: RijksmuseumNetworkService(urlCache: urlCache),
+            imageFetcher: ImageFetcher(urlCache: urlCache)
         )
     }
 
     static var uiTesting: Self {
         return Self.init(
             urlCache: URLCache(),
-            networkService: MockRijksmuseumNetworkService()
+            networkService: MockRijksmuseumNetworkService(),
+            imageFetcher: ImageFetcher(urlCache: URLCache())
         )
     }
 
-    required init(urlCache: URLCache, networkService: NetworkService) {
+    required init(urlCache: URLCache, networkService: NetworkService, imageFetcher: ImageFetcher) {
         self.urlCache = urlCache
         self.networkService = networkService
+        self.imageFetcher = imageFetcher
     }
 }

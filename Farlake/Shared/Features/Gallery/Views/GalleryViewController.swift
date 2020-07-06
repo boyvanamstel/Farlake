@@ -79,7 +79,7 @@ final class GalleryViewController: UICollectionViewController {
                 withReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier,
             for: indexPath) as? GalleryCollectionViewCell
 
-            cell?.viewModel = GalleryCollectionViewCellViewModel(artwork: artwork)
+            cell?.viewModel = self.viewModel?.cellViewModel(for: artwork)
 
             return cell
         }

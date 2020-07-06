@@ -8,12 +8,8 @@
 
 import UIKit
 
-protocol GalleryViewControllerDelegate: AnyObject {}
-
 /// Contains the gallery collection view.
 final class GalleryViewController: UICollectionViewController {
-
-    weak var delegate: GalleryViewControllerDelegate?
 
     var viewModel: GalleryViewModel? {
         didSet {

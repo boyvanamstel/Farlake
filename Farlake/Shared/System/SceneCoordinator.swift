@@ -10,6 +10,9 @@ import UIKit
 
 final class SceneCoordinator: Coordinator {
 
+    var childCoordinators = [Coordinator]()
+    var delegate: CoordinatorDelegate?
+
     private let navigationController: UINavigationController
     private let window: UIWindow
 
@@ -33,31 +36,33 @@ final class SceneCoordinator: Coordinator {
     // MARK: - Views
 
     private func showMain() {
-        let viewController = UIStoryboard.instantiateMainViewController(delegate: self)
+        let mainCoordinator = MainCoordinator(navigationController: navigationController)
+        mainCoordinator.delegate = self
+        addChildCoordinator(mainCoordinator)
 
-        navigationController.setViewControllers([viewController], animated: true)
+        mainCoordinator.start()
     }
 
     private func showGallery() {
-        let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
-        let viewModel = GalleryViewModel(items: [
-            Artwork(title: "Square UP", image: UIImage(systemName: "arrow.up.square")!),
-            Artwork(title: "Square RIGHT", image: UIImage(systemName: "arrow.right.square")!),
-            Artwork(title: "Square DOWN", image: UIImage(systemName: "arrow.down.square")!),
-            Artwork(title: "Square LEFT", image: UIImage(systemName: "arrow.left.square")!),
-        ])
-        viewController.viewModel = viewModel
+        let galleryCoordinator = GalleryCoordinator(navigationController: navigationController)
+        galleryCoordinator.delegate = self
+        addChildCoordinator(galleryCoordinator)
 
-        navigationController.setViewControllers([viewController], animated: true)
+        galleryCoordinator.start()
     }
 
 }
 
-extension SceneCoordinator: MainViewControllerDelegate {
-    func didFinish() {
-        showGallery()
-    }
-}
+extension SceneCoordinator: CoordinatorDelegate {
+    func didFinish(from coordinator: Coordinator) {
 
-extension SceneCoordinator: GalleryViewControllerDelegate {
+        switch coordinator {
+        case is MainCoordinator:
+            showGallery()
+        default:
+            break
+        }
+
+        removeChildCoordinator(coordinator)
+    }
 }

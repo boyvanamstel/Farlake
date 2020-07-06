@@ -11,6 +11,9 @@ import UIKit
 /// Coordinates the app while running UI Tests.
 final class TestCoordinator: Coordinator {
 
+    var childCoordinators = [Coordinator]()
+    var delegate: CoordinatorDelegate?
+
     /// Views or states to load directly.
     enum EntryPoint: String {
         case main, gallery
@@ -64,7 +67,4 @@ final class TestCoordinator: Coordinator {
 
 extension TestCoordinator: MainViewControllerDelegate {
     func didFinish() {}
-}
-
-extension TestCoordinator: GalleryViewControllerDelegate {
 }

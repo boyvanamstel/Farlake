@@ -30,6 +30,8 @@
 		B585789324B0F07B00640B01 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789224B0F07B00640B01 /* Utilities.swift */; };
 		B585789524B0F1FE00640B01 /* AutoLayout+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789424B0F1FE00640B01 /* AutoLayout+Helpers.swift */; };
 		B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789624B0F77500640B01 /* UICollectionViewLayout+Gallery.swift */; };
+		B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789A24B30E0300640B01 /* GalleryCoordinator.swift */; };
+		B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789D24B30FFF00640B01 /* MainCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +82,8 @@
 		B585789224B0F07B00640B01 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		B585789424B0F1FE00640B01 /* AutoLayout+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AutoLayout+Helpers.swift"; sourceTree = "<group>"; };
 		B585789624B0F77500640B01 /* UICollectionViewLayout+Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Gallery.swift"; sourceTree = "<group>"; };
+		B585789A24B30E0300640B01 /* GalleryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCoordinator.swift; sourceTree = "<group>"; };
+		B585789D24B30FFF00640B01 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,8 +230,8 @@
 		B585785724B05E9C00640B01 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				B585782324B05B7100640B01 /* Main.storyboard */,
-				B585782124B05B7100640B01 /* MainViewController.swift */,
+				B585789C24B30FF200640B01 /* Views */,
+				B585789D24B30FFF00640B01 /* MainCoordinator.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -258,10 +262,10 @@
 		B585786224B0721800640B01 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				B585789924B30DF100640B01 /* Views */,
 				B585789824B0F77800640B01 /* Utilities */,
 				B585788624B0A7AB00640B01 /* Cell */,
-				B585786324B0724B00640B01 /* GalleryViewController.swift */,
-				B585788424B0A75F00640B01 /* GalleryViewModel.swift */,
+				B585789A24B30E0300640B01 /* GalleryCoordinator.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -325,6 +329,24 @@
 				B585789624B0F77500640B01 /* UICollectionViewLayout+Gallery.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B585789924B30DF100640B01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B585786324B0724B00640B01 /* GalleryViewController.swift */,
+				B585788424B0A75F00640B01 /* GalleryViewModel.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B585789C24B30FF200640B01 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B585782324B05B7100640B01 /* Main.storyboard */,
+				B585782124B05B7100640B01 /* MainViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -465,6 +487,7 @@
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
 				B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */,
+				B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */,
 				B585782224B05B7100640B01 /* MainViewController.swift in Sources */,
 				B585789524B0F1FE00640B01 /* AutoLayout+Helpers.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
@@ -474,6 +497,7 @@
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
 				B585782024B05B7100640B01 /* SceneDelegate.swift in Sources */,
+				B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

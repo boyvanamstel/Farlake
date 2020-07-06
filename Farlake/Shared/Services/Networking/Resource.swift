@@ -34,24 +34,6 @@ enum ResourceError: Error {
     case invalidRequest
 }
 
-extension URLSession {
-
-    /// Load a resource and return the parsed object(s) in a closure.
-    /// - Parameters:
-    ///   - resource: The resource to parse.
-    ///   - completion: Contains the loaded object.
-    /// - Returns: The optional data task so it can be cancelled or stored.
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask {
-        let task = dataTask(with: resource.request) { data, _, _ in
-            completion(data.flatMap(resource.parse))
-        }
-        task.resume()
-
-        return task
-    }
-
-}
-
 typealias URLRequestParameters = [String: CustomStringConvertible]
 
 extension URLRequest {
@@ -64,9 +46,10 @@ extension URLRequest {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return nil
         }
-        components.queryItems = parameters.keys.map { key in
-            URLQueryItem(name: key, value: parameters[key]?.description)
-        }
+        components.queryItems = parameters.keys
+            .map { URLQueryItem(name: $0, value: parameters[$0]?.description) }
+            .sorted { $0.name < $1.name } // Sort to ensure caching works
+
         guard let url = components.url else {
             return nil
         }

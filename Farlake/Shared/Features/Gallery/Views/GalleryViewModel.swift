@@ -12,18 +12,30 @@ class GalleryViewModel {
     private  let servicesProvider: ServicesProvider
     private var networkService: NetworkService { servicesProvider.networkService }
 
+    // MARK: - Bindings
+
     @Published var items = [Artwork]()
+
+    // MARK: - Object lifecycle
 
     init(servicesProvider: ServicesProvider) {
         self.servicesProvider = servicesProvider
     }
 
     func viewDidLoad() {
-        let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
+        updateItems()
+    }
 
+    // MARK: - Item fetching
+
+    func updateItems() {
+        let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
+        fetch(resource: resource)
+    }
+
+    private func fetch(resource: Resource<Collection>) {
         _ = networkService.load(resource) { [weak self] collection in
-            let artworks: [Artwork]? = collection?.items
-                .compactMap { .init(item: $0) }
+            let artworks: [Artwork]? = collection?.items.compactMap { .init(item: $0) }
 
             self?.items = artworks ?? []
         }

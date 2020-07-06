@@ -12,6 +12,8 @@ import XCTest
 class CollectionTests: XCTestCase {
 
     private class MockNetworkService: NetworkService {
+        let session = URLSession.shared
+
         func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
 
             let url = Bundle(for: type(of: self)).url(forResource: "collection-vermeer", withExtension: "json")!
@@ -23,8 +25,7 @@ class CollectionTests: XCTestCase {
         }
     }
 
-    func testParsingCollection() throws {
-
+    func testParsingCollection() {
         let expectation = XCTestExpectation(description: "Parse collection")
 
         let resource = try! RijksmuseumEndpoint.collection(query: "")

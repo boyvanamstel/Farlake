@@ -43,6 +43,10 @@ final class GalleryViewController: UICollectionViewController {
 
     // MARK: - Collection view
 
+    private lazy var refreshControl: UIRefreshControl = with(UIRefreshControl()) {
+        $0.addTarget(self, action: #selector(updateItems(_:)), for: .valueChanged)
+    }
+
     private func configureCollectionView() {
         collectionView.accessibilityLabel = "Gallery"
 
@@ -51,6 +55,8 @@ final class GalleryViewController: UICollectionViewController {
         collectionView.dataSource = dataSource
 
         collectionView.backgroundColor = .systemBackground
+
+        collectionView.refreshControl = refreshControl
     }
 
     // MARK: - Content
@@ -89,6 +95,14 @@ final class GalleryViewController: UICollectionViewController {
         snapshot.appendSections([.main])
         snapshot.appendItems(items)
         dataSource.apply(snapshot, animatingDifferences: withAnimation)
+
+        refreshControl.endRefreshing()
+    }
+
+    // MARK: - Actions
+
+    @objc private func updateItems(_ sender: UIRefreshControl) {
+        viewModel?.updateItems()
     }
 
 }

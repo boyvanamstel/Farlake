@@ -32,19 +32,25 @@ struct RijksmuseumEndpoint {
     }
 }
 
-class RijksmuseumNetworkService: CachingNetworkService {
-    let cachingSession: URLSession
+class RijksmuseumNetworkService: NetworkService, URLCaching {
+    let urlCache: URLCache
+    let session: URLSession
 
-    required init(urlCache: URLCache) {
-        let configuration = URLSession.shared.configuration
+    init(urlCache: URLCache) {
+        self.urlCache = urlCache
+
+        let configuration: URLSessionConfiguration = .default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
         configuration.urlCache = urlCache
 
-        cachingSession = URLSession(configuration: configuration)
+        self.session = URLSession(configuration: configuration)
     }
 }
 
 #if DEBUG
 class MockRijksmuseumNetworkService: NetworkService {
+    let session = URLSession.shared
+
     func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
 
         switch resource {

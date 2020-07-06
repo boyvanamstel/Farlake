@@ -34,7 +34,6 @@
 		B58578A024B3131C00640B01 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789F24B3131C00640B01 /* Resource.swift */; };
 		B58578A224B315CE00640B01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A124B315CE00640B01 /* NetworkService.swift */; };
 		B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A424B31C3400640B01 /* ServicesProvider.swift */; };
-		B58578A724B31D5200640B01 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A624B31D5200640B01 /* NetworkConstants.swift */; };
 		B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A924B31E9800640B01 /* SecretConstants.swift */; };
 		B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AD24B31F4800640B01 /* APIConstants.swift */; };
 		B58578B024B3292100640B01 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AF24B3292100640B01 /* Collection.swift */; };
@@ -42,6 +41,8 @@
 		B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578B724B32CF000640B01 /* CollectionTests.swift */; };
 		B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */; };
 		B58578BF24B3521C00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
+		B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */; };
+		B5CBB91424B3C7500065BF06 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,13 +97,14 @@
 		B585789F24B3131C00640B01 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		B58578A124B315CE00640B01 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B58578A424B31C3400640B01 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
-		B58578A624B31D5200640B01 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		B58578A924B31E9800640B01 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
 		B58578AD24B31F4800640B01 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B58578AF24B3292100640B01 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B58578B224B32C8F00640B01 /* collection-vermeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "collection-vermeer.json"; sourceTree = "<group>"; };
 		B58578B724B32CF000640B01 /* CollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
 		B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksmuseumNetworkService.swift; sourceTree = "<group>"; };
+		B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
+		B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 		B585783324B05B7500640B01 /* FarlakeTests */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB90F24B3C54C0065BF06 /* Services */,
 				B58578B624B32CE500640B01 /* Models */,
 				B58578B124B32C8F00640B01 /* Fixtures */,
 				B585783624B05B7500640B01 /* Info.plist */,
@@ -263,7 +266,7 @@
 				B58578BC24B346F600640B01 /* Rijkmuseum */,
 				B585789F24B3131C00640B01 /* Resource.swift */,
 				B58578A124B315CE00640B01 /* NetworkService.swift */,
-				B58578A624B31D5200640B01 /* NetworkConstants.swift */,
+				B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -417,6 +420,22 @@
 			path = Rijkmuseum;
 			sourceTree = "<group>";
 		};
+		B5CBB90F24B3C54C0065BF06 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB91024B3C5520065BF06 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B5CBB91024B3C5520065BF06 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -550,10 +569,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CBB91424B3C7500065BF06 /* NetworkConstants.swift in Sources */,
 				B585787F24B09FBC00640B01 /* Artwork.swift in Sources */,
 				B585785C24B0640500640B01 /* Coordinator.swift in Sources */,
 				B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */,
-				B58578A724B31D5200640B01 /* NetworkConstants.swift in Sources */,
 				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B585789324B0F07B00640B01 /* Utilities.swift in Sources */,
 				B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */,
@@ -584,6 +603,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */,
+				B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

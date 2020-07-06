@@ -10,6 +10,7 @@ import Foundation
 
 /// Dependency container.
 class ServicesProvider {
+    let urlCache: URLCache
     let networkService: NetworkService
 
     // Returns the default services provider, with a reasonable cache.
@@ -19,14 +20,21 @@ class ServicesProvider {
             diskCapacity: NetworkConstants.jsonCacheCapacity.diskCapacity
         )
 
-        return Self.init(networkService: RijksmuseumNetworkService(urlCache: urlCache))
+        return Self.init(
+            urlCache: urlCache,
+            networkService: RijksmuseumNetworkService(urlCache: urlCache)
+        )
     }
 
     static var uiTesting: Self {
-        return Self.init(networkService: MockRijksmuseumNetworkService())
+        return Self.init(
+            urlCache: URLCache(),
+            networkService: MockRijksmuseumNetworkService()
+        )
     }
 
-    required init(networkService: NetworkService) {
+    required init(urlCache: URLCache, networkService: NetworkService) {
+        self.urlCache = urlCache
         self.networkService = networkService
     }
 }

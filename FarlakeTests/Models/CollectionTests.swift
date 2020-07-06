@@ -30,13 +30,18 @@ class CollectionTests: XCTestCase {
         let resource = try! MockNetworkService.collection(query: "")
         let service = MockNetworkService()
 
-        service.load(resource) { collection in
-            XCTAssertNotNil(collection)
-            XCTAssertEqual(collection?.artObjects.count, 10)
+        _ = service.load(resource) { collection in
+            XCTAssertEqual(collection!.artObjects.count, 10)
 
-            for artObject in collection!.artObjects {
-                XCTAssertNotNil(artObject.webImage)
-            }
+            let artObject = collection!.artObjects.first!
+
+            XCTAssertEqual(artObject.title, "The Milkmaid")
+            XCTAssertEqual(artObject.principalOrFirstMaker, "Johannes Vermeer")
+
+            XCTAssertEqual(artObject.permitDownload, true)
+            XCTAssertEqual(artObject.webImage?.width, 2261)
+            XCTAssertEqual(artObject.webImage?.height, 2548)
+            XCTAssertEqual(artObject.webImage?.url, "https://lh3.googleusercontent.com/cRtF3WdYfRQEraAcQz8dWDJOq3XsRX-h244rOw6zwkHtxy7NHjJOany7u4I2EG_uMAfNwBLHkFyLMENzpmfBTSYXIH_F=s0")
 
             expectation.fulfill()
         }

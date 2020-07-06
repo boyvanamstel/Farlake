@@ -14,9 +14,15 @@ struct Collection: Decodable {
 
 struct ArtObject: Decodable {
     struct WebImage: Decodable {
-        let url: URL?
+        let width: Int
+        let height: Int
+        let url: String
     }
 
-    let hasImage: Bool
-    let webImage: WebImage
+    let title: String
+    let principalOrFirstMaker: String
+
+    let permitDownload: Bool
+
+    let webImage: WebImage?
 }

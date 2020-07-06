@@ -18,12 +18,15 @@ final class GalleryViewController: UICollectionViewController {
         }
     }
 
+    weak var coordinator: GalleryCoordinator?
+
     // MARK: - Object lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureCollectionView()
+        configureNavigationBar()
 
         viewModel?.viewDidLoad()
     }
@@ -34,7 +37,8 @@ final class GalleryViewController: UICollectionViewController {
 
     private func configureBindings() {
         viewModel?.$items
-            .receive(on: RunLoop.main)
+            .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .receive(on: DispatchQueue.main)
             .sink(receiveValue: {
                 self.update(items: $0, withAnimation: true)
             })
@@ -57,6 +61,16 @@ final class GalleryViewController: UICollectionViewController {
         collectionView.backgroundColor = .systemBackground
 
         collectionView.refreshControl = refreshControl
+    }
+
+    // MARK: - Navigation bar
+
+    private func configureNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(showSettings))
+    }
+
+    @objc private func showSettings() {
+        coordinator?.showSettings()
     }
 
     // MARK: - Content

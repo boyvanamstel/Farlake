@@ -10,17 +10,24 @@ import UIKit
 
 extension UIStoryboard {
 
-  // MARK: - Storyboards
+    // MARK: - Storyboards
 
-  private static var main: UIStoryboard { UIStoryboard(name: "Main", bundle: nil) }
+    private static var main: UIStoryboard { UIStoryboard(name: "Main", bundle: nil) }
+    private static var settings: UIStoryboard { UIStoryboard(name: "Settings", bundle: nil) }
 
-  // MARK: - View Controllers
+    // MARK: - View Controllers
 
-  static func instantiateMainViewController(delegate: MainViewControllerDelegate? = nil) -> MainViewController {
-    let viewController = main.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
-    viewController.delegate = delegate
+    static func instantiateMainViewController(delegate: MainViewControllerDelegate? = nil) -> MainViewController {
+        let viewController = main.instantiateViewController(withIdentifier: "mainViewController") as! MainViewController
+        viewController.delegate = delegate
 
-    return viewController
-  }
+        return viewController
+    }
+
+    static func instantiateSettingsViewController() -> SettingsViewController {
+        let viewController = settings.instantiateViewController(withIdentifier: "settingsViewController") as! SettingsViewController
+
+        return viewController
+    }
 
 }

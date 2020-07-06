@@ -31,12 +31,33 @@ class GalleryCoordinator: Coordinator {
 
     // MARK: - Views
 
-    private func showGallery() {
+    func showGallery() {
         let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
         let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
+        viewController.coordinator = self
 
         navigationController.setViewControllers([viewController], animated: true)
     }
 
+    func showSettings() {
+        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController, servicesProvider: servicesProvider)
+        settingsCoordinator.delegate = self
+        addChildCoordinator(settingsCoordinator)
+
+        settingsCoordinator.start()
+    }
+
+}
+
+extension GalleryCoordinator: CoordinatorDelegate {
+    func didFinish(from coordinator: Coordinator) {
+
+        switch coordinator {
+        default:
+            break
+        }
+
+        removeChildCoordinator(coordinator)
+    }
 }

@@ -43,8 +43,8 @@ class GalleryCollectionViewCellViewModel {
 
         let request = URLRequest(url: url)
         let resource = Resource<UIImage>(request: request)
-        dataTask = imageFetcher.load(resource) { [weak self] in
-            self?.image = $0
+        dataTask = imageFetcher.load(resource) { [weak self] image in
+            self?.image = image
         }
     }
 

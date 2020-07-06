@@ -41,7 +41,8 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         cancelBag.removeAll()
 
         viewModel?.$image
-            .receive(on: RunLoop.main)
+            .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .receive(on: DispatchQueue.main)
             .assign(to: \.image, on: imageView)
             .store(in: &cancelBag)
     }

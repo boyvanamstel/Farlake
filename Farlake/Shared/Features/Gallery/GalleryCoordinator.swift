@@ -14,11 +14,13 @@ class GalleryCoordinator: Coordinator {
     var delegate: CoordinatorDelegate?
 
     private let navigationController: UINavigationController
+    private let servicesProvider: ServicesProvider
 
     // MARK: - Object lifecycle
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, servicesProvider: ServicesProvider) {
         self.navigationController = navigationController
+        self.servicesProvider = servicesProvider
     }
 
     // MARK: - Entry point
@@ -31,12 +33,7 @@ class GalleryCoordinator: Coordinator {
 
     private func showGallery() {
         let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
-        let viewModel = GalleryViewModel(items: [
-            Artwork(title: "Square UP", image: UIImage(systemName: "arrow.up.square")!),
-            Artwork(title: "Square RIGHT", image: UIImage(systemName: "arrow.right.square")!),
-            Artwork(title: "Square DOWN", image: UIImage(systemName: "arrow.down.square")!),
-            Artwork(title: "Square LEFT", image: UIImage(systemName: "arrow.left.square")!),
-        ])
+        let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
 
         navigationController.setViewControllers([viewController], animated: true)

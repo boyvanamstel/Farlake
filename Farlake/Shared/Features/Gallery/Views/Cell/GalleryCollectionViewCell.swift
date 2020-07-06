@@ -54,6 +54,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         $0.textAlignment = .center
     }
     private let imageView = with(UIImageView()) {
+        $0.contentMode = .scaleAspectFill
         $0.translatesAutoresizingMaskIntoConstraints = false
     }
 

@@ -21,14 +21,17 @@ final class TestCoordinator: Coordinator {
 
     private let window: UIWindow
     private let entryPoint: EntryPoint
+    private let servicesProvider: ServicesProvider
 
     /// Instantiate the test coordinator.
     /// - Parameters:
     ///   - window: The root window.
     ///   - entryPoint: The view or state to load directly.
-    init(window: UIWindow, entryPoint: EntryPoint) {
+    ///   - servicesProvider: Injected dependencies.
+    init(window: UIWindow, entryPoint: EntryPoint, servicesProvider: ServicesProvider) {
         self.window = window
         self.entryPoint = entryPoint
+        self.servicesProvider = servicesProvider
     }
 
     /// Launch specified entry point.
@@ -52,12 +55,7 @@ final class TestCoordinator: Coordinator {
 
     private func showGallery() {
         let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
-        let viewModel = GalleryViewModel(items: [
-            Artwork(title: "Square UP", image: UIImage(systemName: "arrow.up.square")!),
-            Artwork(title: "Square RIGHT", image: UIImage(systemName: "arrow.right.square")!),
-            Artwork(title: "Square DOWN", image: UIImage(systemName: "arrow.down.square")!),
-            Artwork(title: "Square LEFT", image: UIImage(systemName: "arrow.left.square")!),
-        ])
+        let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
 
         window.rootViewController = viewController

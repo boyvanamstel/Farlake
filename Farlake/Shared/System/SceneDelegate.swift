@@ -34,7 +34,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func launchApp(with window: UIWindow) {
         let navigationController = UINavigationController()
 
-        sceneCoordinator = SceneCoordinator(navigationController: navigationController, window: window)
+        sceneCoordinator = SceneCoordinator(
+            navigationController: navigationController,
+            window: window,
+            servicesProvider: ServicesProvider.default
+        )
         sceneCoordinator?.start()
     }
 
@@ -46,7 +50,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Did not specify UI Test entry point")
         }
 
-        sceneCoordinator = TestCoordinator(window: window, entryPoint: entryPoint)
+        // TODO: Replace this with Test services
+        let servicesProvider = ServicesProvider.default
+
+        sceneCoordinator = TestCoordinator(
+            window: window,
+            entryPoint: entryPoint,
+            servicesProvider: servicesProvider
+        )
         sceneCoordinator?.start()
     }
     #endif

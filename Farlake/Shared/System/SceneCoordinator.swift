@@ -15,6 +15,7 @@ final class SceneCoordinator: Coordinator {
 
     private let navigationController: UINavigationController
     private let window: UIWindow
+    private let servicesProvider: ServicesProvider
 
     // MARK: - Object lifecycle
 
@@ -22,9 +23,11 @@ final class SceneCoordinator: Coordinator {
     /// - Parameters:
     ///   - navigationController: The root navigation controller.
     ///   - window: The root window.
-    init(navigationController: UINavigationController, window: UIWindow) {
+    ///   - servicesProvider: Injected dependencies.
+    init(navigationController: UINavigationController, window: UIWindow, servicesProvider: ServicesProvider) {
         self.navigationController = navigationController
         self.window = window
+        self.servicesProvider = servicesProvider
     }
 
     // MARK: - Entry point
@@ -48,7 +51,10 @@ final class SceneCoordinator: Coordinator {
     }
 
     private func showGallery() {
-        let galleryCoordinator = GalleryCoordinator(navigationController: navigationController)
+        let galleryCoordinator = GalleryCoordinator(
+            navigationController: navigationController,
+            servicesProvider: servicesProvider
+        )
         galleryCoordinator.delegate = self
         addChildCoordinator(galleryCoordinator)
 

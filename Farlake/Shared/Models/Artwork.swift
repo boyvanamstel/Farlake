@@ -9,6 +9,15 @@
 import UIKit
 
 struct Artwork: Hashable {
+    let id: String
     let title: String
     let image: UIImage?
+}
+
+extension Artwork {
+    init(item: Collection.Item) {
+        self.id = item.id
+        self.title = item.title
+        self.image = nil
+    }
 }

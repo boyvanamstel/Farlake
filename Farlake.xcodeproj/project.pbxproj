@@ -40,6 +40,7 @@
 		B58578B024B3292100640B01 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AF24B3292100640B01 /* Collection.swift */; };
 		B58578B324B32C8F00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
 		B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578B724B32CF000640B01 /* CollectionTests.swift */; };
+		B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		B58578AF24B3292100640B01 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B58578B224B32C8F00640B01 /* collection-vermeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "collection-vermeer.json"; sourceTree = "<group>"; };
 		B58578B724B32CF000640B01 /* CollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
+		B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RijksmuseumNetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 		B585785824B05FAB00640B01 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				B58578BC24B346F600640B01 /* Rijkmuseum */,
 				B585789F24B3131C00640B01 /* Resource.swift */,
 				B58578A124B315CE00640B01 /* NetworkService.swift */,
 				B58578A624B31D5200640B01 /* NetworkConstants.swift */,
@@ -285,7 +288,6 @@
 			children = (
 				B585789924B30DF100640B01 /* Views */,
 				B585789824B0F77800640B01 /* Utilities */,
-				B585788624B0A7AB00640B01 /* Cell */,
 				B585789A24B30E0300640B01 /* GalleryCoordinator.swift */,
 			);
 			path = Gallery;
@@ -356,8 +358,9 @@
 		B585789924B30DF100640B01 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B585786324B0724B00640B01 /* GalleryViewController.swift */,
+				B585788624B0A7AB00640B01 /* Cell */,
 				B585788424B0A75F00640B01 /* GalleryViewModel.swift */,
+				B585786324B0724B00640B01 /* GalleryViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -403,6 +406,14 @@
 				B58578B724B32CF000640B01 /* CollectionTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B58578BC24B346F600640B01 /* Rijkmuseum */ = {
+			isa = PBXGroup;
+			children = (
+				B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */,
+			);
+			path = Rijkmuseum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,6 +550,7 @@
 			files = (
 				B585787F24B09FBC00640B01 /* Artwork.swift in Sources */,
 				B585785C24B0640500640B01 /* Coordinator.swift in Sources */,
+				B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */,
 				B58578A724B31D5200640B01 /* NetworkConstants.swift in Sources */,
 				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B585789324B0F07B00640B01 /* Utilities.swift in Sources */,

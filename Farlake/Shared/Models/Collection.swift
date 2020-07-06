@@ -21,12 +21,15 @@ struct Collection: Decodable {
     // MARK: - Item
 
     struct Item: Decodable {
+        let id: String
+
         let title: String
         let artist: String
         let isDownloadPermitted: Bool
         let image: Image?
 
         enum CodingKeys: String, CodingKey {
+            case id
             case title
             case artist = "principalOrFirstMaker"
             case isDownloadPermitted = "permitDownload"

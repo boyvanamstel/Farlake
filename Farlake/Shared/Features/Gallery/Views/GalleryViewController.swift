@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Combine
 
 /// Contains the gallery collection view.
 final class GalleryViewController: UICollectionViewController {
 
     var viewModel: GalleryViewModel? {
         didSet {
-            update(items: viewModel?.items ?? [], withAnimation: true)
+            configureBindings()
         }
     }
 
@@ -23,6 +24,21 @@ final class GalleryViewController: UICollectionViewController {
         super.viewDidLoad()
 
         configureCollectionView()
+
+        viewModel?.viewDidLoad()
+    }
+
+    // MARK: - Bindings
+
+    private var cancelBag: [AnyCancellable] = []
+
+    private func configureBindings() {
+        viewModel?.$items
+            .receive(on: RunLoop.main)
+            .sink(receiveValue: {
+                self.update(items: $0, withAnimation: true)
+            })
+            .store(in: &cancelBag)
     }
 
     // MARK: - Collection view

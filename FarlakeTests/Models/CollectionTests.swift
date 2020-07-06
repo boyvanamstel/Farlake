@@ -27,7 +27,7 @@ class CollectionTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Parse collection")
 
-        let resource = try! MockNetworkService.collection(query: "")
+        let resource = try! RijksMuseumEndpoint.collection(query: "")
         let service = MockNetworkService()
 
         _ = service.load(resource) { collection in
@@ -35,6 +35,7 @@ class CollectionTests: XCTestCase {
 
             let item = collection!.items.first!
 
+            XCTAssertEqual(item.id, "en-SK-A-2344")
             XCTAssertEqual(item.title, "The Milkmaid")
             XCTAssertEqual(item.artist, "Johannes Vermeer")
 

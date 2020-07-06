@@ -31,17 +31,17 @@ class CollectionTests: XCTestCase {
         let service = MockNetworkService()
 
         _ = service.load(resource) { collection in
-            XCTAssertEqual(collection!.artObjects.count, 10)
+            XCTAssertEqual(collection!.items.count, 10)
 
-            let artObject = collection!.artObjects.first!
+            let item = collection!.items.first!
 
-            XCTAssertEqual(artObject.title, "The Milkmaid")
-            XCTAssertEqual(artObject.principalOrFirstMaker, "Johannes Vermeer")
+            XCTAssertEqual(item.title, "The Milkmaid")
+            XCTAssertEqual(item.artist, "Johannes Vermeer")
 
-            XCTAssertEqual(artObject.permitDownload, true)
-            XCTAssertEqual(artObject.webImage?.width, 2261)
-            XCTAssertEqual(artObject.webImage?.height, 2548)
-            XCTAssertEqual(artObject.webImage?.url, "https://lh3.googleusercontent.com/cRtF3WdYfRQEraAcQz8dWDJOq3XsRX-h244rOw6zwkHtxy7NHjJOany7u4I2EG_uMAfNwBLHkFyLMENzpmfBTSYXIH_F=s0")
+            XCTAssertEqual(item.isDownloadPermitted, true)
+            XCTAssertEqual(item.image?.width, 2261)
+            XCTAssertEqual(item.image?.height, 2548)
+            XCTAssertEqual(item.image?.url, URL(string: "https://lh3.googleusercontent.com/cRtF3WdYfRQEraAcQz8dWDJOq3XsRX-h244rOw6zwkHtxy7NHjJOany7u4I2EG_uMAfNwBLHkFyLMENzpmfBTSYXIH_F=s0"))
 
             expectation.fulfill()
         }

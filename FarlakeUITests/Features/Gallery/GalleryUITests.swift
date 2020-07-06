@@ -33,6 +33,6 @@ class GalleryUITests: XCTestCase {
     }
 
     func testHasGalleryItems() {
-        XCTAssertEqual(app.collectionViews.cells.count, 2)
+        XCTAssertEqual(app.collectionViews.cells.count, 10)
     }
 }

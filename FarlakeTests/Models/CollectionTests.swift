@@ -15,7 +15,6 @@ class CollectionTests: XCTestCase {
         let session = URLSession.shared
 
         func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
-
             let url = Bundle(for: type(of: self)).url(forResource: "collection-vermeer", withExtension: "json")!
             let jsonData = try! Data(contentsOf: url)
 

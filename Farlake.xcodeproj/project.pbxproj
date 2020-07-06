@@ -31,8 +31,6 @@
 		B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789624B0F77500640B01 /* UICollectionViewLayout+Gallery.swift */; };
 		B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789A24B30E0300640B01 /* GalleryCoordinator.swift */; };
 		B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789D24B30FFF00640B01 /* MainCoordinator.swift */; };
-		B58578A024B3131C00640B01 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789F24B3131C00640B01 /* Resource.swift */; };
-		B58578A224B315CE00640B01 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A124B315CE00640B01 /* NetworkService.swift */; };
 		B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A424B31C3400640B01 /* ServicesProvider.swift */; };
 		B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A924B31E9800640B01 /* SecretConstants.swift */; };
 		B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AD24B31F4800640B01 /* APIConstants.swift */; };
@@ -42,9 +40,11 @@
 		B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */; };
 		B58578BF24B3521C00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
 		B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */; };
-		B5CBB91424B3C7500065BF06 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */; };
 		B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */; };
 		B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91824B3CE230065BF06 /* Cache.swift */; };
+		B5CBB92024B3DD8E0065BF06 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789F24B3131C00640B01 /* Resource.swift */; };
+		B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A124B315CE00640B01 /* NetworkService.swift */; };
+		B5CBB92224B3DD970065BF06 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,6 +270,9 @@
 				B5CBB91C24B3CE670065BF06 /* Images */,
 				B5CBB91B24B3CE5E0065BF06 /* API */,
 				B5CBB91724B3CE1B0065BF06 /* Cache */,
+				B585789F24B3131C00640B01 /* Resource.swift */,
+				B58578A124B315CE00640B01 /* NetworkService.swift */,
+				B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -451,9 +454,6 @@
 			isa = PBXGroup;
 			children = (
 				B58578BC24B346F600640B01 /* Rijkmuseum */,
-				B585789F24B3131C00640B01 /* Resource.swift */,
-				B58578A124B315CE00640B01 /* NetworkService.swift */,
-				B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -599,12 +599,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5CBB91424B3C7500065BF06 /* NetworkConstants.swift in Sources */,
+				B5CBB92224B3DD970065BF06 /* NetworkConstants.swift in Sources */,
 				B585787F24B09FBC00640B01 /* Artwork.swift in Sources */,
 				B585785C24B0640500640B01 /* Coordinator.swift in Sources */,
 				B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */,
 				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B585789324B0F07B00640B01 /* Utilities.swift in Sources */,
+				B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */,
 				B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */,
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
@@ -612,19 +613,18 @@
 				B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */,
 				B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */,
 				B585782224B05B7100640B01 /* MainViewController.swift in Sources */,
+				B5CBB92024B3DD8E0065BF06 /* Resource.swift in Sources */,
 				B585789524B0F1FE00640B01 /* AutoLayout+Helpers.swift in Sources */,
 				B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */,
 				B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
 				B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */,
-				B58578A024B3131C00640B01 /* Resource.swift in Sources */,
 				B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */,
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
 				B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
 				B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */,
-				B58578A224B315CE00640B01 /* NetworkService.swift in Sources */,
 				B585782024B05B7100640B01 /* SceneDelegate.swift in Sources */,
 				B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */,
 			);

@@ -14,7 +14,7 @@ class CollectionTests: XCTestCase {
     private class MockNetworkService: NetworkService {
         func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
 
-            let url =  Bundle(for: type(of: self)).url(forResource: "collection-vermeer", withExtension: "json")!
+            let url = Bundle(for: type(of: self)).url(forResource: "collection-vermeer", withExtension: "json")!
             let jsonData = try! Data(contentsOf: url)
 
             completion(resource.parse(jsonData))

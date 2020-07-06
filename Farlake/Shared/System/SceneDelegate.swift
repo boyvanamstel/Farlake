@@ -50,13 +50,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             fatalError("Did not specify UI Test entry point")
         }
 
-        // TODO: Replace this with Test services
-        let servicesProvider = ServicesProvider.default
-
         sceneCoordinator = TestCoordinator(
             window: window,
             entryPoint: entryPoint,
-            servicesProvider: servicesProvider
+            servicesProvider: ServicesProvider.uiTesting
         )
         sceneCoordinator?.start()
     }

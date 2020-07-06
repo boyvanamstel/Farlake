@@ -59,6 +59,14 @@ struct Collection: Decodable {
                 }
                 self.url = url
             }
+
+            #if DEBUG
+            init(width: Int, height: Int, url: URL) {
+                self.width = width
+                self.height = height
+                self.url = url
+            }
+            #endif
         }
     }
 }

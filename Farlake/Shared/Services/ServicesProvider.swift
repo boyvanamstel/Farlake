@@ -22,6 +22,10 @@ class ServicesProvider {
         return Self.init(networkService: RijksMuseumNetworkService(urlCache: urlCache))
     }
 
+    static var uiTesting: Self {
+        return Self.init(networkService: MockRijksMuseumNetworkService())
+    }
+
     required init(networkService: NetworkService) {
         self.networkService = networkService
     }

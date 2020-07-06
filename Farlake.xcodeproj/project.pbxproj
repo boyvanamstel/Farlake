@@ -41,6 +41,7 @@
 		B58578B324B32C8F00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
 		B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578B724B32CF000640B01 /* CollectionTests.swift */; };
 		B58578BE24B3470500640B01 /* RijksmuseumNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578BD24B3470500640B01 /* RijksmuseumNetworkService.swift */; };
+		B58578BF24B3521C00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -538,6 +539,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B58578BF24B3521C00640B01 /* collection-vermeer.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

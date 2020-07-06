@@ -42,3 +42,37 @@ class RijksMuseumNetworkService: CachingNetworkService {
         cachingSession = URLSession(configuration: configuration)
     }
 }
+
+#if DEBUG
+class MockRijksMuseumNetworkService: NetworkService {
+    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
+
+        switch resource {
+        case is Resource<Collection>:
+            let collection = Collection(items: [
+                Collection.Item(id: UUID().uuidString,
+                                title: "Title 1",
+                                artist: "Artist 1",
+                                isDownloadPermitted: true,
+                                image: Collection.Item.Image(width: 1024,
+                                                             height: 768,
+                                                             url: URL(string: "https://www.example.com/1.jpg")!)
+                ),
+                Collection.Item(id: UUID().uuidString,
+                                title: "Title 2",
+                                artist: "Artist 2",
+                                isDownloadPermitted: true,
+                                image: Collection.Item.Image(width: 640,
+                                                             height: 480,
+                                                             url: URL(string: "https://www.example.com/2.jpg")!)
+                )
+            ])
+            completion(collection as? Object)
+        default:
+            break
+        }
+
+        return nil
+    }
+}
+#endif

@@ -16,6 +16,8 @@ final class SceneCoordinator: Coordinator {
     private let navigationController: UINavigationController
     private let window: UIWindow
 
+    // MARK: - Object lifecycle
+
     /// Instantiate the application coordinator.
     /// - Parameters:
     ///   - navigationController: The root navigation controller.
@@ -24,6 +26,8 @@ final class SceneCoordinator: Coordinator {
         self.navigationController = navigationController
         self.window = window
     }
+
+    // MARK: - Entry point
 
     /// Launch initial state of the app.
     func start() {

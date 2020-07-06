@@ -10,5 +10,5 @@ import UIKit
 
 struct Artwork: Hashable {
     let title: String
-    let image: UIImage
+    let image: UIImage?
 }

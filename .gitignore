@@ -19,3 +19,6 @@ Acknowledgments/source/*.rtf
 
 # Carthage
 Carthage/Checkouts
+
+# Secrets
+SecretConstants.swift

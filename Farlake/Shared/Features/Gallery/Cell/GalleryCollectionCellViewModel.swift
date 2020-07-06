@@ -15,6 +15,6 @@ struct GalleryCollectionViewCellViewModel {
         self.artwork = artwork
     }
 
-    var image: UIImage { artwork.image }
+    var image: UIImage? { artwork.image }
     var title: String { artwork.title }
 }

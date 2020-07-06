@@ -12,6 +12,27 @@ protocol NetworkService {
     func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask?
 }
 
+extension NetworkService {
+
+    /// Create a collection resource based on the supplied query.
+    /// - Parameter query: The keyword(s) to search for.
+    /// - Throws: Throws `ResourceError` on invalid response.
+    /// - Returns: Returns the fetchable resource.
+    static func collection(query: String) throws -> Resource<Collection> {
+        let url = APIConstants.collectionURL
+        let parameters: [String : CustomStringConvertible] = [
+            "key": SecretConstants.apiKey,
+            "q": query
+            ]
+        guard let request = URLRequest(url: url, parameters: parameters) else {
+            throw ResourceError.invalidRequest
+        }
+
+        return Resource<Collection>(request: request)
+    }
+
+}
+
 class CachedNetworkService: NetworkService {
 
     private let cachedSession: URLSession

@@ -27,6 +27,7 @@ extension Resource where Object: Decodable {
             try? JSONDecoder().decode(Object.self, from: data)
         }
     }
+
 }
 
 enum ResourceError: Error {

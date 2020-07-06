@@ -13,7 +13,6 @@
 		B585782524B05B7100640B01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B585782324B05B7100640B01 /* Main.storyboard */; };
 		B585782724B05B7400640B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B585782624B05B7400640B01 /* Assets.xcassets */; };
 		B585782A24B05B7400640B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B585782824B05B7400640B01 /* LaunchScreen.storyboard */; };
-		B585783524B05B7500640B01 /* FarlakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585783424B05B7500640B01 /* FarlakeTests.swift */; };
 		B585784024B05B7500640B01 /* MainUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585783F24B05B7500640B01 /* MainUITests.swift */; };
 		B585785C24B0640500640B01 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785B24B0640500640B01 /* Coordinator.swift */; };
 		B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785D24B0642200640B01 /* SceneCoordinator.swift */; };
@@ -40,6 +39,7 @@
 		B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AD24B31F4800640B01 /* APIConstants.swift */; };
 		B58578B024B3292100640B01 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AF24B3292100640B01 /* Collection.swift */; };
 		B58578B324B32C8F00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
+		B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578B724B32CF000640B01 /* CollectionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,6 @@
 		B585782924B05B7400640B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B585782B24B05B7400640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B585783024B05B7500640B01 /* FarlakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarlakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B585783424B05B7500640B01 /* FarlakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarlakeTests.swift; sourceTree = "<group>"; };
 		B585783624B05B7500640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B585783B24B05B7500640B01 /* FarlakeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarlakeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B585783F24B05B7500640B01 /* MainUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUITests.swift; sourceTree = "<group>"; };
@@ -100,6 +99,7 @@
 		B58578AD24B31F4800640B01 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B58578AF24B3292100640B01 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B58578B224B32C8F00640B01 /* collection-vermeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "collection-vermeer.json"; sourceTree = "<group>"; };
+		B58578B724B32CF000640B01 /* CollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +160,8 @@
 		B585783324B05B7500640B01 /* FarlakeTests */ = {
 			isa = PBXGroup;
 			children = (
+				B58578B624B32CE500640B01 /* Models */,
 				B58578B124B32C8F00640B01 /* Fixtures */,
-				B585783424B05B7500640B01 /* FarlakeTests.swift */,
 				B585783624B05B7500640B01 /* Info.plist */,
 			);
 			path = FarlakeTests;
@@ -397,6 +397,14 @@
 			path = Fixtures;
 			sourceTree = "<group>";
 		};
+		B58578B624B32CE500640B01 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B58578B724B32CF000640B01 /* CollectionTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -561,7 +569,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B585783524B05B7500640B01 /* FarlakeTests.swift in Sources */,
+				B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,5 +17,6 @@ struct NetworkConstants {
         let diskCapacity: Int
     }
 
-    static let jsonCacheCapacity = CacheCapacity(memoryCapacity: 512 * MB, diskCapacity: 1024 * MB)
+    static let apiCacheCapacity = CacheCapacity(memoryCapacity: 100 * MB, diskCapacity: 100 * MB)
+    static let imageCacheCapacity = CacheCapacity(memoryCapacity: 512 * MB, diskCapacity: 1024 * MB)
 }

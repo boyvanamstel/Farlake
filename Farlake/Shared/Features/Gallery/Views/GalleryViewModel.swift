@@ -10,7 +10,7 @@ import UIKit
 
 class GalleryViewModel {
     private  let servicesProvider: ServicesProvider
-    private var networkService: NetworkService { servicesProvider.networkService }
+    private var apiService: NetworkService { servicesProvider.apiService }
 
     // MARK: - Bindings
 
@@ -34,7 +34,7 @@ class GalleryViewModel {
     }
 
     private func fetch(resource: Resource<Collection>) {
-        _ = networkService.load(resource) { [weak self] collection in
+        _ = apiService.load(resource) { [weak self] collection in
             let artworks: [Artwork]? = collection?.items
                 .compactMap { .init(item: $0) }
                 .filter { $0.imageURL != nil } // Filter items without image

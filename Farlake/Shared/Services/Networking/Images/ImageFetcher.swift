@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageFetcher: NetworkService, URLCaching {
+final class ImageFetcher: NetworkService, URLCaching {
     var session: URLSession
 
     let urlCache: URLCache
@@ -23,3 +23,9 @@ class ImageFetcher: NetworkService, URLCaching {
         self.session = URLSession(configuration: configuration)
     }
 }
+
+#if DEBUG
+class MockImageFetcher: NetworkService {
+    var session = URLSession.shared
+}
+#endif

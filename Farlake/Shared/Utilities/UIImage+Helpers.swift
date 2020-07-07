@@ -16,7 +16,7 @@ extension UIImage {
     ///   - contentMode: The mode to use for resizing.
     ///   - rect: The rect to fill or fit in.
     /// - Returns: A new image that's been resized.
-    func resize(to contentMode: UIView.ContentMode, in rect: CGRect) -> UIImage {
+    func resize(using contentMode: UIView.ContentMode, in rect: CGRect) -> UIImage {
         switch contentMode {
         case .scaleAspectFit: return scaleAspectFit(rect)
         case .scaleToFill: return scaleToFill(rect)

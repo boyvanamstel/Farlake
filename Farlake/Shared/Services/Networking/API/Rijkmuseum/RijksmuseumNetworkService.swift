@@ -51,7 +51,7 @@ class RijksmuseumNetworkService: NetworkService, URLCaching {
 class MockRijksmuseumNetworkService: NetworkService {
     let session = URLSession.shared
 
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask {
+    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
         switch resource {
         case is Resource<Collection>:
             let collection = Collection(items: [
@@ -77,7 +77,7 @@ class MockRijksmuseumNetworkService: NetworkService {
             break
         }
 
-        return session.dataTask(with: URL(string: "https://www.test.com")!) { _,_,_ in }
+        return nil
     }
 }
 #endif

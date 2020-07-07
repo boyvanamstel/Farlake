@@ -13,8 +13,9 @@ class ServicesProvider {
     let apiCache: URLCache
     let apiService: NetworkService
 
-    let imageCache: URLCache
-    let imageFetcher: NetworkService
+    let imageURLCache: URLCache
+    let imageDataCache: ImageDataCache
+    let imageFetcher: ImageFetchingNetworkService
 
     // Returns the default services provider, with a reasonable cache.
     static var `default`: Self {
@@ -22,16 +23,19 @@ class ServicesProvider {
             memoryCapacity: NetworkConstants.apiCacheCapacity.memoryCapacity,
             diskCapacity: NetworkConstants.apiCacheCapacity.diskCapacity
         )
-        let imageCache = URLCache(
+
+        let imageURLCache = URLCache(
             memoryCapacity: NetworkConstants.imageCacheCapacity.memoryCapacity,
             diskCapacity: NetworkConstants.imageCacheCapacity.diskCapacity
         )
+        let imageDataCache = ImageDataCache()
 
         return Self.init(
             apiCache: apiCache,
             apiService: RijksmuseumNetworkService(urlCache: apiCache),
-            imageCache: imageCache,
-            imageFetcher: ImageFetcher(urlCache: imageCache)
+            imageURLCache: imageURLCache,
+            imageDataCache: imageDataCache,
+            imageFetcher: ImageFetcher(urlCache: imageURLCache, dataCache: imageDataCache)
         )
     }
 
@@ -39,16 +43,18 @@ class ServicesProvider {
         return Self.init(
             apiCache: URLCache(),
             apiService: MockRijksmuseumNetworkService(),
-            imageCache: URLCache(),
+            imageURLCache: URLCache(),
+            imageDataCache: ImageDataCache(),
             imageFetcher: MockImageFetcher()
         )
     }
 
-    required init(apiCache: URLCache, apiService: NetworkService, imageCache: URLCache, imageFetcher: NetworkService) {
+    required init(apiCache: URLCache, apiService: NetworkService, imageURLCache: URLCache, imageDataCache: ImageDataCache, imageFetcher: ImageFetchingNetworkService) {
         self.apiCache = apiCache
         self.apiService = apiService
 
-        self.imageCache = imageCache
+        self.imageURLCache = imageURLCache
+        self.imageDataCache = imageDataCache
         self.imageFetcher = imageFetcher
     }
 }

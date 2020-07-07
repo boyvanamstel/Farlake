@@ -11,7 +11,7 @@ import UIKit
 class GalleryCollectionViewCellViewModel {
     private let artwork: Artwork
     private let servicesProvider: ServicesProvider
-    private var imageFetcher: NetworkService { servicesProvider.imageFetcher }
+    private var imageFetcher: ImageFetchingNetworkService { servicesProvider.imageFetcher }
 
     private var dataTask: URLSessionDataTask?
 
@@ -43,7 +43,7 @@ class GalleryCollectionViewCellViewModel {
 
         let request = URLRequest(url: url)
         let resource = Resource<UIImage>(request: request)
-        dataTask = imageFetcher.load(resource) { [weak self] image in
+        dataTask = imageFetcher.loadThumbnail(resource) { [weak self] image in
             self?.image = image
         }
     }

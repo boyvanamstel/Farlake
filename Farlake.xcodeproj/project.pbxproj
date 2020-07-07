@@ -52,6 +52,7 @@
 		B5CBB93624B471C00065BF06 /* UIImage+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93524B471C00065BF06 /* UIImage+Helpers.swift */; };
 		B5CBB93824B473520065BF06 /* CGRect+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93724B473520065BF06 /* CGRect+Helpers.swift */; };
 		B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93924B4738C0065BF06 /* CGSize+Helpers.swift */; };
+		B5CBB93D24B47DC20065BF06 /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93C24B47DC20065BF06 /* CacheTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		B5CBB93524B471C00065BF06 /* UIImage+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Helpers.swift"; sourceTree = "<group>"; };
 		B5CBB93724B473520065BF06 /* CGRect+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Helpers.swift"; sourceTree = "<group>"; };
 		B5CBB93924B4738C0065BF06 /* CGSize+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Helpers.swift"; sourceTree = "<group>"; };
+		B5CBB93C24B47DC20065BF06 /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,6 +441,7 @@
 		B5CBB90F24B3C54C0065BF06 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB93B24B47DB50065BF06 /* Cache */,
 				B5CBB91024B3C5520065BF06 /* Networking */,
 			);
 			path = Services;
@@ -501,6 +504,14 @@
 				B5CBB92D24B3E52D0065BF06 /* MainViewController.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5CBB93B24B47DB50065BF06 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB93C24B47DC20065BF06 /* CacheTests.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -680,6 +691,7 @@
 			files = (
 				B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */,
 				B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */,
+				B5CBB93D24B47DC20065BF06 /* CacheTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

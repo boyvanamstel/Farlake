@@ -48,6 +48,7 @@
 		B5CBB92B24B3E4980065BF06 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB92924B3E4980065BF06 /* SettingsViewController.swift */; };
 		B5CBB93024B3E52D0065BF06 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB92D24B3E52D0065BF06 /* MainViewController.swift */; };
 		B5CBB93124B3E52D0065BF06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB92E24B3E52D0065BF06 /* Main.storyboard */; };
+		B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93324B46FD00065BF06 /* URLRequest+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		B5CBB92924B3E4980065BF06 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B5CBB92D24B3E52D0065BF06 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B5CBB92F24B3E52D0065BF06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B5CBB93324B46FD00065BF06 /* URLRequest+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 				B585788C24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift */,
 				B585789224B0F07B00640B01 /* Utilities.swift */,
 				B585789424B0F1FE00640B01 /* AutoLayout+Helpers.swift */,
+				B5CBB93324B46FD00065BF06 /* URLRequest+Helpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */,
 				B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */,
 				B5CBB93024B3E52D0065BF06 /* MainViewController.swift in Sources */,
+				B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */,
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,

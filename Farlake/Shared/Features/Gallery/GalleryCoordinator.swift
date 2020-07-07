@@ -35,7 +35,7 @@ class GalleryCoordinator: Coordinator {
         let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
         let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
-        viewController.coordinator = self
+        viewController.delegate = self
 
         navigationController.setViewControllers([viewController], animated: true)
     }
@@ -59,5 +59,11 @@ extension GalleryCoordinator: CoordinatorDelegate {
         }
 
         removeChildCoordinator(coordinator)
+    }
+}
+
+extension GalleryCoordinator: GalleryViewControllerDelegate {
+    func didRequestSettings() {
+        showSettings()
     }
 }

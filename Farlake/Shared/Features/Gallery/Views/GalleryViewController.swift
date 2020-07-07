@@ -9,6 +9,10 @@
 import UIKit
 import Combine
 
+protocol GalleryViewControllerDelegate: AnyObject {
+    func didRequestSettings()
+}
+
 /// Contains the gallery collection view.
 final class GalleryViewController: UICollectionViewController {
 
@@ -18,7 +22,7 @@ final class GalleryViewController: UICollectionViewController {
         }
     }
 
-    weak var coordinator: GalleryCoordinator?
+    weak var delegate: GalleryViewControllerDelegate?
 
     // MARK: - Object lifecycle
 
@@ -70,7 +74,7 @@ final class GalleryViewController: UICollectionViewController {
     }
 
     @objc private func showSettings() {
-        coordinator?.showSettings()
+        delegate?.didRequestSettings()
     }
 
     // MARK: - Content

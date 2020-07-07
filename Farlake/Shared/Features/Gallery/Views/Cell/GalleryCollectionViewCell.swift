@@ -42,6 +42,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
 
         viewModel?.$image
             .subscribe(on: DispatchQueue.global(qos: .userInitiated))
+            .map { $0?.resize(to: .scaleToFill, in: CGRect(CGSize(equal: 200.0))) }
             .receive(on: DispatchQueue.main)
             .assign(to: \.image, on: imageView)
             .store(in: &cancelBag)

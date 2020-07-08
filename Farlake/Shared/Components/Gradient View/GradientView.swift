@@ -9,14 +9,14 @@
 import UIKit
 
 /// Draws a gradient that resizes with Auto Layout changes.
-class ResizingLayerView: UIView {
+class GradientView: UIView {
 
     private let gradient: CAGradientLayer = CAGradientLayer()
 
     // MARK: - Object lifecycle
 
-    init(startColor: UIColor, endColor: UIColor) {
-        gradient.colors = [startColor.cgColor, endColor.cgColor]
+    init(colors: [UIColor]) {
+        gradient.colors = colors.map { $0.cgColor }
 
         super.init(frame: .zero)
 
@@ -30,7 +30,9 @@ class ResizingLayerView: UIView {
     override func layoutSublayers(of layer: CALayer) {
         super.layoutSublayers(of: layer)
 
-        gradient.frame = self.bounds
+        UIView.performWithoutAnimation {
+            gradient.frame = self.bounds
+        }
     }
 
 }

@@ -54,7 +54,7 @@ final class TestCoordinator: Coordinator {
     }
 
     private func showGallery() {
-        let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
+        let viewController = GalleryViewController(collectionViewLayout: .galleryLayout)
         let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
 

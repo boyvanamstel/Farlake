@@ -9,21 +9,51 @@
 import UIKit
 
 extension UICollectionViewLayout {
-    static var galleryGridLayout: UICollectionViewCompositionalLayout {
-        let columnCount = 1
+    static var galleryLayout: UICollectionViewLayout {
+        return UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 
-        // Item
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0 / CGFloat(columnCount)), heightDimension: .fractionalHeight(1.0))
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(equal: 5.0)
+            let containerWidth = layoutEnvironment.container.contentSize.width
+            let columnCount = min(5, (containerWidth / 200.0).rounded())
+            let largeColumnCount: CGFloat = containerWidth > 1000.0 ? 2 : 1
 
-        // Group
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(1.0 / CGFloat(columnCount)))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            // Large item
+            let largeItem = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0 / largeColumnCount),
+                    heightDimension: .fractionalWidth(0.5))
+            )
 
-        // Section
-        let section = NSCollectionLayoutSection(group: group)
+            largeItem.contentInsets = NSDirectionalEdgeInsets(equal: 2.0)
 
-        return UICollectionViewCompositionalLayout(section: section)
+            let largeGroup = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(0.5)),
+                subitems: [largeItem])
+
+            // Columns
+            let columnItem = NSCollectionLayoutItem(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0 / columnCount),
+                    heightDimension: .fractionalWidth(1.0 / columnCount))
+            )
+
+            columnItem.contentInsets = NSDirectionalEdgeInsets(equal: 2.0)
+
+            let columnGroup = NSCollectionLayoutGroup.horizontal(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(1.0 / columnCount)),
+                subitems: [columnItem])
+
+            // Section
+            let nestedGroup = NSCollectionLayoutGroup.vertical(
+                layoutSize: NSCollectionLayoutSize(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(0.5 + (1.0 / columnCount))),
+                subitems: [largeGroup, columnGroup]
+            )
+            return NSCollectionLayoutSection(group: nestedGroup)
+        }
     }
 }

@@ -32,7 +32,7 @@ class GalleryCoordinator: Coordinator {
     // MARK: - Views
 
     func showGallery() {
-        let viewController = GalleryViewController(collectionViewLayout: .galleryGridLayout)
+        let viewController = GalleryViewController(collectionViewLayout: .galleryLayout)
         let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
         viewController.delegate = self

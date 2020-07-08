@@ -21,6 +21,20 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         }
     }
 
+    private var image: UIImage? {
+        didSet {
+            #if targetEnvironment(macCatalyst)
+            // No dramatic effect on macOS, feels (more) out of place
+            imageView.image = image
+            #else
+            // Dramatic effect
+            UIView.transition(with: imageView, duration: image == nil ? 0.0 : 0.5, options: .transitionCurlDown, animations: {
+                self.imageView.image = self.image
+            }, completion: nil)
+            #endif
+        }
+    }
+
     // MARK: - Object lifecycle
 
     override init(frame: CGRect) {
@@ -48,7 +62,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         viewModel?.$image
             .subscribe(on: DispatchQueue.global(qos: .userInitiated))
             .receive(on: DispatchQueue.main)
-            .assign(to: \.image, on: imageView)
+            .assign(to: \.image, on: self)
             .store(in: &cancelBag)
     }
 
@@ -60,7 +74,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         $0.textColor = .white
     }
 
-    private let titleContainerView = with(GradientView(startColor: UIColor.black.withAlphaComponent(0.0), endColor: UIColor.black.withAlphaComponent(0.8))) {
+    private let titleContainerView = with(GradientView(colors: [UIColor.black.withAlphaComponent(0.0), UIColor.black.withAlphaComponent(0.8)])) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
     }
@@ -74,6 +88,9 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
     // MARK: - Layout
 
     private func layoutElements() {
+        contentView.clipsToBounds = true
+        contentView.backgroundColor = .darkGray
+
         contentView.addSubview(imageView)
         imageView.pin(to: contentView, constraints: [
             equal(\.leadingAnchor),

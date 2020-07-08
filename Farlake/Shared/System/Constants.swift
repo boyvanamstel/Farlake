@@ -17,7 +17,7 @@ extension Int {
 }
 
 extension String {
-    static let thumbnailCacheName = "ThumbnailCache"
+    static let thumbnailCacheName = "ThumbnailData"
 }
 
 extension CodingUserInfoKey {

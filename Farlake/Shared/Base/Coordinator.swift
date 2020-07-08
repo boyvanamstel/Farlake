@@ -31,3 +31,10 @@ extension Coordinator {
         childCoordinators = childCoordinators.filter { $0 !== coordinator }
     }
 }
+
+// MARK: - Scene
+
+protocol SceneCoordinating {
+    func willEnterForeground()
+    func didEnterBackground()
+}

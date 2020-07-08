@@ -28,7 +28,10 @@ class ServicesProvider {
             memoryCapacity: NetworkConstants.imageCacheCapacity.memoryCapacity,
             diskCapacity: NetworkConstants.imageCacheCapacity.diskCapacity
         )
-        let imageDataCache = ImageDataCache()
+
+        let imageCacheDecoder = JSONDecoder()
+        imageCacheDecoder.userInfo = [.maximumCacheEntryCount: Int.maximumThumbnailCacheEntryCount]
+        let imageDataCache = (try? ImageDataCache.load(fromName: .thumbnailCacheName, decoder: imageCacheDecoder)) ?? ImageDataCache(maximumEntryCount: .maximumThumbnailCacheEntryCount)
 
         return Self.init(
             apiCache: apiCache,

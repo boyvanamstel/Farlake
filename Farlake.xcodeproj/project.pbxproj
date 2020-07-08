@@ -289,7 +289,6 @@
 			children = (
 				B5CBB91C24B3CE670065BF06 /* Images */,
 				B5CBB91B24B3CE5E0065BF06 /* API */,
-				B5CBB91724B3CE1B0065BF06 /* Cache */,
 				B585789F24B3131C00640B01 /* Resource.swift */,
 				B58578A124B315CE00640B01 /* NetworkService.swift */,
 				B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */,
@@ -402,6 +401,7 @@
 		B58578A324B31B3D00640B01 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB91724B3CE1B0065BF06 /* Cache */,
 				B585785824B05FAB00640B01 /* Networking */,
 				B58578A424B31C3400640B01 /* ServicesProvider.swift */,
 			);

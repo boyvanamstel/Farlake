@@ -63,6 +63,18 @@ final class SceneCoordinator: Coordinator {
 
 }
 
+// MARK: - App state
+
+extension SceneCoordinator: SceneCoordinating {
+    func willEnterForeground() {}
+
+    func didEnterBackground() {
+        try? servicesProvider.imageDataCache.saveToDisk(withName: .thumbnailCacheName)
+    }
+}
+
+// MARK: - Delegate
+
 extension SceneCoordinator: CoordinatorDelegate {
     func didFinish(from coordinator: Coordinator) {
 

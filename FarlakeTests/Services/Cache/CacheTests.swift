@@ -23,7 +23,7 @@ class CacheTests: XCTestCase {
         cache.insert(value, forKey: key)
 
         // Assert value exists now
-        XCTAssertNotNil(cache[key])
+        XCTAssertEqual(cache[key], value)
 
         cache.removeValue(forKey: key)
 

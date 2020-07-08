@@ -63,6 +63,11 @@ final class TestCoordinator: Coordinator {
 
 }
 
+extension TestCoordinator: SceneCoordinating {
+    func willEnterForeground() {}
+    func didEnterBackground() {}
+}
+
 extension TestCoordinator: MainViewControllerDelegate {
     func didFinish() {}
 }

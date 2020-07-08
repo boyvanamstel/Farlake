@@ -6,8 +6,20 @@
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension CGSize {
     static let galleryThumbnailSize = Self(equal: 200.0)
+}
+
+extension Int {
+    static let maximumThumbnailCacheEntryCount = 250
+}
+
+extension String {
+    static let thumbnailCacheName = "ThumbnailCache"
+}
+
+extension CodingUserInfoKey {
+    static let maximumCacheEntryCount = CodingUserInfoKey(rawValue: "MaximumCacheEntryCount")!
 }

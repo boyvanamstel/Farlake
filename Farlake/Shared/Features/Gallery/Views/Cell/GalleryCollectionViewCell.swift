@@ -33,6 +33,12 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        viewModel = nil
+    }
+
     // MARK: - Bindings
 
     private var cancelBag: [AnyCancellable] = []

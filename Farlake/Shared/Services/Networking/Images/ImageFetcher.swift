@@ -11,7 +11,7 @@ import UIKit
 typealias ImageFetchingNetworkService = NetworkService & ImageFetching
 
 protocol ImageFetching {
-    func loadThumbnail(_ resource: Resource<UIImage>, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask?
+    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask?
 }
 
 final class ImageFetcher: NetworkService, URLCaching, ImageCaching {
@@ -37,9 +37,10 @@ extension ImageFetcher: ImageFetching {
     ///
     /// - Parameters:
     ///   - resource: The image resource to load.
+    ///   - size: The size of the thumbnail.
     ///   - completion: Contains the loaded object.
     /// - Returns: The optional data task so it can be cancelled or stored.
-    func loadThumbnail(_ resource: Resource<UIImage>, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask? {
+    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask? {
         // Unwrap url, because we need it a few times
         guard let url = resource.request.url else {
             completion(nil)
@@ -47,7 +48,8 @@ extension ImageFetcher: ImageFetching {
         }
 
         // Return cached thumbnail if it exists
-        if let cachedImage = dataCache[url] {
+        let reference = ImageCacheReference(url: url, width: size.width, height: size.height)
+        if let cachedImage = dataCache[reference] {
             completion(cachedImage)
             return nil
         }
@@ -58,10 +60,10 @@ extension ImageFetcher: ImageFetching {
                 return
             }
 
-            let thumbnail = image.resize(using: .scaleToFill, in: CGRect(CGSize(equal: 200.0)))
-
+            let thumbnail = image.resize(using: .scaleToFill, in: CGRect(size))
+            let reference = ImageCacheReference(url: url, width: size.width, height: size.height)
             // Store thumbnail in cache
-            self.dataCache.insert(thumbnail, forKey: url)
+            self.dataCache.insert(thumbnail, forKey: reference)
 
             completion(thumbnail)
         }
@@ -73,7 +75,7 @@ extension ImageFetcher: ImageFetching {
 class MockImageFetcher: NetworkService, ImageFetching {
     var session = URLSession.shared
 
-    func loadThumbnail(_ resource: Resource<UIImage>, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask? {
+    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (UIImage?) -> ()) -> URLSessionDataTask? {
         return load(resource, completion: completion)
     }
 }

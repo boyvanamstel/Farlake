@@ -12,7 +12,15 @@ protocol URLCaching {
     var urlCache: URLCache { get }
 }
 
-typealias ImageDataCache = Cache<URL, UIImage>
+struct ImageCacheReference: Hashable {
+    let url: URL
+
+    // CGSize does not conform to Hashable
+    let width: CGFloat
+    let height: CGFloat
+}
+
+typealias ImageDataCache = Cache<ImageCacheReference, UIImage>
 
 protocol ImageCaching {
     var dataCache: ImageDataCache { get }

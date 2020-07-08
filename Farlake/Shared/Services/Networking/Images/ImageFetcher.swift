@@ -63,7 +63,7 @@ extension ImageFetcher: ImageFetching {
             let thumbnail = image.resize(using: .scaleToFill, in: CGRect(size))
             let reference = ImageCacheKey(url: url, width: size.width, height: size.height)
             // Store thumbnail in cache
-            if let data = thumbnail.pngData() {
+            if let data = thumbnail.jpegData(compressionQuality: 0.8) {
                 self.dataCache.insert(data, forKey: reference)
             }
 

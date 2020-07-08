@@ -36,12 +36,10 @@ extension UIImage {
 
     private func scaleToFill(_ rect: CGRect) -> UIImage {
         let newSize = size.aspectFill(rect.size)
-        let newOrigin = CGPoint(x: (newSize.width - rect.width) / 2.0, y: (newSize.height - rect.height) / 2.0)
-
         let renderer = UIGraphicsImageRenderer(size: newSize)
 
         return renderer.image { (context) in
-            draw(in: CGRect(origin: newOrigin, size: newSize))
+            draw(in: CGRect(origin: .zero, size: newSize))
         }
     }
 }

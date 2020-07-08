@@ -9,7 +9,7 @@
 import UIKit
 
 /// Draws a gradient that resizes with Auto Layout changes.
-class GradientView: UIView {
+class ResizingLayerView: UIView {
 
     private let gradient: CAGradientLayer = CAGradientLayer()
 

@@ -31,7 +31,7 @@ class ServicesProvider {
 
         let imageCacheDecoder = JSONDecoder()
         imageCacheDecoder.userInfo = [.maximumCacheEntryCount: Int.maximumThumbnailCacheEntryCount]
-        let imageDataCache = (try? ImageDataCache.load(fromName: .thumbnailCacheName, decoder: imageCacheDecoder)) ?? ImageDataCache(maximumEntryCount: .maximumThumbnailCacheEntryCount)
+        let imageDataCache = (try? ImageDataCache.loadFromDisk(withName: .thumbnailCacheName, decoder: imageCacheDecoder)) ?? ImageDataCache(maximumEntryCount: .maximumThumbnailCacheEntryCount)
 
         return Self.init(
             apiCache: apiCache,

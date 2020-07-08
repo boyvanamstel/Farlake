@@ -14,22 +14,6 @@ protocol URLCaching {
     var urlCache: URLCache { get }
 }
 
-// MARK: - Image cache
-
-struct ImageCacheReference: Hashable, Codable {
-    let url: URL
-
-    // CGSize does not conform to Hashable
-    let width: CGFloat
-    let height: CGFloat
-}
-
-typealias ImageDataCache = Cache<ImageCacheReference, Data>
-
-protocol ImageCaching {
-    var dataCache: ImageDataCache { get }
-}
-
 // Based on https://www.swiftbysundell.com/articles/caching-in-swift/
 
 final class Cache<Key: Hashable, Value> {
@@ -166,7 +150,7 @@ extension Cache where Key: Codable, Value: Codable {
         try data.write(to: fileURL)
     }
 
-    static func load(fromName name: String, using fileManager: FileManager = .default, decoder: JSONDecoder = .init()) throws -> Self {
+    static func loadFromDisk(withName name: String, using fileManager: FileManager = .default, decoder: JSONDecoder = .init()) throws -> Self {
         let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
         let fileURL = folderURLs[0].appendingPathComponent(.thumbnailCacheName + ".cache")
 

@@ -48,7 +48,7 @@ extension ImageFetcher: ImageFetching {
         }
 
         // Return cached thumbnail if it exists
-        let reference = ImageCacheReference(url: url, width: size.width, height: size.height)
+        let reference = ImageCacheKey(url: url, width: size.width, height: size.height)
         if let cachedImage = dataCache[reference] {
             completion(UIImage(data: cachedImage))
             return nil
@@ -61,7 +61,7 @@ extension ImageFetcher: ImageFetching {
             }
 
             let thumbnail = image.resize(using: .scaleToFill, in: CGRect(size))
-            let reference = ImageCacheReference(url: url, width: size.width, height: size.height)
+            let reference = ImageCacheKey(url: url, width: size.width, height: size.height)
             // Store thumbnail in cache
             if let data = thumbnail.pngData() {
                 self.dataCache.insert(data, forKey: reference)

@@ -54,6 +54,7 @@
 		B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93924B4738C0065BF06 /* CGSize+Helpers.swift */; };
 		B5CBB93D24B47DC20065BF06 /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93C24B47DC20065BF06 /* CacheTests.swift */; };
 		B5CBB93F24B5B3F40065BF06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93E24B5B3F40065BF06 /* Constants.swift */; };
+		B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94024B5E96A0065BF06 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		B5CBB93924B4738C0065BF06 /* CGSize+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Helpers.swift"; sourceTree = "<group>"; };
 		B5CBB93C24B47DC20065BF06 /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
 		B5CBB93E24B5B3F40065BF06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B5CBB94024B5E96A0065BF06 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -462,6 +464,7 @@
 			isa = PBXGroup;
 			children = (
 				B5CBB91824B3CE230065BF06 /* Cache.swift */,
+				B5CBB94024B5E96A0065BF06 /* ImageCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
 				B5CBB92B24B3E4980065BF06 /* SettingsViewController.swift in Sources */,
+				B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */,
 				B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
 				B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */,

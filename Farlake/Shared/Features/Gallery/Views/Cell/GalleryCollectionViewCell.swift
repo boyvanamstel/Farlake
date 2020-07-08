@@ -27,11 +27,10 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
 
         layoutElements()
+        configureFonts()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -57,8 +56,15 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
 
     private let titleField = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.textAlignment = .center
+        $0.lineBreakMode = .byTruncatingTail
+        $0.textColor = .white
     }
+
+    private let titleContainerView = with(GradientView(startColor: UIColor.black.withAlphaComponent(0.0), endColor: UIColor.black.withAlphaComponent(0.8))) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.clipsToBounds = true
+    }
+
     private let imageView = with(UIImageView()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
@@ -69,19 +75,38 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
 
     private func layoutElements() {
         contentView.addSubview(imageView)
-        imageView.pin(to: self, constraints: [
+        imageView.pin(to: contentView, constraints: [
             equal(\.leadingAnchor),
             equal(\.trailingAnchor),
             equal(\.topAnchor),
             equal(\.bottomAnchor)
         ])
 
-        contentView.addSubview(titleField)
-        titleField.pin(to: self, constraints: [
+        contentView.addSubview(titleContainerView)
+        titleContainerView.pin(to: contentView, constraints: [
             equal(\.leadingAnchor),
             equal(\.trailingAnchor),
             equal(\.bottomAnchor)
         ])
+
+        titleContainerView.addSubview(titleField)
+        titleField.pin(to: titleContainerView, constraints: [
+            equal(\.leadingAnchor, constant: 10.0),
+            equal(\.trailingAnchor, constant: -10.0),
+            equal(\.topAnchor, constant: 30.0),
+            equal(\.bottomAnchor, constant: -10.0)
+        ])
     }
 
+    // MARK: - Accessibility
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        configureFonts()
+    }
+
+    private func configureFonts() {
+        titleField.font = .preferredFont(forTextStyle: .title3)
+    }
 }

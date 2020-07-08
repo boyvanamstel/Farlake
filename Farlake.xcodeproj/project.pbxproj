@@ -55,6 +55,7 @@
 		B5CBB93D24B47DC20065BF06 /* CacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93C24B47DC20065BF06 /* CacheTests.swift */; };
 		B5CBB93F24B5B3F40065BF06 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93E24B5B3F40065BF06 /* Constants.swift */; };
 		B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94024B5E96A0065BF06 /* ImageCache.swift */; };
+		B5CBB94724B5F4360065BF06 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94624B5F4360065BF06 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		B5CBB93C24B47DC20065BF06 /* CacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheTests.swift; sourceTree = "<group>"; };
 		B5CBB93E24B5B3F40065BF06 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B5CBB94024B5E96A0065BF06 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		B5CBB94624B5F4360065BF06 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,7 @@
 				B585787D24B09FB000640B01 /* Models */,
 				B585786C24B077D700640B01 /* Utilities */,
 				B58578A324B31B3D00640B01 /* Services */,
+				B5CBB94424B5F4220065BF06 /* Components */,
 				B585785624B05E9800640B01 /* Features */,
 				B585785424B05E6200640B01 /* Resources */,
 				B585785A24B063FA00640B01 /* Base */,
@@ -520,6 +523,22 @@
 			path = Cache;
 			sourceTree = "<group>";
 		};
+		B5CBB94424B5F4220065BF06 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB94524B5F42C0065BF06 /* Gradient View */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B5CBB94524B5F42C0065BF06 /* Gradient View */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB94624B5F4360065BF06 /* GradientView.swift */,
+			);
+			path = "Gradient View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -669,6 +688,7 @@
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
+				B5CBB94724B5F4360065BF06 /* GradientView.swift in Sources */,
 				B585786E24B077E600640B01 /* UIStoryboard+Helpers.swift in Sources */,
 				B5CBB93624B471C00065BF06 /* UIImage+Helpers.swift in Sources */,
 				B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */,

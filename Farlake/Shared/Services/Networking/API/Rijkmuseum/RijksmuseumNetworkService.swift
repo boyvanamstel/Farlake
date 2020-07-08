@@ -9,6 +9,9 @@
 import Foundation
 
 struct RijksmuseumEndpoint {
+    static let baseURL = URL(string: "https://www.rijksmuseummm.nl/api/nl")! // TODO: Add support for /en endpoint
+    static let collectionURL = Self.baseURL.appendingPathComponent("collection")
+
     /// Create a collection resource based on the supplied query.
     /// - Parameters:
     ///   -  query: The keyword(s) to search for.
@@ -17,7 +20,7 @@ struct RijksmuseumEndpoint {
     /// - Parameter    /// - Throws: Throws `ResourceError` on invalid response.
     /// - Returns: Returns the fetchable resource.
     static func collection(query: String, page: Int = 0, itemsPerPage: Int = 100) throws -> Resource<Collection> {
-        let url = APIConstants.collectionURL
+        let url = Self.collectionURL
         let parameters: [String : CustomStringConvertible] = [
             "key": SecretConstants.apiKey,
             "q": query,
@@ -51,7 +54,7 @@ class RijksmuseumNetworkService: NetworkService, URLCaching {
 class MockRijksmuseumNetworkService: NetworkService {
     let session = URLSession.shared
 
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Object?) -> ()) -> URLSessionDataTask? {
+    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Result<Object, Error>) -> ()) -> URLSessionDataTask? {
         switch resource {
         case is Resource<Collection>:
             let collection = Collection(items: [
@@ -72,7 +75,7 @@ class MockRijksmuseumNetworkService: NetworkService {
                                                              url: URL(string: "https://www.example.com/2.jpg")!)
                 )
             ])
-            completion(collection as? Object)
+            completion(.success(collection as! Object))
         default:
             break
         }

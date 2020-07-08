@@ -31,7 +31,6 @@
 		B585789E24B30FFF00640B01 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585789D24B30FFF00640B01 /* MainCoordinator.swift */; };
 		B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A424B31C3400640B01 /* ServicesProvider.swift */; };
 		B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A924B31E9800640B01 /* SecretConstants.swift */; };
-		B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AD24B31F4800640B01 /* APIConstants.swift */; };
 		B58578B024B3292100640B01 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578AF24B3292100640B01 /* Collection.swift */; };
 		B58578B324B32C8F00640B01 /* collection-vermeer.json in Resources */ = {isa = PBXBuildFile; fileRef = B58578B224B32C8F00640B01 /* collection-vermeer.json */; };
 		B58578B824B32CF000640B01 /* CollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578B724B32CF000640B01 /* CollectionTests.swift */; };
@@ -109,7 +108,6 @@
 		B58578A124B315CE00640B01 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		B58578A424B31C3400640B01 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
 		B58578A924B31E9800640B01 /* SecretConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretConstants.swift; sourceTree = "<group>"; };
-		B58578AD24B31F4800640B01 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		B58578AF24B3292100640B01 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		B58578B224B32C8F00640B01 /* collection-vermeer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "collection-vermeer.json"; sourceTree = "<group>"; };
 		B58578B724B32CF000640B01 /* CollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTests.swift; sourceTree = "<group>"; };
@@ -417,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				B58578A924B31E9800640B01 /* SecretConstants.swift */,
-				B58578AD24B31F4800640B01 /* APIConstants.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -707,7 +704,6 @@
 				B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */,
 				B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
-				B58578AE24B31F4800640B01 /* APIConstants.swift in Sources */,
 				B585782024B05B7100640B01 /* SceneDelegate.swift in Sources */,
 				B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */,
 			);

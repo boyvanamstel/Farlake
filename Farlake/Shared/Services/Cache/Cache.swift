@@ -68,7 +68,7 @@ private extension Cache {
 // MARK: - Cache entry
 
 private extension Cache {
-    final class Entry {
+    final class Entry: NSObject, NSDiscardableContent {
         let key: Key
         let value: Value
 
@@ -76,6 +76,14 @@ private extension Cache {
             self.key = key
             self.value = value
         }
+
+        // Keep entries around after entering background state
+        // by overriding NSDiscardableContent
+        func beginContentAccess() -> Bool { true }
+        func endContentAccess() {}
+        func discardContentIfPossible() {}
+        func isContentDiscarded() -> Bool { false }
+
     }
 }
 extension Cache.Entry: Codable where Key: Codable, Value: Codable {}

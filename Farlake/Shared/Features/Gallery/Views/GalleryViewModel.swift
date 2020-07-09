@@ -19,6 +19,8 @@ class GalleryViewModel {
     private  let servicesProvider: ServicesProvider
     private var apiService: NetworkService { servicesProvider.apiService }
 
+    private var dataTask: URLSessionDataTask?
+
     // MARK: - Bindings
 
     @Published var items = [Artwork]()
@@ -36,18 +38,24 @@ class GalleryViewModel {
 
     // MARK: - Item fetching
 
+    private let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
+
     private func loadItems() {
-        let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
         fetch(resource: resource)
     }
 
     func updateItems() {
-        loadItems()
+        var resource = self.resource
+        // Force to flush cache
+        resource.request.cachePolicy = .reloadRevalidatingCacheData
+
+        fetch(resource: resource)
     }
 
     private func fetch(resource: Resource<Collection>) {
         state = .loading
-        _ = apiService.load(resource) { [weak self] result in
+
+        dataTask = apiService.load(resource) { [weak self] result in
             switch result {
             case .success(let collection):
                 self?.items = collection.items
@@ -58,6 +66,12 @@ class GalleryViewModel {
                 self?.state = .error(error)
             }
         }
+    }
+
+    func cancelUpdate() {
+        dataTask?.cancel()
+
+        state = .idle
     }
 
     // MARK: - Artwork

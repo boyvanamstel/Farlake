@@ -44,7 +44,7 @@ final class GalleryViewController: UICollectionViewController {
             .subscribe(on: DispatchQueue.global(qos: .userInitiated))
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {
-                self.update(items: $0, withAnimation: true)
+                self.append(items: $0, withAnimation: true)
             })
             .store(in: &cancelBag)
 
@@ -52,16 +52,20 @@ final class GalleryViewController: UICollectionViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {
                 switch $0 {
+                case .idle: self.didBecomeIdle()
                 case .loading: self.didStartLoading()
                 case .ready: self.didBecomeReady()
                 case .error(let error): self.present(error: error)
-                default: break
                 }
             })
             .store(in: &cancelBag)
     }
 
     // MARK: - State
+
+    private func didBecomeIdle() {
+        refreshControl.endRefreshing()
+    }
 
     private func didStartLoading() {
         refreshControl.beginRefreshing()
@@ -129,7 +133,7 @@ final class GalleryViewController: UICollectionViewController {
     typealias SnapShot = NSDiffableDataSourceSnapshot<Section, Artwork>
 
     /// Use the diffable data source to automatically insert and remove items.
-    private func update(items: [Artwork], withAnimation: Bool) {
+    private func append(items: [Artwork], withAnimation: Bool) {
         var snapshot = SnapShot()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)
@@ -151,7 +155,9 @@ final class GalleryViewController: UICollectionViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("alert.retry.title", comment: "The retry button title."), style: .default) { _ in
             self.viewModel?.updateItems()
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.cancel.title", comment: "The cancel button title."), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.cancel.title", comment: "The cancel button title."), style: .cancel) { _ in
+            self.viewModel?.cancelUpdate()
+        })
 
         present(alert, animated: true)
     }

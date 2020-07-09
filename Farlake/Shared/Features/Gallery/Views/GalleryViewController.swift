@@ -100,6 +100,9 @@ final class GalleryViewController: UICollectionViewController {
     // MARK: - Navigation bar
 
     private func configureNavigationBar() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+
+        navigationItem.title = .galleryQuery
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(showSettings))
     }
 

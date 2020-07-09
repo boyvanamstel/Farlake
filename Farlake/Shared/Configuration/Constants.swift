@@ -18,6 +18,8 @@ extension Int {
 
 extension String {
     static let thumbnailCacheName = "ThumbnailData"
+
+    static let galleryQuery = "Johannes Vermeer"
 }
 
 extension CodingUserInfoKey {

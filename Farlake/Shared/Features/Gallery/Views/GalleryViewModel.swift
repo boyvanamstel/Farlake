@@ -38,7 +38,7 @@ class GalleryViewModel {
 
     // MARK: - Item fetching
 
-    private let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
+    private let resource = try! RijksmuseumEndpoint.collection(query: .galleryQuery)
 
     private func loadItems() {
         fetch(resource: resource)

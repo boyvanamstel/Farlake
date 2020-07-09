@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// A workaround for the scene delegate.
+/// A workaround for injecting dependencies into the scene delegates.
 extension UISceneSession {
     private struct AssociatedKeys {
         static var servicesProvider = "ServicesProvider"

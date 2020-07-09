@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+GREEN="\033[0;32m"
+YELLOW="\033[0;33m"
+BLUE="\033[0;34m"
+NC="\033[0m"
+
+# Create SecretConstants.swift
+INPUT="$PWD/Farlake/Shared/Configuration/SecretConstants-example.swift"
+OUTPUT="$PWD/Farlake/Shared/Configuration/SecretConstants.swift"
+if [ ! -f $OUTPUT ]; then
+    cp $INPUT $OUTPUT
+    echo -e ""
+    echo -e "${YELLOW}SecretConstants.swift${NC} created successfully!"
+    echo -e ""
+    echo -e "Get an API key at ${BLUE}https://data.rijksmuseum.nl${NC}."
+    echo -e ""
+    echo -e "Then run the project in ${BLUE}Xcode${NC}."
+    echo -e ""
+fi
+
+echo -e "${GREEN}Done${NC}."

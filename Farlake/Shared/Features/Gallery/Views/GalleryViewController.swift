@@ -6,7 +6,7 @@
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 import Combine
 
 /// Can be added to a UIResponder that knows how to refresh the gallery.
@@ -119,6 +119,14 @@ final class GalleryViewController: UICollectionViewController {
       case main
     }
 
+    // MARK: Empty state
+
+    private lazy var emptyViewController = UIHostingController(rootView: GalleryEmptyView())
+
+    private func showEmptyStateIfNecessary() {
+        collectionView.backgroundView = dataSource.snapshot().numberOfItems > 0 ? nil : emptyViewController.view
+    }
+
     // MARK: Data source
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Artwork>
@@ -150,6 +158,8 @@ final class GalleryViewController: UICollectionViewController {
         snapshot.appendItems(items)
 
         dataSource.apply(snapshot, animatingDifferences: withAnimation)
+
+        showEmptyStateIfNecessary()
     }
 
     // MARK: - Actions

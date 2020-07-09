@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class MainSceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
@@ -40,7 +40,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private func launchApp(with window: UIWindow, servicesProvider: ServicesProvider) {
         let navigationController = UINavigationController()
 
-        sceneCoordinator = SceneCoordinator(
+        sceneCoordinator = MainSceneCoordinator(
             navigationController: navigationController,
             window: window,
             servicesProvider: servicesProvider

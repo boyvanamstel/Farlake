@@ -30,9 +30,9 @@
 			<array>
 				<dict>
 					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
+					<string>Main Configuration</string>
 					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<string>$(PRODUCT_MODULE_NAME).MainSceneDelegate</string>
 				</dict>
                 <dict>
                     <key>UISceneConfigurationName</key>

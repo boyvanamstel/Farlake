@@ -13,7 +13,7 @@ extension NSToolbarItem.Identifier {
     static let refreshButtonIdentifier = NSToolbarItem.Identifier(rawValue: "RefreshButton")
 }
 
-extension SceneDelegate {
+extension MainSceneDelegate {
     func configureTitleBar(with windowScene: UIWindowScene) {
         if let titlebar = windowScene.titlebar {
             let toolbar = NSToolbar(identifier: "MainToolbar")
@@ -35,7 +35,7 @@ extension SceneDelegate {
     }
 }
 
-extension SceneDelegate: NSToolbarDelegate {
+extension MainSceneDelegate: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
         return [.flexibleSpace, .refreshButtonIdentifier]
     }

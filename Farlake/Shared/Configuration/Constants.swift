@@ -13,7 +13,7 @@ extension CGSize {
 
     #if targetEnvironment(macCatalyst)
     static let mainWindowMinimumSize = CGSize(width: 640.0, height: 768.0)
-    static let settingsWindowSize = CGSize(width: 512.0, height: 768.0)
+    static let settingsWindowMinimumSize = CGSize(width: 512.0, height: 768.0)
     #endif
 }
 

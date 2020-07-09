@@ -20,9 +20,7 @@ class CatalystSettingsCoordinator: Coordinator {
     // MARK: - Object lifecycle
 
     init(windowScene: UIWindowScene, servicesProvider: ServicesProvider) {
-        let windowSize: CGSize = .settingsWindowSize
-        windowScene.sizeRestrictions?.minimumSize = windowSize
-        windowScene.sizeRestrictions?.maximumSize = windowSize
+        windowScene.sizeRestrictions?.minimumSize = .settingsWindowMinimumSize
 
         self.window = UIWindow(windowScene: windowScene)
         self.servicesProvider = servicesProvider

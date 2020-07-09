@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585781D24B05B7100640B01 /* AppDelegate.swift */; };
-		B585782024B05B7100640B01 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585781F24B05B7100640B01 /* SceneDelegate.swift */; };
+		B585782024B05B7100640B01 /* MainSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585781F24B05B7100640B01 /* MainSceneDelegate.swift */; };
 		B585782724B05B7400640B01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B585782624B05B7400640B01 /* Assets.xcassets */; };
 		B585782A24B05B7400640B01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B585782824B05B7400640B01 /* LaunchScreen.storyboard */; };
 		B585785C24B0640500640B01 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785B24B0640500640B01 /* Coordinator.swift */; };
-		B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785D24B0642200640B01 /* SceneCoordinator.swift */; };
+		B585785E24B0642200640B01 /* MainSceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585785D24B0642200640B01 /* MainSceneCoordinator.swift */; };
 		B585786124B06B8200640B01 /* XCUIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786024B06B8200640B01 /* XCUIApplication+Helpers.swift */; };
 		B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786324B0724B00640B01 /* GalleryViewController.swift */; };
 		B585786B24B0741F00640B01 /* GalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B585786A24B0741F00640B01 /* GalleryUITests.swift */; };
@@ -51,7 +51,7 @@
 		B5CBB94C24B6F7D60065BF06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB94B24B6F7D60065BF06 /* Localizable.strings */; };
 		B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */; };
 		B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */; };
-		B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */; };
+		B5CBB95824B70EEE0065BF06 /* MainSceneDelegate+Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95724B70EEE0065BF06 /* MainSceneDelegate+Catalyst.swift */; };
 		B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95924B7383E0065BF06 /* SettingsView.swift */; };
 		B5CBB95C24B739450065BF06 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */; };
 		B5CBB95E24B7A3550065BF06 /* UISceneSession+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95D24B7A3550065BF06 /* UISceneSession+Helpers.swift */; };
@@ -77,7 +77,7 @@
 /* Begin PBXFileReference section */
 		B585781A24B05B7100640B01 /* Farlake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farlake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B585781D24B05B7100640B01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B585781F24B05B7100640B01 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B585781F24B05B7100640B01 /* MainSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneDelegate.swift; sourceTree = "<group>"; };
 		B585782624B05B7400640B01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B585782924B05B7400640B01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B585782B24B05B7400640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		B585784124B05B7500640B01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B585784E24B05D4300640B01 /* Farlake.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Farlake.entitlements; sourceTree = "<group>"; };
 		B585785B24B0640500640B01 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		B585785D24B0642200640B01 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		B585785D24B0642200640B01 /* MainSceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSceneCoordinator.swift; sourceTree = "<group>"; };
 		B585786024B06B8200640B01 /* XCUIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		B585786324B0724B00640B01 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		B585786A24B0741F00640B01 /* GalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryUITests.swift; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		B5CBB94B24B6F7D60065BF06 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
 		B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSettingsCoordinator.swift; sourceTree = "<group>"; };
-		B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Catalyst.swift"; sourceTree = "<group>"; };
+		B5CBB95724B70EEE0065BF06 /* MainSceneDelegate+Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainSceneDelegate+Catalyst.swift"; sourceTree = "<group>"; };
 		B5CBB95924B7383E0065BF06 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		B5CBB95D24B7A3550065BF06 /* UISceneSession+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISceneSession+Helpers.swift"; sourceTree = "<group>"; };
@@ -252,10 +252,9 @@
 			isa = PBXGroup;
 			children = (
 				B585781D24B05B7100640B01 /* AppDelegate.swift */,
-				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
-				B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */,
-				B585785D24B0642200640B01 /* SceneCoordinator.swift */,
 				B585787B24B0971500640B01 /* TestCoordinator.swift */,
+				B585785D24B0642200640B01 /* MainSceneCoordinator.swift */,
+				B585781F24B05B7100640B01 /* MainSceneDelegate.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -531,7 +530,8 @@
 		B5CBB95624B70EE00065BF06 /* System */ = {
 			isa = PBXGroup;
 			children = (
-				B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */,
+				B5CBB95724B70EEE0065BF06 /* MainSceneDelegate+Catalyst.swift */,
+				B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -695,17 +695,17 @@
 				B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */,
 				B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
-				B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */,
+				B585785E24B0642200640B01 /* MainSceneCoordinator.swift in Sources */,
 				B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */,
 				B5CBB93F24B5B3F40065BF06 /* Constants.swift in Sources */,
 				B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */,
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
-				B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */,
+				B5CBB95824B70EEE0065BF06 /* MainSceneDelegate+Catalyst.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
 				B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */,
 				B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
-				B585782024B05B7100640B01 /* SceneDelegate.swift in Sources */,
+				B585782024B05B7100640B01 /* MainSceneDelegate.swift in Sources */,
 				B585789B24B30E0300640B01 /* GalleryCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

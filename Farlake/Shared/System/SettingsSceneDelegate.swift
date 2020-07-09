@@ -22,13 +22,13 @@ class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
-        launchSettings(with: windowScene)
+        launchSettings(with: windowScene, servicesProvider: session.servicesProvider)
     }
 
-    private func launchSettings(with windowScene: UIWindowScene) {
+    private func launchSettings(with windowScene: UIWindowScene, servicesProvider: ServicesProvider) {
         settingsCoordinator = CatalystSettingsCoordinator(
             windowScene: windowScene,
-            servicesProvider: ServicesProvider.default
+            servicesProvider: servicesProvider
         )
         settingsCoordinator?.start()
     }

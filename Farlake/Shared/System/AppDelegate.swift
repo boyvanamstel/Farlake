@@ -11,13 +11,38 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - App dependencies
+
+    private let defaultServicesProvider = ServicesProvider.createDefaultProvider()
+    #if DEBUG
+    private let uiTestServicesProvider = ServicesProvider.createUITestProvider()
+    #endif
+
+    private var servicesProvider: ServicesProvider {
+        #if DEBUG
+        if CommandLine.arguments.contains("-ui-testing") {
+            return uiTestServicesProvider
+        }
+        #endif
+
+        return defaultServicesProvider
+    }
+
+    // MARK: - App lifecycle
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Pass services provider to cached sessions
+        application.openSessions.forEach { $0.servicesProvider = servicesProvider }
+
         return true
     }
 
     // MARK: - UISceneSession lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        // Pass depedencies
+        connectingSceneSession.servicesProvider = servicesProvider
+
         if options.userActivities.first?.activityType == NSUserActivity.settingsActivity.activityType {
             return UISceneConfiguration(name: "Settings Configuration", sessionRole: connectingSceneSession.role)
         }

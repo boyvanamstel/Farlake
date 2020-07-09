@@ -29,27 +29,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         #if DEBUG
         if CommandLine.arguments.contains("-ui-testing") {
-            uiTestApp(with: window)
+            uiTestApp(with: window, servicesProvider: session.servicesProvider)
             return
         }
         #endif
 
-        launchApp(with: window)
+        launchApp(with: window, servicesProvider: session.servicesProvider)
     }
 
-    private func launchApp(with window: UIWindow) {
+    private func launchApp(with window: UIWindow, servicesProvider: ServicesProvider) {
         let navigationController = UINavigationController()
 
         sceneCoordinator = SceneCoordinator(
             navigationController: navigationController,
             window: window,
-            servicesProvider: ServicesProvider.default
+            servicesProvider: servicesProvider
         )
         sceneCoordinator?.start()
     }
 
     #if DEBUG
-    private func uiTestApp(with window: UIWindow) {
+    private func uiTestApp(with window: UIWindow, servicesProvider: ServicesProvider) {
         // CommandLine.arguments are parsed into UserDefaults
         guard let entryPointString = UserDefaults.standard.string(forKey: "entry-point"),
             let entryPoint = TestCoordinator.EntryPoint(rawValue: entryPointString) else {
@@ -59,7 +59,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         sceneCoordinator = TestCoordinator(
             window: window,
             entryPoint: entryPoint,
-            servicesProvider: ServicesProvider.uiTesting
+            servicesProvider: servicesProvider
         )
         sceneCoordinator?.start()
     }

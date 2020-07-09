@@ -17,8 +17,9 @@ class ServicesProvider {
     let imageDataCache: ImageDataCache
     let imageFetcher: ImageFetchingNetworkService
 
-    // Returns the default services provider, with a reasonable cache.
-    static var `default`: Self {
+    /// Returns the default services provider, with a reasonable cache.
+    /// - Returns: An new instace of the provider with the default services.
+    static func createDefaultProvider() -> Self {
         let apiCache = URLCache(
             memoryCapacity: NetworkConstants.apiCacheCapacity.memoryCapacity,
             diskCapacity: NetworkConstants.apiCacheCapacity.diskCapacity
@@ -42,7 +43,7 @@ class ServicesProvider {
         )
     }
 
-    static var uiTesting: Self {
+    static func createUITestProvider() -> Self {
         return Self.init(
             apiCache: URLCache(),
             apiService: MockRijksmuseumNetworkService(),

@@ -16,7 +16,7 @@ final class TestCoordinator: Coordinator {
 
     /// Views or states to load directly.
     enum EntryPoint: String {
-        case main, gallery
+        case gallery
     }
 
     private let window: UIWindow
@@ -41,17 +41,11 @@ final class TestCoordinator: Coordinator {
 
         // Show view based on entry point
         switch entryPoint {
-        case .main: showMain()
         case .gallery: showGallery()
         }
     }
 
     // MARK: - Views
-
-    private func showMain() {
-        let viewController = UIStoryboard.instantiateMainViewController(delegate: self)
-        window.rootViewController = viewController
-    }
 
     private func showGallery() {
         let viewController = GalleryViewController(collectionViewLayout: .galleryLayout)
@@ -66,8 +60,4 @@ final class TestCoordinator: Coordinator {
 extension TestCoordinator: SceneCoordinating {
     func willEnterForeground() {}
     func didEnterBackground() {}
-}
-
-extension TestCoordinator: MainViewControllerDelegate {
-    func didFinish() {}
 }

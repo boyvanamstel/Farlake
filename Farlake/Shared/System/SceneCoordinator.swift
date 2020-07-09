@@ -41,18 +41,10 @@ final class SceneCoordinator: Coordinator {
         navigationController.setNavigationBarHidden(true, animated: false)
         #endif
 
-        showMain()
+        showGallery()
     }
 
     // MARK: - Views
-
-    private func showMain() {
-        let mainCoordinator = MainCoordinator(navigationController: navigationController)
-        mainCoordinator.delegate = self
-        addChildCoordinator(mainCoordinator)
-
-        mainCoordinator.start()
-    }
 
     private func showGallery() {
         let galleryCoordinator = GalleryCoordinator(
@@ -84,8 +76,6 @@ extension SceneCoordinator: CoordinatorDelegate {
     func didFinish(from coordinator: Coordinator) {
 
         switch coordinator {
-        case is MainCoordinator:
-            showGallery()
         default:
             break
         }

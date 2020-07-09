@@ -24,7 +24,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
     private var image: UIImage? {
         didSet {
             // Dramatic effect
-            UIView.transition(with: imageView, duration: image == nil ? 0.0 : 0.5, options: .transitionCrossDissolve, animations: {
+            UIView.transition(with: imageView, duration: image == nil ? 0.0 : 0.25, options: .transitionCrossDissolve, animations: {
                 self.imageView.image = self.image
             }, completion: nil)
         }

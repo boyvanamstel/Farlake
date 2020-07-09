@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Farlake
+
+  Created by Boy van Amstel on 09/07/2020.
+  Copyright © 2020 Boy van Amstel. All rights reserved.
+*/
+
+"network-service-error.unknown" = "An unknown network service error occured.";
+"network-service-error.unexpected-response" = "The network service returned an unexpected response.";
+"network-service-error.parse-error" = "The network service returned a response that couldn't be interpreted.";
+
+"alert.retry.title" = "Retry";
+"alert.cancel.title" = "Cancel";

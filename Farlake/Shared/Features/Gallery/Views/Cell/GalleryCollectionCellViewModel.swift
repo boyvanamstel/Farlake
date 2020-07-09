@@ -43,7 +43,11 @@ class GalleryCollectionViewCellViewModel {
 
         let request = URLRequest(url: url)
         let resource = Resource<UIImage>(request: request)
-        dataTask = imageFetcher.loadThumbnail(resource, size: .galleryThumbnailSize) { [weak self] image in
+        dataTask = imageFetcher.loadThumbnail(resource, size: .galleryThumbnailSize) { [weak self] result in
+            guard case .success(let image) = result else {
+                self?.image = UIImage(systemName: "exclamationmark.triangle")?.withTintColor(.black, renderingMode: .alwaysOriginal)
+                return
+            }
             self?.image = image
         }
     }

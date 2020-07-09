@@ -47,6 +47,28 @@ final class GalleryViewController: UICollectionViewController {
                 self.update(items: $0, withAnimation: true)
             })
             .store(in: &cancelBag)
+
+        viewModel?.$state
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: {
+                switch $0 {
+                case .loading: self.didStartLoading()
+                case .ready: self.didBecomeReady()
+                case .error(let error): self.present(error: error)
+                default: break
+                }
+            })
+            .store(in: &cancelBag)
+    }
+
+    // MARK: - State
+
+    private func didStartLoading() {
+        refreshControl.beginRefreshing()
+    }
+
+    private func didBecomeReady() {
+        refreshControl.endRefreshing()
     }
 
     // MARK: - Collection view
@@ -59,7 +81,6 @@ final class GalleryViewController: UICollectionViewController {
         collectionView.accessibilityLabel = "Gallery"
 
         collectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier)
-
         collectionView.dataSource = dataSource
 
         collectionView.backgroundColor = .systemBackground
@@ -112,15 +133,27 @@ final class GalleryViewController: UICollectionViewController {
         var snapshot = SnapShot()
         snapshot.appendSections([.main])
         snapshot.appendItems(items)
-        dataSource.apply(snapshot, animatingDifferences: withAnimation)
 
-        refreshControl.endRefreshing()
+        dataSource.apply(snapshot, animatingDifferences: withAnimation)
     }
 
     // MARK: - Actions
 
     @objc private func updateItems(_ sender: UIRefreshControl) {
         viewModel?.updateItems()
+    }
+
+    // MARK: - Error
+
+    private func present(error: Error) {
+        // Using an alert to make it fit in better on Catalyst
+        let alert = UIAlertController(title: "Failed to Load Gallery", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.retry.title", comment: "The retry button title."), style: .default) { _ in
+            self.viewModel?.updateItems()
+        })
+        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.cancel.title", comment: "The cancel button title."), style: .cancel, handler: nil))
+
+        present(alert, animated: true)
     }
 
 }

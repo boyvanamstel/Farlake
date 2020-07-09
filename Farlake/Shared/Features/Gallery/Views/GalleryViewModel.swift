@@ -9,12 +9,20 @@
 import UIKit
 
 class GalleryViewModel {
+    enum State {
+        case idle
+        case loading
+        case ready
+        case error(Error)
+    }
+
     private  let servicesProvider: ServicesProvider
     private var apiService: NetworkService { servicesProvider.apiService }
 
     // MARK: - Bindings
 
     @Published var items = [Artwork]()
+    @Published var state: State = .idle
 
     // MARK: - Object lifecycle
 
@@ -34,12 +42,17 @@ class GalleryViewModel {
     }
 
     private func fetch(resource: Resource<Collection>) {
-        _ = apiService.load(resource) { [weak self] collection in
-            let artworks: [Artwork]? = collection?.items
-                .compactMap { .init(item: $0) }
-                .filter { $0.imageURL != nil } // Filter items without image
-
-            self?.items = artworks ?? []
+        state = .loading
+        _ = apiService.load(resource) { [weak self] result in
+            switch result {
+            case .success(let collection):
+                self?.items = collection.items
+                    .compactMap { .init(item: $0) }
+                    .filter { $0.imageURL != nil } // Filter items without image
+                self?.state = .ready
+            case .failure(let error):
+                self?.state = .error(error)
+            }
         }
     }
 

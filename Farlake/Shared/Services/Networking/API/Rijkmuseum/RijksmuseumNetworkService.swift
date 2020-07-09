@@ -8,8 +8,18 @@
 
 import Foundation
 
+extension Locale {
+    /// Returns the current languageCode, defaulting to nl when nil
+    var endpointLanguageCode: String { languageCode ?? "nl" }
+}
+
 struct RijksmuseumEndpoint {
-    static let baseURL = URL(string: "https://www.rijksmuseummm.nl/api/nl")! // TODO: Add support for /en endpoint
+    enum EndpointLocale: String {
+        case en
+        case nl
+    }
+
+    static let baseURL = URL(string: "https://www.rijksmuseum.nl/api/\(EndpointLocale(rawValue: Locale.current.endpointLanguageCode) ?? .nl)")!
     static let collectionURL = Self.baseURL.appendingPathComponent("collection")
 
     /// Create a collection resource based on the supplied query.

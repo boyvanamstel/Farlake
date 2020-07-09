@@ -23,3 +23,7 @@ extension String {
 extension CodingUserInfoKey {
     static let maximumCacheEntryCount = CodingUserInfoKey(rawValue: "MaximumCacheEntryCount")!
 }
+
+extension NSUserActivity {
+    static let settingsActivity = NSUserActivity(activityType: "Settings")
+}

@@ -56,6 +56,8 @@
 		B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94024B5E96A0065BF06 /* ImageCache.swift */; };
 		B5CBB94724B5F4360065BF06 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94624B5F4360065BF06 /* GradientView.swift */; };
 		B5CBB94C24B6F7D60065BF06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB94B24B6F7D60065BF06 /* Localizable.strings */; };
+		B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */; };
+		B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		B5CBB94024B5E96A0065BF06 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		B5CBB94624B5F4360065BF06 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		B5CBB94B24B6F7D60065BF06 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
+		B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSettingsCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,7 @@
 		B585785024B05D4F00640B01 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB94F24B6FEED0065BF06 /* System */,
 				B585785224B05E3F00640B01 /* Resources */,
 			);
 			path = macOS;
@@ -253,9 +258,9 @@
 			children = (
 				B585781D24B05B7100640B01 /* AppDelegate.swift */,
 				B585781F24B05B7100640B01 /* SceneDelegate.swift */,
+				B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */,
 				B585785D24B0642200640B01 /* SceneCoordinator.swift */,
 				B585787B24B0971500640B01 /* TestCoordinator.swift */,
-				B5CBB93E24B5B3F40065BF06 /* Constants.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 		B58578A824B31E7000640B01 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB93E24B5B3F40065BF06 /* Constants.swift */,
 				B58578A924B31E9800640B01 /* SecretConstants.swift */,
 			);
 			path = Configuration;
@@ -537,6 +543,14 @@
 				B5CBB94624B5F4360065BF06 /* GradientView.swift */,
 			);
 			path = "Gradient View";
+			sourceTree = "<group>";
+		};
+		B5CBB94F24B6FEED0065BF06 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -686,6 +700,7 @@
 				B5CBB93824B473520065BF06 /* CGRect+Helpers.swift in Sources */,
 				B5CBB93024B3E52D0065BF06 /* MainViewController.swift in Sources */,
 				B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */,
+				B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */,
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
@@ -697,6 +712,7 @@
 				B585789524B0F1FE00640B01 /* AutoLayout+Helpers.swift in Sources */,
 				B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */,
 				B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */,
+				B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
 				B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */,
 				B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */,

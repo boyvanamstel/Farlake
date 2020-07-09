@@ -41,11 +41,15 @@ class GalleryCoordinator: Coordinator {
     }
 
     func showSettings() {
+        #if targetEnvironment(macCatalyst)
+        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: .settingsActivity, options: nil, errorHandler: nil)
+        #else
         let settingsCoordinator = SettingsCoordinator(navigationController: navigationController, servicesProvider: servicesProvider)
         settingsCoordinator.delegate = self
         addChildCoordinator(settingsCoordinator)
 
         settingsCoordinator.start()
+        #endif
     }
 
 }

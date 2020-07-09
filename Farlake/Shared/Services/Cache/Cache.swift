@@ -39,6 +39,10 @@ final class Cache<Key: Hashable, Value> {
     func removeValue(forKey key: Key) {
         wrapped.removeObject(forKey: WrappedKey(key))
     }
+
+    func clear() {
+        keyTracker.keys.forEach { removeValue(forKey: $0) }
+    }
 }
 
 // MARK: - Memory cache

@@ -32,7 +32,9 @@ class SettingsCoordinator: Coordinator {
     // MARK: - Views
 
     private func showSettings() {
-        let viewController = UIHostingController(rootView: SettingsView())
+        var view = SettingsView()
+        view.viewModel = SettingsViewModel(servicesProvider: servicesProvider)
+        let viewController = UIHostingController(rootView: view)
         viewController.modalPresentationStyle = .pageSheet
 
         navigationController.present(viewController, animated: true)

@@ -9,6 +9,11 @@
 import SwiftUI
 
 struct SettingsView: View {
+
+    var viewModel: SettingsViewModel?
+
+    @State var isCacheCleared = false
+
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
@@ -22,7 +27,18 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section(header: Text("CACHE")) {
-                    Button("Flush Thumbnail Cache") {
+                    Button(action: {
+                        self.viewModel?.flushImageDataCache()
+                        withAnimation {
+                            self.isCacheCleared = true
+                        }
+                    }) {
+                        HStack(spacing: 10) {
+                            if isCacheCleared {
+                                Image(systemName: "checkmark")
+                            }
+                            Text("Flush Thumbnail Cache")
+                        }
                     }
                     Text("Frees up space, but requires all images to be downloaded and resized again.")
                         .foregroundColor(.secondary)

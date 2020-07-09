@@ -55,6 +55,7 @@
 		B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95924B7383E0065BF06 /* SettingsView.swift */; };
 		B5CBB95C24B739450065BF06 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */; };
 		B5CBB95E24B7A3550065BF06 /* UISceneSession+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95D24B7A3550065BF06 /* UISceneSession+Helpers.swift */; };
+		B5CBB96524B7AC950065BF06 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB96424B7AC950065BF06 /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +130,7 @@
 		B5CBB95924B7383E0065BF06 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 		B5CBB95D24B7A3550065BF06 /* UISceneSession+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISceneSession+Helpers.swift"; sourceTree = "<group>"; };
+		B5CBB96424B7AC950065BF06 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +484,7 @@
 		B5CBB92624B3E4980065BF06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB96424B7AC950065BF06 /* SettingsViewModel.swift */,
 				B5CBB95924B7383E0065BF06 /* SettingsView.swift */,
 			);
 			path = Views;
@@ -679,6 +682,7 @@
 				B5CBB95C24B739450065BF06 /* Bundle+Helpers.swift in Sources */,
 				B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */,
 				B5CBB95E24B7A3550065BF06 /* UISceneSession+Helpers.swift in Sources */,
+				B5CBB96524B7AC950065BF06 /* SettingsViewModel.swift in Sources */,
 				B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */,
 				B5CBB93824B473520065BF06 /* CGRect+Helpers.swift in Sources */,
 				B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */,

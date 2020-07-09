@@ -58,7 +58,6 @@
 		B5CBB94C24B6F7D60065BF06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB94B24B6F7D60065BF06 /* Localizable.strings */; };
 		B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */; };
 		B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */; };
-		B5CBB95524B70A7D0065BF06 /* ResponderChainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */; };
 		B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +136,6 @@
 		B5CBB94B24B6F7D60065BF06 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
 		B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSettingsCoordinator.swift; sourceTree = "<group>"; };
-		B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainProtocols.swift; sourceTree = "<group>"; };
 		B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Catalyst.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -537,7 +535,6 @@
 		B5CBB94424B5F4220065BF06 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				B5CBB95324B70A5B0065BF06 /* Responder Chain */,
 				B5CBB94524B5F42C0065BF06 /* Gradient View */,
 			);
 			path = Components;
@@ -565,14 +562,6 @@
 				B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */,
 			);
 			path = Settings;
-			sourceTree = "<group>";
-		};
-		B5CBB95324B70A5B0065BF06 /* Responder Chain */ = {
-			isa = PBXGroup;
-			children = (
-				B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */,
-			);
-			path = "Responder Chain";
 			sourceTree = "<group>";
 		};
 		B5CBB95624B70EE00065BF06 /* System */ = {
@@ -732,7 +721,6 @@
 				B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */,
 				B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */,
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
-				B5CBB95524B70A7D0065BF06 /* ResponderChainProtocols.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
 				B5CBB94724B5F4360065BF06 /* GradientView.swift in Sources */,

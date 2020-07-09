@@ -9,6 +9,11 @@
 import UIKit
 import Combine
 
+/// Can be added to a UIResponder that knows how to refresh the gallery.
+@objc protocol GalleryRefreshableAction: AnyObject {
+  func refreshGallery()
+}
+
 protocol GalleryViewControllerDelegate: AnyObject {
     func didRequestSettings()
 }

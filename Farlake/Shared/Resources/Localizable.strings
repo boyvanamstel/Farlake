@@ -6,6 +6,9 @@
   Copyright © 2020 Boy van Amstel. All rights reserved.
 */
 
+"menu.preferences.title" = "Preferences...";
+"menu.refresh-gallery.title" = "Refresh Gallery";
+
 "gallery.network-service-error.alert.title" = "Failed to Load Gallery";
 
 "network-service-error.unknown" = "An unknown network service error occured.";

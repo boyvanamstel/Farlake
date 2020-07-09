@@ -41,8 +41,6 @@
                     <string>Settings Configuration</string>
                     <key>UISceneDelegateClassName</key>
                     <string>$(PRODUCT_MODULE_NAME).SettingsSceneDelegate</string>
-                    <key>UISceneStoryboardFile</key>
-                    <string>Settings</string>
                 </dict>
 			</array>
 		</dict>

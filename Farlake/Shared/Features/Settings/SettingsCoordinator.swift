@@ -6,7 +6,7 @@
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
 class SettingsCoordinator: Coordinator {
 
@@ -32,7 +32,7 @@ class SettingsCoordinator: Coordinator {
     // MARK: - Views
 
     private func showSettings() {
-        let viewController = UIStoryboard.instantiateSettingsViewController()
+        let viewController = UIHostingController(rootView: SettingsView())
         viewController.modalPresentationStyle = .pageSheet
 
         navigationController.present(viewController, animated: true)

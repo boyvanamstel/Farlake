@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if targetEnvironment(macCatalyst)
 class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -21,16 +22,16 @@ class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
-        launchSettings(with: window)
+        launchSettings(with: windowScene)
     }
 
-    private func launchSettings(with window: UIWindow) {
+    private func launchSettings(with windowScene: UIWindowScene) {
         settingsCoordinator = CatalystSettingsCoordinator(
-            window: window,
+            windowScene: windowScene,
             servicesProvider: ServicesProvider.default
         )
         settingsCoordinator?.start()
     }
 
 }
-
+#endif

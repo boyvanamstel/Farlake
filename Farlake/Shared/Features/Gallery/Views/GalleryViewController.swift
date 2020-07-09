@@ -13,6 +13,9 @@ import Combine
 @objc protocol GalleryRefreshableAction: AnyObject {
   func refreshGallery()
 }
+@objc protocol GallerySettingsPresentableAction: AnyObject {
+  func presentSettings()
+}
 
 protocol GalleryViewControllerDelegate: AnyObject {
     func didRequestSettings()
@@ -175,5 +178,11 @@ final class GalleryViewController: UICollectionViewController {
 extension GalleryViewController: GalleryRefreshableAction {
     @objc func refreshGallery() {
         viewModel?.updateItems()
+    }
+}
+
+extension GalleryViewController: GallerySettingsPresentableAction {
+    @objc func presentSettings() {
+        showSettings()
     }
 }

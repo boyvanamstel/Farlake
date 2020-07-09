@@ -6,8 +6,9 @@
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
+#if targetEnvironment(macCatalyst)
 class CatalystSettingsCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
@@ -18,9 +19,19 @@ class CatalystSettingsCoordinator: Coordinator {
 
     // MARK: - Object lifecycle
 
-    init(window: UIWindow, servicesProvider: ServicesProvider) {
-        self.window = window
+    init(windowScene: UIWindowScene, servicesProvider: ServicesProvider) {
+        let windowSize: CGSize = .settingsWindowSize
+        windowScene.sizeRestrictions?.minimumSize = windowSize
+        windowScene.sizeRestrictions?.maximumSize = windowSize
+
+        self.window = UIWindow(windowScene: windowScene)
         self.servicesProvider = servicesProvider
+
+        // Hide window title bar
+        if let titlebar = windowScene.titlebar {
+            titlebar.titleVisibility = .hidden
+            titlebar.toolbar = nil
+        }
     }
 
     // MARK: - Entry point
@@ -34,9 +45,10 @@ class CatalystSettingsCoordinator: Coordinator {
     // MARK: - Views
 
     private func showSettings() {
-        let viewController = UIStoryboard.instantiateSettingsViewController()
+        let viewController = UIHostingController(rootView: SettingsView())
 
         window.rootViewController = viewController
     }
 
 }
+#endif

@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         #if targetEnvironment(macCatalyst)
         configureTitleBar(with: windowScene)
+        configureWindowSize(width: windowScene)
         #endif
 
 

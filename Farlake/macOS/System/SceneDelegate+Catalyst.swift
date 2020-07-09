@@ -29,6 +29,10 @@ extension SceneDelegate {
         // Use the responder chain to find a view that can handle the action
         UIApplication.shared.sendAction(#selector(GalleryRefreshableAction.refreshGallery), to: nil, from: sender, for: nil)
     }
+
+    func configureWindowSize(width windowScene: UIWindowScene) {
+        windowScene.sizeRestrictions?.minimumSize = .mainWindowMinimumSize
+    }
 }
 
 extension SceneDelegate: NSToolbarDelegate {
@@ -39,7 +43,7 @@ extension SceneDelegate: NSToolbarDelegate {
     func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
         switch itemIdentifier {
         case .refreshButtonIdentifier:
-            let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .done, target: self, action: #selector(self.refreshButtonTapped(_:)))
+            let barButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise"), style: .plain, target: self, action: #selector(self.refreshButtonTapped(_:)))
             let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
 
             return button

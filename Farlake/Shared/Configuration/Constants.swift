@@ -10,6 +10,11 @@ import UIKit
 
 extension CGSize {
     static let galleryThumbnailSize = Self(equal: 200.0)
+
+    #if targetEnvironment(macCatalyst)
+    static let mainWindowMinimumSize = CGSize(width: 640.0, height: 768.0)
+    static let settingsWindowSize = CGSize(width: 480.0, height: 512.0)
+    #endif
 }
 
 extension Int {

@@ -43,8 +43,6 @@
 		B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58578A124B315CE00640B01 /* NetworkService.swift */; };
 		B5CBB92224B3DD970065BF06 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */; };
 		B5CBB92524B3DF5D0065BF06 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB92424B3DF5D0065BF06 /* SettingsCoordinator.swift */; };
-		B5CBB92A24B3E4980065BF06 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB92724B3E4980065BF06 /* Settings.storyboard */; };
-		B5CBB92B24B3E4980065BF06 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB92924B3E4980065BF06 /* SettingsViewController.swift */; };
 		B5CBB93024B3E52D0065BF06 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB92D24B3E52D0065BF06 /* MainViewController.swift */; };
 		B5CBB93124B3E52D0065BF06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB92E24B3E52D0065BF06 /* Main.storyboard */; };
 		B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB93324B46FD00065BF06 /* URLRequest+Helpers.swift */; };
@@ -59,6 +57,8 @@
 		B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */; };
 		B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */; };
 		B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */; };
+		B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95924B7383E0065BF06 /* SettingsView.swift */; };
+		B5CBB95C24B739450065BF06 /* Bundle+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,8 +121,6 @@
 		B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		B5CBB91824B3CE230065BF06 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B5CBB92424B3DF5D0065BF06 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
-		B5CBB92824B3E4980065BF06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		B5CBB92924B3E4980065BF06 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B5CBB92D24B3E52D0065BF06 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B5CBB92F24B3E52D0065BF06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5CBB93324B46FD00065BF06 /* URLRequest+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Helpers.swift"; sourceTree = "<group>"; };
@@ -137,6 +135,8 @@
 		B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
 		B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSettingsCoordinator.swift; sourceTree = "<group>"; };
 		B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Catalyst.swift"; sourceTree = "<group>"; };
+		B5CBB95924B7383E0065BF06 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Helpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +347,7 @@
 				B5CBB93524B471C00065BF06 /* UIImage+Helpers.swift */,
 				B5CBB93724B473520065BF06 /* CGRect+Helpers.swift */,
 				B5CBB93924B4738C0065BF06 /* CGSize+Helpers.swift */,
+				B5CBB95B24B739450065BF06 /* Bundle+Helpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -509,8 +510,7 @@
 		B5CBB92624B3E4980065BF06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B5CBB92724B3E4980065BF06 /* Settings.storyboard */,
-				B5CBB92924B3E4980065BF06 /* SettingsViewController.swift */,
+				B5CBB95924B7383E0065BF06 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -677,7 +677,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5CBB94C24B6F7D60065BF06 /* Localizable.strings in Resources */,
-				B5CBB92A24B3E4980065BF06 /* Settings.storyboard in Resources */,
 				B585782A24B05B7400640B01 /* LaunchScreen.storyboard in Resources */,
 				B585782724B05B7400640B01 /* Assets.xcassets in Resources */,
 				B5CBB93124B3E52D0065BF06 /* Main.storyboard in Resources */,
@@ -714,6 +713,7 @@
 				B585787C24B0971500640B01 /* TestCoordinator.swift in Sources */,
 				B5CBB92524B3DF5D0065BF06 /* SettingsCoordinator.swift in Sources */,
 				B585789324B0F07B00640B01 /* Utilities.swift in Sources */,
+				B5CBB95C24B739450065BF06 /* Bundle+Helpers.swift in Sources */,
 				B5CBB92124B3DD930065BF06 /* NetworkService.swift in Sources */,
 				B58578A524B31C3400640B01 /* ServicesProvider.swift in Sources */,
 				B5CBB93824B473520065BF06 /* CGRect+Helpers.swift in Sources */,
@@ -732,6 +732,7 @@
 				B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */,
 				B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */,
 				B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */,
+				B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
 				B585785E24B0642200640B01 /* SceneCoordinator.swift in Sources */,
 				B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */,
@@ -740,7 +741,6 @@
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
 				B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
-				B5CBB92B24B3E4980065BF06 /* SettingsViewController.swift in Sources */,
 				B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */,
 				B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */,
 				B585788324B0A46500640B01 /* GalleryCollectionCellViewModel.swift in Sources */,
@@ -791,14 +791,6 @@
 				B585782924B05B7400640B01 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B5CBB92724B3E4980065BF06 /* Settings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B5CBB92824B3E4980065BF06 /* Base */,
-			);
-			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		B5CBB92E24B3E52D0065BF06 /* Main.storyboard */ = {

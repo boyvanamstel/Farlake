@@ -48,7 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     @objc private func showSettings() {
-        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: .settingsActivity, options: nil, errorHandler: nil)
+        // Use the responder chain to find a view that can handle the action
+        UIApplication.shared.sendAction(#selector(GallerySettingsPresentableAction.presentSettings), to: nil, from: self, for: nil)
     }
 }
 

@@ -6,6 +6,8 @@
   Copyright © 2020 Boy van Amstel. All rights reserved.
 */
 
+"gallery.network-service-error.alert.title" = "Failed to Load Gallery";
+
 "network-service-error.unknown" = "An unknown network service error occured.";
 "network-service-error.unexpected-response" = "The network service returned an unexpected response.";
 "network-service-error.parse-error" = "The network service returned a response that couldn't be interpreted.";

@@ -147,7 +147,7 @@ final class GalleryViewController: UICollectionViewController {
 
     private func present(error: Error) {
         // Using an alert to make it fit in better on Catalyst
-        let alert = UIAlertController(title: "Failed to Load Gallery", message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("gallery.network-service-error.alert.title", comment: "The network error alert title."), message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("alert.retry.title", comment: "The retry button title."), style: .default) { _ in
             self.viewModel?.updateItems()
         })
@@ -156,4 +156,10 @@ final class GalleryViewController: UICollectionViewController {
         present(alert, animated: true)
     }
 
+}
+
+extension GalleryViewController: GalleryRefreshableAction {
+    @objc func refreshGallery() {
+        viewModel?.updateItems()
+    }
 }

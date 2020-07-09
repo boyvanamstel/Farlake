@@ -31,14 +31,18 @@ class GalleryViewModel {
     }
 
     func viewDidLoad() {
-        updateItems()
+        loadItems()
     }
 
     // MARK: - Item fetching
 
-    func updateItems() {
+    private func loadItems() {
         let resource = try! RijksmuseumEndpoint.collection(query: "Johannes Vermeer")
         fetch(resource: resource)
+    }
+
+    func updateItems() {
+        loadItems()
     }
 
     private func fetch(resource: Resource<Collection>) {

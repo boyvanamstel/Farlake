@@ -58,6 +58,8 @@
 		B5CBB94C24B6F7D60065BF06 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB94B24B6F7D60065BF06 /* Localizable.strings */; };
 		B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */; };
 		B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */; };
+		B5CBB95524B70A7D0065BF06 /* ResponderChainProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */; };
+		B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		B5CBB94B24B6F7D60065BF06 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		B5CBB94D24B6FE230065BF06 /* SettingsSceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsSceneDelegate.swift; sourceTree = "<group>"; };
 		B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalystSettingsCoordinator.swift; sourceTree = "<group>"; };
+		B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainProtocols.swift; sourceTree = "<group>"; };
+		B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Catalyst.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +236,8 @@
 		B585785024B05D4F00640B01 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				B5CBB94F24B6FEED0065BF06 /* System */,
+				B5CBB95624B70EE00065BF06 /* System */,
+				B5CBB94F24B6FEED0065BF06 /* Features */,
 				B585785224B05E3F00640B01 /* Resources */,
 			);
 			path = macOS;
@@ -532,6 +537,7 @@
 		B5CBB94424B5F4220065BF06 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B5CBB95324B70A5B0065BF06 /* Responder Chain */,
 				B5CBB94524B5F42C0065BF06 /* Gradient View */,
 			);
 			path = Components;
@@ -545,10 +551,34 @@
 			path = "Gradient View";
 			sourceTree = "<group>";
 		};
-		B5CBB94F24B6FEED0065BF06 /* System */ = {
+		B5CBB94F24B6FEED0065BF06 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB95224B705B50065BF06 /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B5CBB95224B705B50065BF06 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				B5CBB95024B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B5CBB95324B70A5B0065BF06 /* Responder Chain */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB95424B70A7D0065BF06 /* ResponderChainProtocols.swift */,
+			);
+			path = "Responder Chain";
+			sourceTree = "<group>";
+		};
+		B5CBB95624B70EE00065BF06 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB95724B70EEE0065BF06 /* SceneDelegate+Catalyst.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -702,6 +732,7 @@
 				B5CBB93424B46FD00065BF06 /* URLRequest+Helpers.swift in Sources */,
 				B5CBB94E24B6FE230065BF06 /* SettingsSceneDelegate.swift in Sources */,
 				B58578B024B3292100640B01 /* Collection.swift in Sources */,
+				B5CBB95524B70A7D0065BF06 /* ResponderChainProtocols.swift in Sources */,
 				B585786424B0724B00640B01 /* GalleryViewController.swift in Sources */,
 				B585788D24B0AFFB00640B01 /* NSDirectionalEdgeInsets+Helpers.swift in Sources */,
 				B5CBB94724B5F4360065BF06 /* GradientView.swift in Sources */,
@@ -719,6 +750,7 @@
 				B5CBB93F24B5B3F40065BF06 /* Constants.swift in Sources */,
 				B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */,
 				B585788124B0A2BF00640B01 /* GalleryCollectionViewCell.swift in Sources */,
+				B5CBB95824B70EEE0065BF06 /* SceneDelegate+Catalyst.swift in Sources */,
 				B585789724B0F77500640B01 /* UICollectionViewLayout+Gallery.swift in Sources */,
 				B5CBB92B24B3E4980065BF06 /* SettingsViewController.swift in Sources */,
 				B5CBB94124B5E96A0065BF06 /* ImageCache.swift in Sources */,

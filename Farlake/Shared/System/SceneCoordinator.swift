@@ -37,6 +37,10 @@ final class SceneCoordinator: Coordinator {
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
+        #if targetEnvironment(macCatalyst)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        #endif
+
         showMain()
     }
 
@@ -69,6 +73,7 @@ extension SceneCoordinator: SceneCoordinating {
     func willEnterForeground() {}
 
     func didEnterBackground() {
+        // Should log error to developer, don't inform user as it's not critical and could be confusing
         try? servicesProvider.imageDataCache.saveToDisk(withName: .thumbnailCacheName)
     }
 }

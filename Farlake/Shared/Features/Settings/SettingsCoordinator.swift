@@ -33,7 +33,7 @@ class SettingsCoordinator: Coordinator {
 
     private func showSettings() {
         let viewController = UIStoryboard.instantiateSettingsViewController()
-        viewController.isModalInPresentation = true
+        viewController.modalPresentationStyle = .pageSheet
 
         navigationController.present(viewController, animated: true)
     }

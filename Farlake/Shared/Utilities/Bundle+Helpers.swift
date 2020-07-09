@@ -22,6 +22,6 @@ extension Bundle {
     var appVersion: Int { Int(infoDictionary?["CFBundleVersion"] as! String)! }
     var appShortVersion: String { infoDictionary?["CFBundleShortVersionString"] as! String }
 
-    var companyName: String { "Danger Cove" }
-    var appWebsite: URL { URL(string: "https://www.dangercove.com/albumfiller")! }
+    var companyName: String { "Boy van Amstel" }
+    var appWebsite: URL { URL(string: "https://hire.boy.sh")! }
 }

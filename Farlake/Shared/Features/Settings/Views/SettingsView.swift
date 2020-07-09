@@ -29,8 +29,7 @@ struct SettingsView: View {
                 }
                 Section(header: Text("ABOUT")) {
                     VStack(alignment: .center, spacing: 10.0) {
-//                        Image(uiImage: Bundle.main.icon!)
-                        Image(systemName: "paintbrush")
+                        Image("FarlakeIcon")
                             .padding()
                         Text("\(Bundle.main.appName) \(Bundle.main.appShortVersion) (\(Bundle.main.appVersion))")
                         HStack(spacing: 4.0) {

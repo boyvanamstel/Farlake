@@ -36,6 +36,11 @@ struct SecretConstants {
     static let apiKey = "[your key]"
 }
 ```
+
+### Consistency
+
+[`SwiftLint`](https://github.com/realm/SwiftLint) is used to enforce Swift style and conventions.
+
 ## Overview
 
 This is broadly how the project is structured:

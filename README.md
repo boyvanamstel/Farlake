@@ -259,6 +259,7 @@ Things that didn't quite make the cut, or could be improved:
 * The `GalleryViewController` is starting to get a little heavy.
 * UI test helpers could be moved into a dedicated helper class.
 * Features: infinite scroll and a detail view.
+* I wanted to add [Bitrise](https://bitrise.io) CI, but It failed to automatically generate an environment that could test the app. 
 
 ## Screenshots
 

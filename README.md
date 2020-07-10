@@ -19,7 +19,7 @@ cd Farlake
 
 ### Bootstrap
 
-Run the included script to create `Farlake/Shared/Configuration/SecretConstants.swift`. It holds the Rijksmuseum API key that you'll need to supply.
+Either build the project once, or run the included script to create `Farlake/Shared/Configuration/SecretConstants.swift`. It holds the Rijksmuseum API key that you'll need to supply.
 
 ```
 ./script/bootstrap
@@ -258,8 +258,7 @@ Things that didn't quite make the cut, or could be improved:
 * Localization needs to be more consistently used.
 * The `GalleryViewController` is starting to get a little heavy.
 * UI test helpers could be moved into a dedicated helper class.
-* Features: infinite scroll and a detail view.
-* I wanted to add [Bitrise](https://bitrise.io) CI, but It failed to automatically generate an environment that could test the app. 
+* Features: search, infinite scroll and a detail view.
 
 ## Screenshots
 

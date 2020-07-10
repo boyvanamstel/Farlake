@@ -557,10 +557,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B585784424B05B7500640B01 /* Build configuration list for PBXNativeTarget "Farlake" */;
 			buildPhases = (
+				B5A3AFD224B886390068F51B /* Run Bootstrap */,
+				B5A3AFD124B85B7B0068F51B /* Run SwiftLint */,
 				B585781624B05B7100640B01 /* Sources */,
 				B585781724B05B7100640B01 /* Frameworks */,
 				B585781824B05B7100640B01 /* Resources */,
-				B5A3AFD124B85B7B0068F51B /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -698,6 +699,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		B5A3AFD224B886390068F51B /* Run Bootstrap */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Bootstrap";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Farlake/Shared/Configuration/SecretConstants.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = ".$(SRCROOT)/script/bootstrap\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

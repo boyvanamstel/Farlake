@@ -18,9 +18,11 @@ extension Bundle {
         return UIImage(named: lastIcon)
     }
 
+    // swiftlint:disable force_cast
     var appName: String { infoDictionary?["CFBundleName"] as! String }
     var appVersion: Int { Int(infoDictionary?["CFBundleVersion"] as! String)! }
     var appShortVersion: String { infoDictionary?["CFBundleShortVersionString"] as! String }
+    // swiftlint:enable force_cast
 
     var companyName: String { "Boy van Amstel" }
     var appWebsite: URL { URL(string: "https://hire.boy.sh")! }

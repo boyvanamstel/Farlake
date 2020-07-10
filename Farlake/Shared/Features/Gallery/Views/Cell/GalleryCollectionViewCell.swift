@@ -24,9 +24,11 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
     private var image: UIImage? {
         didSet {
             // Dramatic effect
-            UIView.transition(with: imageView, duration: image == nil ? 0.0 : 0.25, options: .transitionCrossDissolve, animations: {
-                self.imageView.image = self.image
-            }, completion: nil)
+            UIView.transition(with: imageView,
+                              duration: image == nil ? 0.0 : 0.25,
+                              options: .transitionCrossDissolve,
+                              animations: { self.imageView.image = self.image },
+                              completion: nil)
         }
     }
 
@@ -70,7 +72,9 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         $0.textColor = .white
     }
 
-    private let titleContainerView = with(GradientView(colors: [UIColor.black.withAlphaComponent(0.0), UIColor.black.withAlphaComponent(0.6)])) {
+    private let titleContainerView = with(
+    GradientView(colors: [UIColor.black.withAlphaComponent(0.0), UIColor.black.withAlphaComponent(0.6)])
+    ) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
     }

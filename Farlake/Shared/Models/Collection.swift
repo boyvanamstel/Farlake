@@ -8,6 +8,7 @@
 
 import Foundation
 
+// swiftlint:disable nesting
 struct Collection: Decodable {
 
     // MARK: - Collection
@@ -21,7 +22,7 @@ struct Collection: Decodable {
     // MARK: - Item
 
     struct Item: Decodable {
-        let id: String
+        let guid: String
 
         let title: String
         let artist: String
@@ -29,7 +30,7 @@ struct Collection: Decodable {
         let image: Image?
 
         enum CodingKeys: String, CodingKey {
-            case id
+            case guid = "id"
             case title
             case artist = "principalOrFirstMaker"
             case isDownloadPermitted = "permitDownload"
@@ -55,7 +56,13 @@ struct Collection: Decodable {
                 // Parse string with url to proper `URL`
                 let urlString = try values.decode(String.self, forKey: .url)
                 guard let url = URL(string: urlString) else {
-                    throw DecodingError.typeMismatch(URL.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Failed to convert string into URL"))
+                    throw DecodingError.typeMismatch(
+                        URL.self,
+                        DecodingError.Context(
+                            codingPath: decoder.codingPath,
+                            debugDescription: "Failed to convert string into URL"
+                        )
+                    )
                 }
                 self.url = url
             }
@@ -70,6 +77,7 @@ struct Collection: Decodable {
         }
     }
 }
+// swiftlint:enable nesting
 
 #if DEBUG
 extension Collection {
@@ -78,7 +86,7 @@ extension Collection {
     static var testFull: Self {
         func item(modifier: Int, isDownloadPermitted: Bool) -> Self.Item {
             return Item(
-                id: String(modifier),
+                guid: String(modifier),
                 title: "Title \(modifier)",
                 artist: "Artist \(modifier)",
                 isDownloadPermitted: isDownloadPermitted,

@@ -92,7 +92,10 @@ final class GalleryViewController: UICollectionViewController {
     private func configureCollectionView() {
         collectionView.accessibilityLabel = "Gallery"
 
-        collectionView.register(GalleryCollectionViewCell.self, forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier)
+        collectionView.register(
+            GalleryCollectionViewCell.self,
+            forCellWithReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier
+        )
         collectionView.dataSource = dataSource
 
         collectionView.backgroundColor = .systemBackground
@@ -106,7 +109,12 @@ final class GalleryViewController: UICollectionViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         navigationItem.title = .galleryQuery
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(showSettings))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "gear"),
+            style: .plain,
+            target: self,
+            action: #selector(showSettings)
+        )
     }
 
     @objc private func showSettings() {
@@ -172,11 +180,20 @@ final class GalleryViewController: UICollectionViewController {
 
     private func present(error: Error) {
         // Using an alert to make it fit in better on Catalyst
-        let alert = UIAlertController(title: NSLocalizedString("gallery.network-service-error.alert.title", comment: "The network error alert title."), message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.retry.title", comment: "The retry button title."), style: .default) { _ in
+        let alert = UIAlertController(
+            title: NSLocalizedString("gallery.network-service-error.alert.title",
+                                     comment: "The network error alert title."),
+            message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("alert.retry.title",
+                                     comment: "The retry button title."),
+            style: .default) { _ in
             self.viewModel?.updateItems()
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("alert.cancel.title", comment: "The cancel button title."), style: .cancel) { _ in
+        alert.addAction(UIAlertAction(
+            title: NSLocalizedString("alert.cancel.title",
+                                     comment: "The cancel button title."),
+            style: .cancel) { _ in
             self.viewModel?.cancelUpdate()
         })
 

@@ -11,7 +11,7 @@ import SwiftUI
 class SettingsCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var delegate: CoordinatorDelegate?
+    weak var delegate: CoordinatorDelegate?
 
     private let navigationController: UINavigationController
     private let servicesProvider: ServicesProvider

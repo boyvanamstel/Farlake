@@ -38,7 +38,9 @@ class GalleryViewModel {
 
     // MARK: - Item fetching
 
+    // swiftlint:disable force_try
     private let resource = try! RijksmuseumEndpoint.collection(query: .galleryQuery)
+    // swiftlint:enable force_try
 
     private func loadItems() {
         fetch(resource: resource)

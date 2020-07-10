@@ -13,7 +13,7 @@ import UIKit
 final class TestCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var delegate: CoordinatorDelegate?
+    weak var delegate: CoordinatorDelegate?
 
     /// Views or states to load directly.
     enum EntryPoint: String {

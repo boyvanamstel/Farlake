@@ -13,7 +13,6 @@ extension CGSize {
         self.init(width: value, height: value)
     }
 
-
     /// Calculates the size to fill an area.
     /// - Parameter targetSize: The target size to fill.
     /// - Returns: Returns the new size to scale the item to.

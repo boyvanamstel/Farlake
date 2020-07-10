@@ -11,7 +11,10 @@ import Foundation
 protocol NetworkService {
     var session: URLSession { get }
 
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Result<Object, Error>) -> ()) -> URLSessionDataTask?
+    func load<Object>(
+        _ resource: Resource<Object>,
+        completion: @escaping (Result<Object, Error>) -> Void
+    ) -> URLSessionDataTask?
 }
 
 extension NetworkService {
@@ -21,7 +24,10 @@ extension NetworkService {
     ///   - resource: The resource to parse.
     ///   - completion: Contains the loaded object.
     /// - Returns: The optional data task so it can be cancelled or stored.
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Result<Object, Error>) -> ()) -> URLSessionDataTask? {
+    func load<Object>(
+        _ resource: Resource<Object>,
+        completion: @escaping (Result<Object, Error>) -> Void
+    ) -> URLSessionDataTask? {
         let task = session.dataTask(with: resource.request) { data, response, error in
             // Error
             guard error == nil else {
@@ -57,9 +63,21 @@ enum NetworkServiceError: Error {
 
     var localizedDescription: String {
         switch self {
-        case .unknownError: return NSLocalizedString("network-service-error.unknown", comment: "Unknown network service error.")
-        case .unexpectedResponse: return NSLocalizedString("network-service-error.unexpected-response", comment: "The network service returned an unexpected response.")
-        case .parseError: return NSLocalizedString("network-service-error.parse-error", comment: "The network service returned a response that couldn't be parsed.")
+        case .unknownError:
+            return NSLocalizedString(
+                "network-service-error.unknown",
+                comment: "Unknown network service error."
+            )
+        case .unexpectedResponse:
+            return NSLocalizedString(
+                "network-service-error.unexpected-response",
+                comment: "The network service returned an unexpected response."
+            )
+        case .parseError:
+            return NSLocalizedString(
+                "network-service-error.parse-error",
+                comment: "The network service returned a response that couldn't be parsed."
+            )
         }
     }
 }

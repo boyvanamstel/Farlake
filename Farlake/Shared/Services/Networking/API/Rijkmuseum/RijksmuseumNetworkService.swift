@@ -14,12 +14,15 @@ extension Locale {
 }
 
 struct RijksmuseumEndpoint {
+    // swiftlint:disable identifier_name
     enum EndpointLocale: String {
-        case en
-        case nl
+        case en, nl
     }
+    // swiftlint:enable identifier_name
 
+    // swiftlint:disable line_length
     static let baseURL = URL(string: "https://www.rijksmuseum.nl/api/\(EndpointLocale(rawValue: Locale.current.endpointLanguageCode) ?? .nl)")!
+    // swiftlint:enable line_length
     static let collectionURL = Self.baseURL.appendingPathComponent("collection")
 
     /// Create a collection resource based on the supplied query.
@@ -31,7 +34,7 @@ struct RijksmuseumEndpoint {
     /// - Returns: Returns the fetchable resource.
     static func collection(query: String, page: Int = 0, itemsPerPage: Int = 100) throws -> Resource<Collection> {
         let url = Self.collectionURL
-        let parameters: [String : CustomStringConvertible] = [
+        let parameters: [String: CustomStringConvertible] = [
             "key": SecretConstants.apiKey,
             "q": query,
             "p": page,
@@ -71,10 +74,15 @@ class MockRijksmuseumNetworkService: NetworkService {
         return Collection.testFull
     }
 
-    func load<Object>(_ resource: Resource<Object>, completion: @escaping (Result<Object, Error>) -> ()) -> URLSessionDataTask? {
+    func load<Object>(
+        _ resource: Resource<Object>,
+        completion: @escaping (Result<Object, Error>) -> Void
+    ) -> URLSessionDataTask? {
         switch resource {
         case is Resource<Collection>:
+            // swiftlint:disable force_cast
             completion(.success(self.collection as! Object))
+            // swiftlint:enable force_cast
         default:
             break
         }

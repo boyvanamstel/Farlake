@@ -15,7 +15,11 @@ class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private var settingsCoordinator: CatalystSettingsCoordinator?
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+    func scene(
+        _ scene: UIScene,
+        willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions
+    ) {
         // Prevent unexpected state by crashing when the window scene is not set
         guard let windowScene = scene as? UIWindowScene else { fatalError("Failed to get scene") }
 

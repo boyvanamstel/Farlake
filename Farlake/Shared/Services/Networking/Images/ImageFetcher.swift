@@ -11,7 +11,11 @@ import UIKit
 typealias ImageFetchingNetworkService = NetworkService & ImageFetching
 
 protocol ImageFetching {
-    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (Result<UIImage, Error>) -> ()) -> URLSessionDataTask?
+    func loadThumbnail(
+        _ resource: Resource<UIImage>,
+        size: CGSize,
+        completion: @escaping (Result<UIImage, Error>) -> Void
+    ) -> URLSessionDataTask?
 }
 
 enum ImageFetcherError: Error {
@@ -45,7 +49,11 @@ extension ImageFetcher: ImageFetching {
     ///   - size: The size of the thumbnail.
     ///   - completion: Contains the loaded object.
     /// - Returns: The optional data task so it can be cancelled or stored.
-    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (Result<UIImage, Error>) -> ()) -> URLSessionDataTask? {
+    func loadThumbnail(
+        _ resource: Resource<UIImage>,
+        size: CGSize,
+        completion: @escaping (Result<UIImage, Error>) -> Void
+    ) -> URLSessionDataTask? {
         // Unwrap url, because we need it a few times
         guard let url = resource.request.url else {
             completion(.failure(ImageFetcherError.noURL))
@@ -82,7 +90,11 @@ extension ImageFetcher: ImageFetching {
 class MockImageFetcher: NetworkService, ImageFetching {
     var session = URLSession.shared
 
-    func loadThumbnail(_ resource: Resource<UIImage>, size: CGSize, completion: @escaping (Result<UIImage, Error>) -> ()) -> URLSessionDataTask? {
+    func loadThumbnail(
+        _ resource: Resource<UIImage>,
+        size: CGSize,
+        completion: @escaping (Result<UIImage, Error>) -> Void
+    ) -> URLSessionDataTask? {
         return load(resource, completion: completion)
     }
 }

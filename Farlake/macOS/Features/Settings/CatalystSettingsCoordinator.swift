@@ -12,7 +12,7 @@ import SwiftUI
 class CatalystSettingsCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var delegate: CoordinatorDelegate?
+    weak var delegate: CoordinatorDelegate?
 
     private let window: UIWindow
     private let servicesProvider: ServicesProvider

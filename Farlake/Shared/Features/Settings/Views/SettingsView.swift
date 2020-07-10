@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// swiftlint:disable multiple_closures_with_trailing_closure
 struct SettingsView: View {
 
     var viewModel: SettingsViewModel?
@@ -70,3 +71,4 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+// swiftlint:enable multiple_closures_with_trailing_closure

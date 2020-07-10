@@ -10,7 +10,9 @@ import UIKit
 
 extension UICollectionViewLayout {
     static var galleryLayout: UICollectionViewLayout {
-        return UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+        // swiftlint:disable line_length
+        return UICollectionViewCompositionalLayout { (_: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            // swiftlint:enable line_length
 
             let containerWidth = layoutEnvironment.container.contentSize.width
             let columnCount = min(5, (containerWidth / 200.0).rounded())

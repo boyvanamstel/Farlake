@@ -11,7 +11,7 @@ import UIKit
 class GalleryCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
-    var delegate: CoordinatorDelegate?
+    weak var delegate: CoordinatorDelegate?
 
     private let navigationController: UINavigationController
     private let servicesProvider: ServicesProvider
@@ -42,9 +42,16 @@ class GalleryCoordinator: Coordinator {
 
     func showSettings() {
         #if targetEnvironment(macCatalyst)
-        UIApplication.shared.requestSceneSessionActivation(nil, userActivity: .settingsActivity, options: nil, errorHandler: nil)
+        UIApplication.shared
+            .requestSceneSessionActivation(nil,
+                userActivity: .settingsActivity,
+                options: nil,
+                errorHandler: nil)
         #else
-        let settingsCoordinator = SettingsCoordinator(navigationController: navigationController, servicesProvider: servicesProvider)
+        let settingsCoordinator = SettingsCoordinator(
+            navigationController: navigationController,
+            servicesProvider: servicesProvider
+        )
         settingsCoordinator.delegate = self
         addChildCoordinator(settingsCoordinator)
 

@@ -30,7 +30,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - App lifecycle
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         // Pass services provider to cached sessions
         application.openSessions.forEach { $0.servicesProvider = servicesProvider }
 
@@ -39,7 +42,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - UISceneSession lifecycle
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
         // Pass depedencies
         connectingSceneSession.servicesProvider = servicesProvider
 
@@ -61,20 +68,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let settingsCommand = UIKeyCommand(input: ",", modifierFlags: [.command], action: #selector(showSettings))
         let settingsTitle = NSLocalizedString("menu.preferences.title", comment: "The preferences menu item title")
         settingsCommand.title = settingsTitle
-        let settingsMenu = UIMenu(title: settingsTitle, image: nil, identifier: UIMenu.Identifier("showPreferences"), options: .displayInline, children: [settingsCommand])
+        let settingsMenu = UIMenu(
+            title: settingsTitle,
+            image: nil,
+            identifier: UIMenu.Identifier("showPreferences"),
+            options: .displayInline,
+            children: [settingsCommand]
+        )
         builder.insertSibling(settingsMenu, afterMenu: .about)
 
         // Refresh
-        let refreshCommand = UIKeyCommand(input: "R", modifierFlags: [.command], action: #selector(GalleryRefreshableAction.refreshGallery))
-        let refreshTitle = NSLocalizedString("menu.refresh-gallery.title", comment: "The refresh gallery menu item title")
+        let refreshCommand = UIKeyCommand(
+            input: "R",
+            modifierFlags: [.command],
+            action: #selector(GalleryRefreshableAction.refreshGallery)
+        )
+        let refreshTitle = NSLocalizedString(
+            "menu.refresh-gallery.title",
+            comment: "The refresh gallery menu item title"
+        )
         refreshCommand.title = refreshTitle
-        let reloadDataMenu = UIMenu(title: refreshTitle, image: nil, identifier: UIMenu.Identifier("refreshGallery"), options: .displayInline, children: [refreshCommand])
+        let reloadDataMenu = UIMenu(
+            title: refreshTitle,
+            image: nil,
+            identifier: UIMenu.Identifier("refreshGallery"),
+            options: .displayInline,
+            children: [refreshCommand]
+        )
         builder.insertChild(reloadDataMenu, atStartOfMenu: .view)
     }
 
     @objc private func showSettings() {
         // Use the responder chain to find a view that can handle the action
-        UIApplication.shared.sendAction(#selector(GallerySettingsPresentableAction.presentSettings), to: nil, from: self, for: nil)
+        UIApplication.shared
+            .sendAction(
+                #selector(GallerySettingsPresentableAction.presentSettings),
+                to: nil,
+                from: self,
+                for: nil
+        )
     }
 }
-

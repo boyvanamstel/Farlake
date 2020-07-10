@@ -13,7 +13,7 @@ class ResourceTests: XCTestCase {
 
     func testResourceParameterOrder() {
         let url = URL(string: "https://www.example.com")!
-        let parameters: [String : CustomStringConvertible] = [
+        let parameters: [String: CustomStringConvertible] = [
             "key": "abcDEF123",
             "q": "some query",
             "p": 0,

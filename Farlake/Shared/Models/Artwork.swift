@@ -9,14 +9,14 @@
 import UIKit
 
 struct Artwork: Hashable {
-    let id: String
+    let guid: String
     let title: String
     let imageURL: URL?
 }
 
 extension Artwork {
     init(item: Collection.Item) {
-        self.id = item.id
+        self.guid = item.guid
         self.title = item.title
         self.imageURL = item.image?.url
     }

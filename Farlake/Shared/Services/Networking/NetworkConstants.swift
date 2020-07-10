@@ -9,7 +9,9 @@
 import Foundation
 
 // Convenience constant for converting to MBs
+// swiftlint:disable identifier_name
 private let MB = 1024 * 1024
+// swiftlint:enable identifier_name
 
 struct NetworkConstants {
     struct CacheCapacity {

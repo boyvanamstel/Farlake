@@ -20,6 +20,7 @@ typealias Constraint = (UIView, UIView) -> NSLayoutConstraint
 
 // MARK: - Equal
 
+// swiftlint:disable identifier_name line_length
 func equal<L, Axis>(_ to: KeyPath<UIView, L>, constant: CGFloat = 0.0, priority: UILayoutPriority = .required) -> Constraint where L: NSLayoutAnchor<Axis> {
     return equal(to, to, constant: constant, priority: priority)
 }
@@ -41,3 +42,4 @@ func equal<L>(_ keyPath: KeyPath<UIView, L>, constant: CGFloat = 0.0, priority: 
         return constraint
     }
 }
+// swiftlint:enable identifier_name line_length

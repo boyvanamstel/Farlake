@@ -139,7 +139,10 @@ private extension Cache {
 
 extension Cache: Codable where Key: Codable, Value: Codable {
     convenience init(from decoder: Decoder) throws {
-        let maximumEntryCount = decoder.userInfo[.maximumCacheEntryCount] as! Int // Crash if maximum entry count is not supplied
+        // swiftlint:disable force_cast
+        // Crash if maximum entry count is not supplied
+        let maximumEntryCount = decoder.userInfo[.maximumCacheEntryCount] as! Int
+        // swiftlint:enable force_cast
         self.init(maximumEntryCount: maximumEntryCount)
 
         let container = try decoder.singleValueContainer()
@@ -162,7 +165,11 @@ extension Cache where Key: Codable, Value: Codable {
         try data.write(to: fileURL)
     }
 
-    static func loadFromDisk(withName name: String, using fileManager: FileManager = .default, decoder: JSONDecoder = .init()) throws -> Self {
+    static func loadFromDisk(
+        withName name: String,
+        using fileManager: FileManager = .default,
+        decoder: JSONDecoder = .init()
+    ) throws -> Self {
         let folderURLs = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)
         let fileURL = folderURLs[0].appendingPathComponent(.thumbnailCacheName + ".cache")
 

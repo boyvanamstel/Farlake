@@ -29,7 +29,7 @@ extension UIImage {
         let rect = AVMakeRect(aspectRatio: size, insideRect: rect)
         let renderer = UIGraphicsImageRenderer(size: rect.size)
 
-        return renderer.image { (context) in
+        return renderer.image { _ in
             draw(in: CGRect(origin: rect.origin, size: rect.size))
         }
     }
@@ -38,7 +38,7 @@ extension UIImage {
         let newSize = size.aspectFill(rect.size)
         let renderer = UIGraphicsImageRenderer(size: newSize)
 
-        return renderer.image { (context) in
+        return renderer.image { _ in
             draw(in: CGRect(origin: .zero, size: newSize))
         }
     }

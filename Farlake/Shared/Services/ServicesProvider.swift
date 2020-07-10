@@ -9,7 +9,7 @@
 import Foundation
 
 /// Dependency container.
-class ServicesProvider {
+final class ServicesProvider {
     let apiCache: URLCache
     let apiService: NetworkService
 

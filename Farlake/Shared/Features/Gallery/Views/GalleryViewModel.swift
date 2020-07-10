@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryViewModel {
+final class GalleryViewModel {
     enum State {
         case idle
         case loading

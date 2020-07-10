@@ -48,7 +48,7 @@ struct RijksmuseumEndpoint {
     }
 }
 
-class RijksmuseumNetworkService: NetworkService, URLCaching {
+final class RijksmuseumNetworkService: NetworkService, URLCaching {
     let urlCache: URLCache
     let session: URLSession
 

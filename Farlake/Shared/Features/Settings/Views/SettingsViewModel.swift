@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsViewModel {
+final class SettingsViewModel {
 
     private  let servicesProvider: ServicesProvider
     private var imageDataCache: ImageDataCache { servicesProvider.imageDataCache }

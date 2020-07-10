@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryCoordinator: Coordinator {
+final class GalleryCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     weak var delegate: CoordinatorDelegate?

@@ -9,7 +9,7 @@
 import UIKit
 
 #if targetEnvironment(macCatalyst)
-class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
+final class SettingsSceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 

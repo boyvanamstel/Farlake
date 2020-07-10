@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class SettingsCoordinator: Coordinator {
+final class SettingsCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     weak var delegate: CoordinatorDelegate?

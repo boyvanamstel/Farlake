@@ -41,6 +41,8 @@ struct SecretConstants {
 
 [`SwiftLint`](https://github.com/realm/SwiftLint) is used to enforce Swift style and conventions.
 
+Most classes are marked as `final` to discourage subclassing and get a tiny performance win.
+
 ## Overview
 
 This is broadly how the project is structured:

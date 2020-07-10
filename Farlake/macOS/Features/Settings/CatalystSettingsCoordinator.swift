@@ -9,7 +9,7 @@
 import SwiftUI
 
 #if targetEnvironment(macCatalyst)
-class CatalystSettingsCoordinator: Coordinator {
+final class CatalystSettingsCoordinator: Coordinator {
 
     var childCoordinators = [Coordinator]()
     weak var delegate: CoordinatorDelegate?

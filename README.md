@@ -19,13 +19,13 @@ cd Farlake
 
 ### Bootstrap
 
-Run the included script to create `Farlake/Shared/Configuration/SecretConstants.swift`. It contains the Rijksmuseum API key.
+Run the included script to create `Farlake/Shared/Configuration/SecretConstants.swift`. It holds the Rijksmuseum API key that you'll need to supply.
 
 ```
 ./script/bootstrap
 ```
 
-The script copies `SecretConstants-example.swift` to `SecretConstants.swift`. This allows us to open source the project without including any sensitive data. 
+The script copies `SecretConstants-example.swift` to `SecretConstants.swift`. This allows me to open source the project without including any sensitive data.
 
 ### API key
 
@@ -67,9 +67,9 @@ FarlakeUITests/
 ```
 ### Startup
 
-The `AppDelegate` holds a defaults set of services through `ServicesProvider.createDefaultProvider()`. These dependencies are injected into the main coordinators, which in turn pass them to any child coordinators and view models that need them.
+The `AppDelegate` retains a default set of services through `ServicesProvider.createDefaultProvider()`. These dependencies are injected into the main coordinators, which in turn pass them to any child coordinators and view models that need them.
 
-A seperate set of dependencies gets created when running UI Tests. More on that later.
+A seperate set of dependencies gets created when running UI tests. More on that later.
 
 #### Catalyst
 
@@ -122,7 +122,7 @@ Farlake/
 |   |-- Features/
 ```
 
-All view models use `Combine` for their bindings.
+All view models use `Combine` publishers for their bindings.
 
 ### Gallery
 
@@ -134,7 +134,7 @@ The navigation view is hidden on Catalyst.
 
 ### Settings
 
-The settings view is built using `SwiftUI`. This is where the changes to Catalyst announced at WWDC20 would come in handy. The UI does not feel entirely at home on macOS Catalina.
+The settings view is built using `SwiftUI`. This is where the changes to Catalyst announced at WWDC20 would come in handy.
 
 ## Networking
 
@@ -171,7 +171,7 @@ configuration.requestCachePolicy = .returnCacheDataElseLoad
 
 By using [`.returnCacheDataElseLoad](https://developer.apple.com/documentation/foundation/nsurlrequest/cachepolicy/returncachedataelseload#), the response will always come from the first request that was made. This setting is applied to the API calls and when images are downloaded.
 
-I wasted quite some time figuring out why caching wasn't reliable, until I figured out the order of the url parameters mattered:
+I wasted quite some time figuring out why caching wasn't reliable, until I figured out the order of the url parameters matters:
 
 ```swift
 // Farlake/Shared/Utilities/URLRequest+Helpers.swift
@@ -191,6 +191,23 @@ To ensure smooth scrolling the original (huge) images are resized and then store
 The thumbnails are referenced by their url and the chosen thumbnail size. Multiple thumbnail sizes can be cached that way.
 
 Because the entire cached is `Codable`, it can easily be stored on disk when the app is sent to the background and retrieved when the app launches.
+
+One interesting implementation detail of using `NSCache` is that you'll need to make sure it doesn't get flushed when the app is sent to the background by implementing `NSDiscardableContent`.
+
+```swift
+private extension Cache {
+    final class Entry: NSObject, NSDiscardableContent {
+        ...
+
+        // Keep entries around after entering background state
+        // by overriding NSDiscardableContent
+        func beginContentAccess() -> Bool { true }
+        func endContentAccess() {}
+        func discardContentIfPossible() {}
+        func isContentDiscarded() -> Bool { false }
+    }
+}
+```
 
 ### Flushing
 
@@ -220,6 +237,12 @@ extension GalleryViewController: GalleryRefreshableAction {
     }
 }
 ```
+
+## Testing
+
+UI testing is managed by a dedicated `TestCoordinator` that uses  `CommandLine.argument` to put the app in the required state.
+
+Various dependencies are replaced by mocked counterparts like the `MockRijksmuseumNetworkService`. Fixtures are used for unit testing.
 
 ## Screenshots
 

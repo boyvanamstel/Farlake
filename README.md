@@ -2,7 +2,7 @@
 
 # Farlake
 
-![Supported platforms are iOS, iPadOS and macOS](https://img.shields.io/badge/platform-iOS%20|%20iPadOS%20|%20macOS-blue)
+![Supported platforms are iOS, iPadOS and macOS](https://img.shields.io/badge/platform-iOS%20|%20iPadOS%20|%20macOS-blue) [![Build Status](https://app.bitrise.io/app/30371fd65c43253b/status.svg?token=TiN_VOcGo6u6t3B2HCX3vA)](https://app.bitrise.io/app/30371fd65c43253b)
 
 Farlake is a small demo application that ties together Coordinators, MVVM, Catalyst, SwiftUI, UICollectionViewDiffableDataSource, UICollectionViewCompositionalLayout, NSCache, URLCache and a few other things to display art by Johannes Vermeer.
 

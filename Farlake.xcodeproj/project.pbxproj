@@ -58,6 +58,7 @@
 		B5CBB96524B7AC950065BF06 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB96424B7AC950065BF06 /* SettingsViewModel.swift */; };
 		B5CBB96724B7BD080065BF06 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B5CBB96624B7BD080065BF06 /* LICENSE */; };
 		B5CBB96D24B7DD310065BF06 /* GalleryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB96C24B7DD310065BF06 /* GalleryEmptyView.swift */; };
+		B5CBB96F24B7E12B0065BF06 /* EmptyGalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB96E24B7E12B0065BF06 /* EmptyGalleryUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +137,7 @@
 		B5CBB96624B7BD080065BF06 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		B5CBB96824B7BD1D0065BF06 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5CBB96C24B7DD310065BF06 /* GalleryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEmptyView.swift; sourceTree = "<group>"; };
+		B5CBB96E24B7E12B0065BF06 /* EmptyGalleryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyGalleryUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				B585786A24B0741F00640B01 /* GalleryUITests.swift */,
+				B5CBB96E24B7E12B0065BF06 /* EmptyGalleryUITests.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5CBB96F24B7E12B0065BF06 /* EmptyGalleryUITests.swift in Sources */,
 				B585786B24B0741F00640B01 /* GalleryUITests.swift in Sources */,
 				B585786124B06B8200640B01 /* XCUIApplication+Helpers.swift in Sources */,
 			);

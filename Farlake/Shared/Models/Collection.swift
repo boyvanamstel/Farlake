@@ -70,3 +70,28 @@ struct Collection: Decodable {
         }
     }
 }
+
+#if DEBUG
+extension Collection {
+    static var testEmpty: Self { Collection(items: []) }
+
+    static var testFull: Self {
+        func item(modifier: Int, isDownloadPermitted: Bool) -> Self.Item {
+            return Item(
+                id: String(modifier),
+                title: "Title \(modifier)",
+                artist: "Artist \(modifier)",
+                isDownloadPermitted: isDownloadPermitted,
+                image: Item.Image(
+                    width: modifier * 2,
+                    height: modifier,
+                    url: URL(string: "https://www.example.com/\(modifier).jpg")!
+                )
+            )
+        }
+
+        let items = (1...3).map({ item(modifier: $0, isDownloadPermitted: true) })
+        return Self(items: items)
+    }
+}
+#endif

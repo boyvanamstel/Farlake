@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if DEBUG
 /// Coordinates the app while running UI Tests.
 final class TestCoordinator: Coordinator {
 
@@ -61,3 +62,4 @@ extension TestCoordinator: SceneCoordinating {
     func willEnterForeground() {}
     func didEnterBackground() {}
 }
+#endif

@@ -64,28 +64,17 @@ class RijksmuseumNetworkService: NetworkService, URLCaching {
 class MockRijksmuseumNetworkService: NetworkService {
     let session = URLSession.shared
 
+    private var collection: Collection {
+        if CommandLine.arguments.contains("-test-gallery-empty") {
+            return Collection.testEmpty
+        }
+        return Collection.testFull
+    }
+
     func load<Object>(_ resource: Resource<Object>, completion: @escaping (Result<Object, Error>) -> ()) -> URLSessionDataTask? {
         switch resource {
         case is Resource<Collection>:
-            let collection = Collection(items: [
-                Collection.Item(id: UUID().uuidString,
-                                title: "Title 1",
-                                artist: "Artist 1",
-                                isDownloadPermitted: true,
-                                image: Collection.Item.Image(width: 1024,
-                                                             height: 768,
-                                                             url: URL(string: "https://www.example.com/1.jpg")!)
-                ),
-                Collection.Item(id: UUID().uuidString,
-                                title: "Title 2",
-                                artist: "Artist 2",
-                                isDownloadPermitted: true,
-                                image: Collection.Item.Image(width: 640,
-                                                             height: 480,
-                                                             url: URL(string: "https://www.example.com/2.jpg")!)
-                )
-            ])
-            completion(.success(collection as! Object))
+            completion(.success(self.collection as! Object))
         default:
             break
         }

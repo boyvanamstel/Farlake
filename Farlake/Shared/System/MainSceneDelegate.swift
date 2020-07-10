@@ -51,7 +51,7 @@ class MainSceneDelegate: UIResponder, UIWindowSceneDelegate {
     #if DEBUG
     private func uiTestApp(with window: UIWindow, servicesProvider: ServicesProvider) {
         // CommandLine.arguments are parsed into UserDefaults
-        guard let entryPointString = UserDefaults.standard.string(forKey: "entry-point"),
+        guard let entryPointString = UserDefaults.standard.string(forKey: "test-entry-point"),
             let entryPoint = TestCoordinator.EntryPoint(rawValue: entryPointString) else {
             fatalError("Did not specify UI Test entry point")
         }

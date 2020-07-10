@@ -1,14 +1,14 @@
 //
-//  GalleryUITests.swift
+//  EmptyGalleryUITests.swift
 //  FarlakeUITests
 //
-//  Created by Boy van Amstel on 04/07/2020.
+//  Created by Boy van Amstel on 10/07/2020.
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
 import XCTest
 
-class GalleryUITests: XCTestCase {
+class EmptyGalleryUITests: XCTestCase {
 
     private var app: XCUIApplication!
 
@@ -20,7 +20,7 @@ class GalleryUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["-ui-testing", "-test-entry-point", "gallery"]
+        app.launchArguments = ["-ui-testing", "-test-entry-point", "gallery", "-test-gallery-empty"]
 
         app.launch()
     }
@@ -32,10 +32,11 @@ class GalleryUITests: XCTestCase {
         XCTAssertTrue(app.isDisplayingGallery)
     }
 
-    func testHasGalleryItems() {
-        XCTAssertEqual(app.collectionViews.cells.count, 3)
+    func testIsEmpty() {
+        XCTAssertEqual(app.collectionViews.cells.count, 0)
 
-        let cell = app.collectionViews.cells.firstMatch
-        XCTAssertTrue(cell.staticTexts["Title 1"].exists)
+        XCTAssertTrue(app.images["Gallery Empty Indicator"].exists)
+        XCTAssertTrue(app.staticTexts["Gallery Empty Label"].exists)
     }
+
 }

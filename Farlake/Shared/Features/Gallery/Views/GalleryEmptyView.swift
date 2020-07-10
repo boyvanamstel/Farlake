@@ -15,7 +15,9 @@ struct GalleryEmptyView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: 100.0)
+                .accessibility(identifier: "Gallery Empty Indicator")
             Text("The gallery is empty.")
+                .accessibility(identifier: "Gallery Empty Label")
         }
     }
 }

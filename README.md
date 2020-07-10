@@ -249,6 +249,15 @@ UI testing is managed by a dedicated `TestCoordinator` that uses  `CommandLine.a
 
 Various dependencies are replaced by mocked counterparts like the `MockRijksmuseumNetworkService`. Fixtures are used for unit testing.
 
+## Improvements
+
+Things that didn't quite make the cut, or could be improved:
+
+* Localization needs to be more consistently used.
+* The `GalleryViewController` is starting to get a little heavy.
+* UI test helpers could be moved into a dedicated helper class.
+* Features: infinite scroll and a detail view.
+
 ## Screenshots
 
 ### iOS

@@ -34,6 +34,8 @@ final class ImageFetcher: NetworkService, URLCaching, ImageCaching {
         self.dataCache = dataCache
 
         let configuration: URLSessionConfiguration = .default
+        // Consider using the default .useProtocolCachePolicy,
+        // as the endpoints have proper caching headers.
         configuration.requestCachePolicy = .returnCacheDataElseLoad
         configuration.urlCache = urlCache
 

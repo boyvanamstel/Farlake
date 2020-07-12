@@ -45,8 +45,12 @@ class GalleryItemDetailViewController: UIViewController {
         viewModel.$image
             .receive(on: DispatchQueue.main)
             .sink { [weak self] image in
+                guard let image = image else { return }
+
                 self?.imageView.image = image
-                self?.preferredContentSize = image?.size ?? .zero
+                self?.preferredContentSize = image.size
+                self?.loadingView.stopAnimating()
+                self?.loadingView.removeFromSuperview()
         }
         .store(in: &cancelBag)
     }
@@ -68,10 +72,21 @@ class GalleryItemDetailViewController: UIViewController {
         $0.clipsToBounds = true
     }
 
-    private let imageView: UIImageView = with(UIImageView()) {
+    private let imageView = with(UIImageView()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.clipsToBounds = true
         $0.contentMode = .scaleAspectFit
+    }
+
+    private let loadingView = with(UIActivityIndicatorView()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.widthAnchor.constraint(equalToConstant: 64.0).isActive = true
+        $0.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
+
+        $0.style = .large
+        $0.color = .white
+
+        $0.startAnimating()
     }
 
     // MARK: - Layout
@@ -100,6 +115,12 @@ class GalleryItemDetailViewController: UIViewController {
             equal(\.trailingAnchor, constant: -20.0),
             equal(\.topAnchor, constant: 40.0),
             equal(\.bottomAnchor, constant: -20.0)
+        ])
+
+        view.addSubview(loadingView)
+        loadingView.pin(to: view, constraints: [
+            equal(\.centerXAnchor),
+            equal(\.centerYAnchor)
         ])
     }
 

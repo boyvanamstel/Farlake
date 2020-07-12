@@ -213,3 +213,19 @@ extension GalleryViewController: GallerySettingsPresentableAction {
         showSettings()
     }
 }
+
+extension GalleryViewController {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 contextMenuConfigurationForItemAt indexPath: IndexPath,
+                                 point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: {
+            let artwork = self.dataSource.snapshot()
+                .itemIdentifiers(inSection: .main)[indexPath.item]
+
+            guard let viewModel = self.viewModel?.contentMenuViewModel(for: artwork) else { return nil }
+
+            return GalleryContextMenuViewController(viewModel: viewModel)
+        }, actionProvider: nil)
+    }
+
+}

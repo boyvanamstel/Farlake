@@ -82,4 +82,8 @@ final class GalleryViewModel {
         return GalleryCollectionViewCellViewModel(artwork: artwork, servicesProvider: servicesProvider)
     }
 
+    func contentMenuViewModel(for artwork: Artwork) -> GalleryContextMenuViewModel {
+        return GalleryContextMenuViewModel(artwork: artwork, servicesProvider: servicesProvider)
+    }
+
 }

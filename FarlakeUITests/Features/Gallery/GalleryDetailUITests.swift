@@ -30,9 +30,8 @@ class GalleryUITests: XCTestCase {
     func testGalleryDisplayed() {
         // Check if we're displaying the gallery view
         XCTAssertTrue(app.isDisplayingGalleryDetail)
-    }
 
-    func testHasTitle() {
+        // Verify content
         XCTAssertTrue(app.images["exclamationmark.triangle"].exists)
         XCTAssertTrue(app.staticTexts["Title 1"].exists)
     }

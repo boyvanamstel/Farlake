@@ -30,13 +30,13 @@ class GalleryDetailUITests: XCTestCase {
     func testGalleryDisplayed() {
         // Check if we're displaying the gallery view
         XCTAssertTrue(app.isDisplayingGallery)
-    }
 
-    func testHasGalleryItems() {
+        // Verify item count
         XCTAssertEqual(app.collectionViews.cells.count, 3)
 
+        // Verify content
         let cell = app.collectionViews.cells.firstMatch
-        XCTAssertTrue(app.images["exclamationmark.triangle"].exists)
+        XCTAssertTrue(cell.images["exclamationmark.triangle"].exists)
         XCTAssertTrue(cell.staticTexts["Title 1"].exists)
     }
 }

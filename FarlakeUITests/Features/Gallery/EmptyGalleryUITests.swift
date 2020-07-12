@@ -30,13 +30,11 @@ class EmptyGalleryUITests: XCTestCase {
     func testGalleryDisplayed() {
         // Check if we're displaying the gallery view
         XCTAssertTrue(app.isDisplayingGallery)
-    }
 
-    func testIsEmpty() {
-        // NOTE: Sometimes hangs on Catalyst, waiting to idle.
-        // Click outside the window for tests to continue.
+        // Verify item count
         XCTAssertEqual(app.collectionViews.cells.count, 0)
 
+        // Verify content
         XCTAssertTrue(app.images["Gallery Empty Indicator"].exists)
         XCTAssertTrue(app.staticTexts["Gallery Empty Label"].exists)
     }

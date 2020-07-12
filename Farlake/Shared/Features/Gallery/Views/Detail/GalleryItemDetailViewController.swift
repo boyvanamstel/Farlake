@@ -45,10 +45,17 @@ class GalleryItemDetailViewController: UIViewController {
         viewModel.$image
             .receive(on: DispatchQueue.main)
             .sink { [weak self] image in
-                guard let image = image else { return }
+                guard let image = image, let imageView = self?.imageView else { return }
 
-                self?.imageView.image = image
-                self?.preferredContentSize = image.size
+                // Dramatic effect
+                UIView.transition(with: imageView,
+                                  duration: 0.5,
+                                  options: .transitionCrossDissolve,
+                                  animations: {
+                                    self?.imageView.image = image
+                                    self?.preferredContentSize = image.size },
+                                  completion: nil)
+
                 self?.loadingView.stopAnimating()
                 self?.loadingView.removeFromSuperview()
         }

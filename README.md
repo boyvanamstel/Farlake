@@ -265,17 +265,21 @@ Things that I didn't quite get to, or could be improved:
 ### iOS
 
 <p float="left">
-<a href="Screenshots/iphone-gallery.jpg"><img src="Screenshots/iphone-gallery.jpg" width="281"></a>
-<a href="Screenshots/iphone-settings.jpg"><img src="Screenshots/iphone-settings.jpg" width="281"></a>
+<a href="Screenshots/iphone-gallery.jpg"><img src="Screenshots/iphone-gallery.jpg" width="260"></a>
+<a href="Screenshots/iphone-detail.jpg"><img src="Screenshots/iphone-detail.jpg" width="260"></a>
+<a href="Screenshots/iphone-settings.jpg"><img src="Screenshots/iphone-settings.jpg" width="260"></a>
 </p>
 
 ### iPadOS
 
-<a href="Screenshots/ipad-gallery.jpg"><img src="Screenshots/ipad-gallery.jpg" width="1194"></a>
+<a href="Screenshots/ipad-gallery.jpg"><img src="Screenshots/ipad-gallery.jpg"></a>
+<a href="Screenshots/ipad-detail.jpg"><img src="Screenshots/ipad-detail.jpg"></a>
+<a href="Screenshots/ipad-settings.jpg"><img src="Screenshots/ipad-settings.jpg"></a>
 
 ### macOS
 
-<a href="Screenshots/macos.jpg"><img src="Screenshots/macos.jpg" width="1409"></a>
+<a href="Screenshots/macos.jpg"><img src="Screenshots/macos.jpg"></a>
+<a href="Screenshots/macos-detail.jpg"><img src="Screenshots/macos-detail.jpg"></a>
 
 ## License
 

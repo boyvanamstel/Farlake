@@ -74,11 +74,23 @@ extension GalleryCoordinator: CoordinatorDelegate {
 }
 
 extension GalleryCoordinator: GalleryViewControllerDelegate {
+
+    // MARK: - Settings
+
     func didRequestSettings() {
         showSettings()
     }
 
-    func presentDetail(viewController: UIViewController) {
+    // MARK: - Details
+
+    func detailViewController(for artwork: Artwork) -> UIViewController {
+        let viewModel = GalleryItemDetailViewModel(artwork: artwork, servicesProvider: servicesProvider)
+        return GalleryItemDetailViewController(viewModel: viewModel)
+    }
+
+    func presentDetail(for artwork: Artwork) {
+        let viewController = detailViewController(for: artwork)
         navigationController.pushViewController(viewController, animated: true)
     }
+
 }

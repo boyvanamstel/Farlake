@@ -11,29 +11,20 @@ import UIKit
 // MARK: - UICollectionViewDelegate
 
 extension GalleryViewController {
-    private func detailViewController(for indexPath: IndexPath) -> UIViewController? {
-        let artwork = self.dataSource.snapshot()
-            .itemIdentifiers(inSection: .main)[indexPath.item]
-
-        guard let viewModel = self.viewModel?.contentMenuViewModel(for: artwork) else { return nil }
-
-        return GalleryItemDetailViewController(viewModel: viewModel)
+    private func artwork(for indexPath: IndexPath) -> Artwork {
+        return dataSource.snapshot().itemIdentifiers(inSection: .main)[indexPath.item]
     }
 
     override func collectionView(_ collectionView: UICollectionView,
                                  contextMenuConfigurationForItemAt indexPath: IndexPath,
                                  point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: {
-            return self.detailViewController(for: indexPath)
+            return self.delegate?.detailViewController(for: self.artwork(for: indexPath))
         }, actionProvider: nil)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        guard let viewController = detailViewController(for: indexPath) else { return false }
-
-        delegate?.presentDetail(viewController: viewController)
-
-        // We don't items to become actually selected
-        return false
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) {
+        delegate?.presentDetail(for: artwork(for: indexPath))
     }
 }

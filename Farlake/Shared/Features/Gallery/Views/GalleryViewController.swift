@@ -19,7 +19,9 @@ import Combine
 
 protocol GalleryViewControllerDelegate: AnyObject {
     func didRequestSettings()
-    func presentDetail(viewController: UIViewController)
+
+    func detailViewController(for artwork: Artwork) -> UIViewController
+    func presentDetail(for artwork: Artwork)
 }
 
 /// Contains the gallery collection view.

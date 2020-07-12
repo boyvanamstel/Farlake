@@ -19,6 +19,7 @@ import Combine
 
 protocol GalleryViewControllerDelegate: AnyObject {
     func didRequestSettings()
+    func presentDetail(viewController: UIViewController)
 }
 
 /// Contains the gallery collection view.
@@ -214,18 +215,31 @@ extension GalleryViewController: GallerySettingsPresentableAction {
     }
 }
 
+// MARK: - Collection view delegate
+
 extension GalleryViewController {
+    private func detailViewController(for indexPath: IndexPath) -> UIViewController? {
+        let artwork = self.dataSource.snapshot()
+            .itemIdentifiers(inSection: .main)[indexPath.item]
+
+        guard let viewModel = self.viewModel?.contentMenuViewModel(for: artwork) else { return nil }
+
+        return GalleryItemDetailViewController(viewModel: viewModel)
+    }
+
     override func collectionView(_ collectionView: UICollectionView,
                                  contextMenuConfigurationForItemAt indexPath: IndexPath,
                                  point: CGPoint) -> UIContextMenuConfiguration? {
         return UIContextMenuConfiguration(identifier: nil, previewProvider: {
-            let artwork = self.dataSource.snapshot()
-                .itemIdentifiers(inSection: .main)[indexPath.item]
-
-            guard let viewModel = self.viewModel?.contentMenuViewModel(for: artwork) else { return nil }
-
-            return GalleryContextMenuViewController(viewModel: viewModel)
+            return self.detailViewController(for: indexPath)
         }, actionProvider: nil)
     }
 
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        guard let viewController = detailViewController(for: indexPath) else { return false }
+
+        delegate?.presentDetail(viewController: viewController)
+
+        return false
+    }
 }

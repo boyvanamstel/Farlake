@@ -1,5 +1,5 @@
 //
-//  GalleryContextMenuViewController.swift
+//  GalleryItemDetailViewController.swift
 //  Farlake
 //
 //  Created by Boy van Amstel on 12/07/2020.
@@ -9,15 +9,15 @@
 import UIKit
 import Combine
 
-class GalleryContextMenuViewController: UIViewController {
+class GalleryItemDetailViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let viewModel: GalleryContextMenuViewModel
+    private let viewModel: GalleryItemDetailViewModel
 
     // MARK: - Object lifecycle
 
-    init(viewModel: GalleryContextMenuViewModel) {
+    init(viewModel: GalleryItemDetailViewModel) {
         self.viewModel = viewModel
 
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +33,8 @@ class GalleryContextMenuViewController: UIViewController {
         super.loadView()
 
         layoutElements()
+
+        view.backgroundColor = .black
     }
 
     // MARK: - Bindings
@@ -53,8 +55,7 @@ class GalleryContextMenuViewController: UIViewController {
 
     private lazy var titleField = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.numberOfLines = 2
-        $0.adjustsFontSizeToFitWidth = true
+        $0.numberOfLines = 0
         $0.textColor = .white
 
         $0.text = viewModel.title
@@ -77,15 +78,17 @@ class GalleryContextMenuViewController: UIViewController {
 
     private func layoutElements() {
         view.addSubview(imageView)
-        imageView.pin(to: view, constraints: [
-            equal(\.leadingAnchor),
-            equal(\.trailingAnchor),
-            equal(\.topAnchor),
-            equal(\.bottomAnchor)
+        // Need to abstract this into convenience Auto Layout methods
+        let layoutGuide = view.safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: layoutGuide.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: layoutGuide.trailingAnchor),
+            imageView.topAnchor.constraint(equalTo: layoutGuide.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor)
         ])
 
         view.addSubview(titleContainerView)
-        titleContainerView.pin(to: view, constraints: [
+            titleContainerView.pin(to: imageView, constraints: [
             equal(\.leadingAnchor),
             equal(\.trailingAnchor),
             equal(\.bottomAnchor)
@@ -93,11 +96,17 @@ class GalleryContextMenuViewController: UIViewController {
 
         titleContainerView.addSubview(titleField)
         titleField.pin(to: titleContainerView, constraints: [
-            equal(\.leadingAnchor, constant: 10.0),
-            equal(\.trailingAnchor, constant: -10.0),
-            equal(\.topAnchor, constant: 30.0),
-            equal(\.bottomAnchor, constant: -10.0)
+            equal(\.leadingAnchor, constant: 20.0),
+            equal(\.trailingAnchor, constant: -20.0),
+            equal(\.topAnchor, constant: 40.0),
+            equal(\.bottomAnchor, constant: -20.0)
         ])
     }
 
+}
+
+extension GalleryItemDetailViewController: NavigationReversableAction {
+    @objc func popBack() {
+        navigationController?.popViewController(animated: true)
+    }
 }

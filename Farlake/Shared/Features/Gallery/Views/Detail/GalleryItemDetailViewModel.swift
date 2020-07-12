@@ -1,5 +1,5 @@
 //
-//  GalleryContextMenuViewModel.swift
+//  GalleryItemDetailViewModel.swift
 //  Farlake
 //
 //  Created by Boy van Amstel on 12/07/2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryContextMenuViewModel {
+class GalleryItemDetailViewModel {
     private let artwork: Artwork
     private let servicesProvider: ServicesProvider
     private var imageFetcher: ImageFetchingNetworkService { servicesProvider.imageFetcher }

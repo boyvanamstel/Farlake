@@ -10,6 +10,7 @@ import UIKit
 
 #if targetEnvironment(macCatalyst)
 extension NSToolbarItem.Identifier {
+    static let backButtonIdentifier = NSToolbarItem.Identifier(rawValue: "BackButton")
     static let refreshButtonIdentifier = NSToolbarItem.Identifier(rawValue: "RefreshButton")
 }
 
@@ -25,17 +26,6 @@ extension MainSceneDelegate {
         }
     }
 
-    @objc private func refreshButtonTapped(_ sender: UIButton) {
-        // Use the responder chain to find a view that can handle the action
-        UIApplication.shared
-            .sendAction(
-                #selector(GalleryRefreshableAction.refreshGallery),
-                to: nil,
-                from: sender,
-                for: nil
-        )
-    }
-
     func configureWindowSize(width windowScene: UIWindowScene) {
         windowScene.sizeRestrictions?.minimumSize = .mainWindowMinimumSize
     }
@@ -43,7 +33,7 @@ extension MainSceneDelegate {
 
 extension MainSceneDelegate: NSToolbarDelegate {
     func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
-        return [.flexibleSpace, .refreshButtonIdentifier]
+        return [.backButtonIdentifier, .flexibleSpace, .refreshButtonIdentifier]
     }
 
     func toolbar(
@@ -52,13 +42,23 @@ extension MainSceneDelegate: NSToolbarDelegate {
         willBeInsertedIntoToolbar flag: Bool
     ) -> NSToolbarItem? {
         switch itemIdentifier {
+        case .backButtonIdentifier:
+            let barButtonItem = UIBarButtonItem(
+                image: UIImage(systemName: "arrow.left")?
+                    // Could use a more scientific way to determine size
+                    .resize(using: .scaleAspectFit, in: CGRect(CGSize(width: 18.0, height: 14.0))),
+                style: .plain,
+                target: nil,
+                action: #selector(NavigationReversableAction.popBack)
+            )
+            let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
+
+            return button
         case .refreshButtonIdentifier:
             let barButtonItem = UIBarButtonItem(
-                image: UIImage(systemName: "arrow.clockwise"),
-                style: .plain,
-                target: self,
-                action: #selector(self.refreshButtonTapped(_:))
-            )
+                barButtonSystemItem: .refresh,
+                target: nil,
+                action: #selector(GalleryRefreshableAction.refreshGallery))
             let button = NSToolbarItem(itemIdentifier: itemIdentifier, barButtonItem: barButtonItem)
 
             return button

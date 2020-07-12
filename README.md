@@ -253,12 +253,12 @@ Various dependencies are replaced by mocked counterparts like the `MockRijksmuse
 
 ## Improvements
 
-Things that didn't quite make the cut, or could be improved:
+Things that I didn't quite get to, or could be improved:
 
 * Localization needs to be more consistently used.
 * The `GalleryViewController` is starting to get a little heavy.
 * UI test helpers could be moved into a dedicated helper class.
-* Features: search, infinite scroll and a detail view.
+* Features: search and infinite scroll
 
 ## Screenshots
 

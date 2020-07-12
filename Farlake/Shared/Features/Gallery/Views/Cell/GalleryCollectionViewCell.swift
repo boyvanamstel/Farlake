@@ -100,7 +100,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
         ])
 
         contentView.addSubview(titleContainerView)
-        titleContainerView.pin(to: contentView, constraints: [
+        titleContainerView.pin(to: imageView, constraints: [
             equal(\.leadingAnchor),
             equal(\.trailingAnchor),
             equal(\.bottomAnchor)

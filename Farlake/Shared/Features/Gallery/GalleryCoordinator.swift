@@ -77,4 +77,8 @@ extension GalleryCoordinator: GalleryViewControllerDelegate {
     func didRequestSettings() {
         showSettings()
     }
+
+    func presentDetail(viewController: UIViewController) {
+        navigationController.pushViewController(viewController, animated: true)
+    }
 }

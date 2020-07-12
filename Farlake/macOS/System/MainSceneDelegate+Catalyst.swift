@@ -44,9 +44,9 @@ extension MainSceneDelegate: NSToolbarDelegate {
         switch itemIdentifier {
         case .backButtonIdentifier:
             let barButtonItem = UIBarButtonItem(
-                image: UIImage(systemName: "arrow.left")?
+                image: UIImage(systemName: "chevron.left")?
                     // Could use a more scientific way to determine size
-                    .resize(using: .scaleAspectFit, in: CGRect(CGSize(width: 18.0, height: 14.0))),
+                    .resize(using: .scaleAspectFit, in: CGRect(CGSize(width: 10.0, height: 12.0))),
                 style: .plain,
                 target: nil,
                 action: #selector(NavigationReversableAction.popBack)

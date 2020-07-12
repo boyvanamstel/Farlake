@@ -36,6 +36,8 @@
 		B5A3AFD524BB06890068F51B /* GalleryItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFD424BB06890068F51B /* GalleryItemDetailViewController.swift */; };
 		B5A3AFD724BB06930068F51B /* GalleryItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFD624BB06930068F51B /* GalleryItemDetailViewModel.swift */; };
 		B5A3AFD924BB3D5C0068F51B /* ResponderChainActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFD824BB3D5C0068F51B /* ResponderChainActions.swift */; };
+		B5A3AFDB24BB4A490068F51B /* GalleryViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFDA24BB4A490068F51B /* GalleryViewController+Delegate.swift */; };
+		B5A3AFDD24BB4A840068F51B /* GalleryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFDC24BB4A840068F51B /* GalleryViewController+DataSource.swift */; };
 		B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */; };
 		B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */; };
 		B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91824B3CE230065BF06 /* Cache.swift */; };
@@ -119,6 +121,8 @@
 		B5A3AFD424BB06890068F51B /* GalleryItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemDetailViewController.swift; sourceTree = "<group>"; };
 		B5A3AFD624BB06930068F51B /* GalleryItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItemDetailViewModel.swift; sourceTree = "<group>"; };
 		B5A3AFD824BB3D5C0068F51B /* ResponderChainActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainActions.swift; sourceTree = "<group>"; };
+		B5A3AFDA24BB4A490068F51B /* GalleryViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+Delegate.swift"; sourceTree = "<group>"; };
+		B5A3AFDC24BB4A840068F51B /* GalleryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+DataSource.swift"; sourceTree = "<group>"; };
 		B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 		B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
@@ -397,11 +401,13 @@
 		B585789924B30DF100640B01 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B5A3AFDE24BB4A8B0068F51B /* Empty */,
 				B5A3AFD324BB06780068F51B /* Detail */,
 				B585788624B0A7AB00640B01 /* Cell */,
 				B585788424B0A75F00640B01 /* GalleryViewModel.swift */,
 				B585786324B0724B00640B01 /* GalleryViewController.swift */,
-				B5CBB96C24B7DD310065BF06 /* GalleryEmptyView.swift */,
+				B5A3AFDA24BB4A490068F51B /* GalleryViewController+Delegate.swift */,
+				B5A3AFDC24BB4A840068F51B /* GalleryViewController+DataSource.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -456,6 +462,14 @@
 				B5A3AFD424BB06890068F51B /* GalleryItemDetailViewController.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		B5A3AFDE24BB4A8B0068F51B /* Empty */ = {
+			isa = PBXGroup;
+			children = (
+				B5CBB96C24B7DD310065BF06 /* GalleryEmptyView.swift */,
+			);
+			path = Empty;
 			sourceTree = "<group>";
 		};
 		B5CBB90F24B3C54C0065BF06 /* Services */ = {
@@ -769,12 +783,14 @@
 				B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */,
 				B58578AA24B31E9800640B01 /* SecretConstants.swift in Sources */,
 				B5CBB95124B6FEFE0065BF06 /* CatalystSettingsCoordinator.swift in Sources */,
+				B5A3AFDD24BB4A840068F51B /* GalleryViewController+DataSource.swift in Sources */,
 				B5CBB95A24B7383E0065BF06 /* SettingsView.swift in Sources */,
 				B5A3AFD724BB06930068F51B /* GalleryItemDetailViewModel.swift in Sources */,
 				B585781E24B05B7100640B01 /* AppDelegate.swift in Sources */,
 				B5CBB96D24B7DD310065BF06 /* GalleryEmptyView.swift in Sources */,
 				B585785E24B0642200640B01 /* MainSceneCoordinator.swift in Sources */,
 				B5CBB93A24B4738C0065BF06 /* CGSize+Helpers.swift in Sources */,
+				B5A3AFDB24BB4A490068F51B /* GalleryViewController+Delegate.swift in Sources */,
 				B5CBB93F24B5B3F40065BF06 /* Constants.swift in Sources */,
 				B5A3AFD524BB06890068F51B /* GalleryItemDetailViewController.swift in Sources */,
 				B585788524B0A75F00640B01 /* GalleryViewModel.swift in Sources */,

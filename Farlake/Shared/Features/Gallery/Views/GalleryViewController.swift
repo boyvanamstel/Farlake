@@ -54,6 +54,7 @@ final class GalleryViewController: UICollectionViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {
                 self.append(items: $0, withAnimation: true)
+                self.showEmptyStateIfNecessary()
             })
             .store(in: &cancelBag)
 
@@ -133,43 +134,15 @@ final class GalleryViewController: UICollectionViewController {
     private lazy var emptyViewController = UIHostingController(rootView: GalleryEmptyView())
 
     private func showEmptyStateIfNecessary() {
-        collectionView.backgroundView = dataSource.snapshot().numberOfItems > 0 ? nil : emptyViewController.view
+        collectionView.backgroundView = dataSource.snapshot()
+            .numberOfItems > 0 ? nil : emptyViewController.view
     }
 
     // MARK: Data source
 
     typealias DataSource = UICollectionViewDiffableDataSource<Section, Artwork>
 
-    private lazy var dataSource = makeDataSource()
-
-    /// Setup the diffable data source.
-    private func makeDataSource() -> DataSource {
-        return DataSource(collectionView: collectionView) { collectionView, indexPath, artwork in
-
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: GalleryCollectionViewCell.reuseIdentifier,
-            for: indexPath) as? GalleryCollectionViewCell
-
-            cell?.viewModel = self.viewModel?.cellViewModel(for: artwork)
-
-            return cell
-        }
-    }
-
-    // MARK: Snapshot
-
-    typealias SnapShot = NSDiffableDataSourceSnapshot<Section, Artwork>
-
-    /// Use the diffable data source to automatically insert and remove items.
-    private func append(items: [Artwork], withAnimation: Bool) {
-        var snapshot = SnapShot()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(items)
-
-        dataSource.apply(snapshot, animatingDifferences: withAnimation)
-
-        showEmptyStateIfNecessary()
-    }
+    lazy var dataSource = makeDataSource()
 
     // MARK: - Actions
 
@@ -212,34 +185,5 @@ extension GalleryViewController: GalleryRefreshableAction {
 extension GalleryViewController: GallerySettingsPresentableAction {
     @objc func presentSettings() {
         showSettings()
-    }
-}
-
-// MARK: - Collection view delegate
-
-extension GalleryViewController {
-    private func detailViewController(for indexPath: IndexPath) -> UIViewController? {
-        let artwork = self.dataSource.snapshot()
-            .itemIdentifiers(inSection: .main)[indexPath.item]
-
-        guard let viewModel = self.viewModel?.contentMenuViewModel(for: artwork) else { return nil }
-
-        return GalleryItemDetailViewController(viewModel: viewModel)
-    }
-
-    override func collectionView(_ collectionView: UICollectionView,
-                                 contextMenuConfigurationForItemAt indexPath: IndexPath,
-                                 point: CGPoint) -> UIContextMenuConfiguration? {
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: {
-            return self.detailViewController(for: indexPath)
-        }, actionProvider: nil)
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        guard let viewController = detailViewController(for: indexPath) else { return false }
-
-        delegate?.presentDetail(viewController: viewController)
-
-        return false
     }
 }

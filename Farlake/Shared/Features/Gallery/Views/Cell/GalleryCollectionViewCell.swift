@@ -69,6 +69,7 @@ final class GalleryCollectionViewCell: UICollectionViewCell {
     private let titleField = with(UILabel()) {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.lineBreakMode = .byTruncatingTail
+        $0.numberOfLines = 2
         $0.textColor = .white
     }
 

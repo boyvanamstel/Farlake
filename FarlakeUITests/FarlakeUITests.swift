@@ -37,6 +37,7 @@ class FarlakeUITests: XCTestCase {
 
         // Verify the first item has the correct title
         let cell = collectionView.cells.firstMatch
+        XCTAssertTrue(cell.images["exclamationmark.triangle"].exists)
         XCTAssertTrue(cell.staticTexts["Title 1"].exists)
 
         // Proceed into detail view
@@ -50,6 +51,7 @@ class FarlakeUITests: XCTestCase {
         XCTAssertFalse(collectionView.exists)
 
         // Verify the detail view has the correct title
+        XCTAssertTrue(galleryDetail.images["exclamationmark.triangle"].exists)
         XCTAssertTrue(galleryDetail.staticTexts["Title 1"].exists)
 
         // Go back to the gallery view

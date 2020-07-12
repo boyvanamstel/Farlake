@@ -17,7 +17,7 @@ final class TestCoordinator: Coordinator {
 
     /// Views or states to load directly.
     enum EntryPoint: String {
-        case gallery
+        case gallery, galleryDetail
     }
 
     private let window: UIWindow
@@ -43,6 +43,7 @@ final class TestCoordinator: Coordinator {
         // Show view based on entry point
         switch entryPoint {
         case .gallery: showGallery()
+        case .galleryDetail: showGalleryDetail()
         }
     }
 
@@ -52,6 +53,16 @@ final class TestCoordinator: Coordinator {
         let viewController = GalleryViewController(collectionViewLayout: .galleryLayout)
         let viewModel = GalleryViewModel(servicesProvider: servicesProvider)
         viewController.viewModel = viewModel
+
+        window.rootViewController = viewController
+    }
+
+    private func showGalleryDetail() {
+        let artwork = Artwork(guid: "guid",
+                              title: "Title 1",
+                              imageURL: URL(string: "https://www.example.com/1.jpg")!)
+        let viewModel = GalleryItemDetailViewModel(artwork: artwork, servicesProvider: servicesProvider)
+        let viewController = GalleryItemDetailViewController(viewModel: viewModel)
 
         window.rootViewController = viewController
     }

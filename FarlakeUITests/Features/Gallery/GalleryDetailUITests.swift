@@ -1,14 +1,14 @@
 //
-//  GalleryUITests.swift
+//  GalleryDetailTests.swift
 //  FarlakeUITests
 //
-//  Created by Boy van Amstel on 04/07/2020.
+//  Created by Boy van Amstel on 12/07/2020.
 //  Copyright © 2020 Boy van Amstel. All rights reserved.
 //
 
 import XCTest
 
-class GalleryDetailUITests: XCTestCase {
+class GalleryUITests: XCTestCase {
 
     private var app: XCUIApplication!
 
@@ -20,7 +20,7 @@ class GalleryDetailUITests: XCTestCase {
         continueAfterFailure = false
 
         app = XCUIApplication()
-        app.launchArguments = ["-ui-testing", "-test-entry-point", "gallery"]
+        app.launchArguments = ["-ui-testing", "-test-entry-point", "galleryDetail"]
 
         app.launch()
     }
@@ -29,14 +29,11 @@ class GalleryDetailUITests: XCTestCase {
 
     func testGalleryDisplayed() {
         // Check if we're displaying the gallery view
-        XCTAssertTrue(app.isDisplayingGallery)
+        XCTAssertTrue(app.isDisplayingGalleryDetail)
     }
 
-    func testHasGalleryItems() {
-        XCTAssertEqual(app.collectionViews.cells.count, 3)
-
-        let cell = app.collectionViews.cells.firstMatch
+    func testHasTitle() {
         XCTAssertTrue(app.images["exclamationmark.triangle"].exists)
-        XCTAssertTrue(cell.staticTexts["Title 1"].exists)
+        XCTAssertTrue(app.staticTexts["Title 1"].exists)
     }
 }

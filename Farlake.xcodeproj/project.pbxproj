@@ -38,6 +38,7 @@
 		B5A3AFD924BB3D5C0068F51B /* ResponderChainActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFD824BB3D5C0068F51B /* ResponderChainActions.swift */; };
 		B5A3AFDB24BB4A490068F51B /* GalleryViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFDA24BB4A490068F51B /* GalleryViewController+Delegate.swift */; };
 		B5A3AFDD24BB4A840068F51B /* GalleryViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFDC24BB4A840068F51B /* GalleryViewController+DataSource.swift */; };
+		B5A3AFE024BB785A0068F51B /* FarlakeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A3AFDF24BB785A0068F51B /* FarlakeUITests.swift */; };
 		B5CBB91224B3C55E0065BF06 /* ResourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */; };
 		B5CBB91624B3CDF30065BF06 /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */; };
 		B5CBB91924B3CE230065BF06 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CBB91824B3CE230065BF06 /* Cache.swift */; };
@@ -123,6 +124,7 @@
 		B5A3AFD824BB3D5C0068F51B /* ResponderChainActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponderChainActions.swift; sourceTree = "<group>"; };
 		B5A3AFDA24BB4A490068F51B /* GalleryViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+Delegate.swift"; sourceTree = "<group>"; };
 		B5A3AFDC24BB4A840068F51B /* GalleryViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GalleryViewController+DataSource.swift"; sourceTree = "<group>"; };
+		B5A3AFDF24BB785A0068F51B /* FarlakeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarlakeUITests.swift; sourceTree = "<group>"; };
 		B5CBB91124B3C55E0065BF06 /* ResourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceTests.swift; sourceTree = "<group>"; };
 		B5CBB91324B3C7500065BF06 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		B5CBB91524B3CDF30065BF06 /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				B585788924B0AB8B00640B01 /* Features */,
 				B585785F24B06B6C00640B01 /* Utilities */,
+				B5A3AFDF24BB785A0068F51B /* FarlakeUITests.swift */,
 				B585784124B05B7500640B01 /* Info.plist */,
 			);
 			path = FarlakeUITests;
@@ -821,6 +824,7 @@
 			files = (
 				B5CBB96F24B7E12B0065BF06 /* EmptyGalleryUITests.swift in Sources */,
 				B585786B24B0741F00640B01 /* GalleryUITests.swift in Sources */,
+				B5A3AFE024BB785A0068F51B /* FarlakeUITests.swift in Sources */,
 				B585786124B06B8200640B01 /* XCUIApplication+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -94,7 +94,7 @@ final class GalleryViewController: UICollectionViewController {
     }
 
     private func configureCollectionView() {
-        collectionView.accessibilityLabel = "Gallery"
+        collectionView.accessibilityIdentifier = "Gallery"
 
         collectionView.register(
             GalleryCollectionViewCell.self,

@@ -34,6 +34,7 @@ class GalleryItemDetailViewController: UIViewController {
 
         layoutElements()
 
+        view.accessibilityIdentifier = "Gallery Detail"
         view.backgroundColor = .black
     }
 

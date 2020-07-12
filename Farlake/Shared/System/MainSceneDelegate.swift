@@ -31,8 +31,10 @@ final class MainSceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
 
         #if DEBUG
-        if CommandLine.arguments.contains("-ui-testing") {
-            uiTestApp(with: window, servicesProvider: session.servicesProvider)
+        if CommandLine.arguments.contains("-ui-testing"),
+            let entryPointString = UserDefaults.standard.string(forKey: "test-entry-point"),
+            let entryPoint = TestCoordinator.EntryPoint(rawValue: entryPointString) {
+            uiTestApp(with: window, entryPoint: entryPoint, servicesProvider: session.servicesProvider)
             return
         }
         #endif
@@ -52,13 +54,10 @@ final class MainSceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     #if DEBUG
-    private func uiTestApp(with window: UIWindow, servicesProvider: ServicesProvider) {
+    private func uiTestApp(with window: UIWindow,
+                           entryPoint: TestCoordinator.EntryPoint,
+                           servicesProvider: ServicesProvider) {
         // CommandLine.arguments are parsed into UserDefaults
-        guard let entryPointString = UserDefaults.standard.string(forKey: "test-entry-point"),
-            let entryPoint = TestCoordinator.EntryPoint(rawValue: entryPointString) else {
-            fatalError("Did not specify UI Test entry point")
-        }
-
         sceneCoordinator = TestCoordinator(
             window: window,
             entryPoint: entryPoint,

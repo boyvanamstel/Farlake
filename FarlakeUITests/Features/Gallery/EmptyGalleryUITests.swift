@@ -33,6 +33,7 @@ class EmptyGalleryUITests: XCTestCase {
     }
 
     func testIsEmpty() {
+        // NOTE: Sometimes hangs on Catalyst, waiting to idle
         XCTAssertEqual(app.collectionViews.cells.count, 0)
 
         XCTAssertTrue(app.images["Gallery Empty Indicator"].exists)

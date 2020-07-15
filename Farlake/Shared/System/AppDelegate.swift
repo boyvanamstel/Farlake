@@ -34,6 +34,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
+        #if DEBUG
+        if CommandLine.arguments.contains("-ui-testing") {
+            // Remedy "wait for ... to idle"
+            UIView.setAnimationsEnabled(false)
+        }
+        #endif
+
         // Pass services provider to cached sessions
         application.openSessions.forEach { $0.servicesProvider = servicesProvider }
 

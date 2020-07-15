@@ -27,4 +27,13 @@ extension GalleryViewController {
                                  didSelectItemAt indexPath: IndexPath) {
         delegate?.presentDetail(for: artwork(for: indexPath))
     }
+
+    override func collectionView(_ collectionView: UICollectionView,
+                                 willDisplay cell: UICollectionViewCell,
+                                 forItemAt indexPath: IndexPath) {
+        let itemCount = collectionView.numberOfItems(inSection: Section.main.rawValue)
+        guard indexPath.item == itemCount - 1 else { return }
+
+        viewModel?.fetchMoreItems()
+    }
 }

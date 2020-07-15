@@ -258,7 +258,7 @@ Things that I didn't quite get to, or could be improved:
 * Localization needs to be more consistently used.
 * The `GalleryViewController` is starting to get a little heavy.
 * UI test helpers could be moved into a dedicated helper class.
-* Features: search and infinite scroll
+* Features: search.
 
 ## Screenshots
 

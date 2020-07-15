@@ -10,9 +10,8 @@ import UIKit
 
 final class GalleryViewModel {
     enum State {
-        case idle
-        case loading
         case ready
+        case loading
         case error(Error)
     }
 
@@ -21,10 +20,12 @@ final class GalleryViewModel {
 
     private var dataTask: URLSessionDataTask?
 
+    private var page = 1
+
     // MARK: - Bindings
 
     @Published var items = [Artwork]()
-    @Published var state: State = .idle
+    @Published var state: State = .ready
 
     // MARK: - Object lifecycle
 
@@ -33,47 +34,61 @@ final class GalleryViewModel {
     }
 
     func viewDidLoad() {
-        loadItems()
+        fetchMoreItems()
     }
 
     // MARK: - Item fetching
 
-    // swiftlint:disable force_try
-    private let resource = try! RijksmuseumEndpoint.collection(query: .galleryQuery)
-    // swiftlint:enable force_try
-
-    private func loadItems() {
-        fetch(resource: resource)
-    }
-
     func updateItems() {
-        var resource = self.resource
+        page = 1
+        guard case .ready = state,
+            var resource = try? RijksmuseumEndpoint.collection(query: .galleryQuery, page: page) else { return }
+
         // Force to flush cache
         resource.request.cachePolicy = .reloadRevalidatingCacheData
 
         fetch(resource: resource)
     }
 
-    private func fetch(resource: Resource<Collection>) {
+    func fetchMoreItems() {
+        guard case .ready = state,
+            let resource = try? RijksmuseumEndpoint.collection(query: .galleryQuery, page: page) else { return }
+
+        fetch(resource: resource, append: true)
+    }
+
+    private func fetch(resource: Resource<Collection>, append: Bool = false) {
         state = .loading
 
         dataTask = apiService.load(resource) { [weak self] result in
             switch result {
             case .success(let collection):
-                self?.items = collection.items
+                self?.page += 1 // Move to next page
+
+                let items: [Artwork] = collection.items
                     .compactMap { .init(item: $0) }
-                    .filter { $0.imageURL != nil } // Filter items without image
+                    .filter { artwork in
+                        let hasImage = artwork.imageURL != nil
+                        let isUnique = self?.items.first { $0.guid == artwork.guid } == nil
+
+                        return hasImage && isUnique
+                } // Filter items without image
+
+                if append {
+                    self?.items.append(contentsOf: items)
+                } else {
+                    self?.items = items
+                }
                 self?.state = .ready
             case .failure(let error):
-                self?.state = .error(error)
+                let nsError = error as NSError
+                self?.state = nsError.code == NSURLErrorCancelled ? .ready : .error(error)
             }
         }
     }
 
     func cancelUpdate() {
         dataTask?.cancel()
-
-        state = .idle
     }
 
     // MARK: - Artwork

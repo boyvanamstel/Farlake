@@ -64,9 +64,8 @@ final class GalleryViewController: UICollectionViewController {
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: {
                 switch $0 {
-                case .idle: self.didBecomeIdle()
-                case .loading: self.didStartLoading()
                 case .ready: self.didBecomeReady()
+                case .loading: self.didStartLoading()
                 case .error(let error): self.present(error: error)
                 }
             })
@@ -74,10 +73,6 @@ final class GalleryViewController: UICollectionViewController {
     }
 
     // MARK: - State
-
-    private func didBecomeIdle() {
-        refreshControl.endRefreshing()
-    }
 
     private func didStartLoading() {
         refreshControl.beginRefreshing()
@@ -127,7 +122,7 @@ final class GalleryViewController: UICollectionViewController {
 
     // MARK: - Content
 
-    enum Section {
+    enum Section: Int {
       case main
     }
 

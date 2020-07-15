@@ -33,6 +33,8 @@ struct RijksmuseumEndpoint {
     /// - Parameter    /// - Throws: Throws `ResourceError` on invalid response.
     /// - Returns: Returns the fetchable resource.
     static func collection(query: String, page: Int = 0, itemsPerPage: Int = 100) throws -> Resource<Collection> {
+        guard page * itemsPerPage <= 10_000 else { throw RijksMuseumResourceError.endOfContentReached }
+
         let url = Self.collectionURL
         let parameters: [String: CustomStringConvertible] = [
             "key": SecretConstants.apiKey,
@@ -46,6 +48,10 @@ struct RijksmuseumEndpoint {
 
         return Resource<Collection>(request: request)
     }
+}
+
+enum RijksMuseumResourceError: Error {
+    case endOfContentReached
 }
 
 final class RijksmuseumNetworkService: NetworkService, URLCaching {

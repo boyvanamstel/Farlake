@@ -13,12 +13,12 @@ extension Locale {
     var endpointLanguageCode: String { languageCode ?? "nl" }
 }
 
-struct RijksmuseumEndpoint {
-    // swiftlint:disable identifier_name
-    enum EndpointLocale: String {
+enum RijksmuseumEndpoint {
+    private enum EndpointLocale: String {
+        // swiftlint:disable identifier_name
         case en, nl
+        // swiftlint:enable identifier_name
     }
-    // swiftlint:enable identifier_name
 
     // swiftlint:disable line_length
     static let baseURL = URL(string: "https://www.rijksmuseum.nl/api/\(EndpointLocale(rawValue: Locale.current.endpointLanguageCode) ?? .nl)")!

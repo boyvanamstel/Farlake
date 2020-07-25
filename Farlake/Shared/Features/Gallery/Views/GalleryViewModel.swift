@@ -41,6 +41,7 @@ final class GalleryViewModel {
 
     func updateItems() {
         page = 1
+        items = []
         guard case .ready = state,
             var resource = try? RijksmuseumEndpoint.collection(query: .galleryQuery, page: page) else { return }
 
